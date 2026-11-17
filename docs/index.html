@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Noxtell role builder (beta)</title>
+<link rel="stylesheet" href="builder.css">
+</head>
+<body>
+<header class="top">
+  <div class="title">
+    <h1>Noxtell role builder <span class="beta">Beta</span></h1>
+    <p class="sub">Drag the engine's building blocks onto a role, set them, and copy the role's YAML for a mode file. <span id="rules-version"></span></p>
+    <p class="beta-note">A beta: it may change, and what it checks is the file's shape, not every rule.</p>
+  </div>
+  <nav class="links">
+    <a href="https://github.com/pauliver/noxtell-rules/tree/main/rules">The rules and the engine guide</a>
+  </nav>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <button type="button" data-show="palette" aria-pressed="false">Blocks</button>
+  <button type="button" data-show="card" aria-pressed="true">Role</button>
+  <button type="button" data-show="out" aria-pressed="false">YAML</button>
+</nav>
+
+<main class="layout" data-show="card">
+  <section id="palette" class="panel" aria-label="Building blocks">
+    <h2>Blocks</h2>
+    <input id="search" type="search" placeholder="Find a block" aria-label="Find a block">
+    <div id="kinds" class="kinds" role="tablist"></div>
+    <p class="hint">Drag a block onto the role, or tap it and press Add.</p>
+    <ul id="blocks" class="blocks"></ul>
+  </section>
+
+  <section id="card" class="panel" aria-label="The role">
+    <h2>Role</h2>
+    <div class="row">
+      <label for="start">Start from</label>
+      <select id="start"></select>
+    </div>
+    <div class="row">
+      <label for="role-id">Id</label>
+      <input id="role-id" type="text" autocomplete="off" spellcheck="false" placeholder="lookout">
+    </div>
+    <div class="row">
+      <label for="role-team">Team</label>
+      <select id="role-team"></select>
+      <input id="role-team-other" type="text" autocomplete="off" spellcheck="false" placeholder="team id" hidden>
+    </div>
+    <div class="row">
+      <span class="label">Persona</span>
+      <span id="persona" class="persona drop" data-drop="personas">none: drop a persona here</span>
+    </div>
+    <h3>Abilities <span class="muted">(verbs)</span></h3>
+    <ol id="uses" class="uses drop" data-drop="verbs"></ol>
+    <p id="uses-empty" class="drop-hint">Drop a verb here.</p>
+    <h3>Settings <span class="muted">(options.roles.<span id="params-id">id</span>)</span></h3>
+    <div id="params" class="params"></div>
+  </section>
+
+  <section id="out" class="panel" aria-label="The YAML">
+    <h2>YAML</h2>
+    <div class="out-tabs" role="tablist">
+      <button type="button" id="tab-built" role="tab" aria-selected="true">This role</button>
+      <button type="button" id="tab-paste" role="tab" aria-selected="false">Check pasted YAML</button>
+    </div>
+    <div id="built">
+      <pre id="yaml" class="yaml" aria-label="The role's YAML"></pre>
+      <div class="row">
+        <button type="button" id="copy" class="primary">Copy YAML</button>
+        <span id="copied" class="muted" role="status"></span>
+      </div>
+      <div id="built-status" class="status" role="status"></div>
+    </div>
+    <div id="pasted" hidden>
+      <textarea id="paste" spellcheck="false" rows="14" aria-label="YAML to check" placeholder="Paste a mode file, or a part of one (a role's roles: and options:)"></textarea>
+      <div class="row"><button type="button" id="check" class="primary">Check</button></div>
+      <div id="paste-status" class="status" role="status"></div>
+    </div>
+    <div class="notes">
+      <p>The page checks the YAML's structure against the mode-file schema, generated from the engine. The full rules check (across the files: a role missing from the setup table, its words, the night order and the like) runs when the app, or <code>ap rules check</code>, loads the file.</p>
+      <p>Contributions are closed for now: copy the YAML into your own rules folder. Nothing you build here is sent anywhere.</p>
+      <p id="lib-status" class="muted"></p>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.1/js-yaml.min.js" integrity="sha384-ZeqCzuWczURac3RacSufGD7oSbzeaX7xxnnOr3PTcYTLx4Av0qBj0kBq7AeCtHLA" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.17.1/ajv2020.bundle.min.js" integrity="sha384-kz0rEmUPEGITP2jtssINcPlpx2oqv5B7mCxBMc6J15TQxYhoz2QdB0I974nvL4nI" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="data/blocks.js"></script>
+<script src="data/schema.js"></script>
+<script src="core.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>

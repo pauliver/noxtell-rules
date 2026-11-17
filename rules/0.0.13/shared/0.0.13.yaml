@@ -6,8 +6,8 @@
     "max": 24
   },
   "modes": [
-    "wolf",
-    "possession"
+    "possession",
+    "wolf"
   ],
   "options": {
     "dawn": [
