@@ -6,6 +6,7 @@
     "max": 24
   },
   "modes": [
+    "wolf",
     "possession"
   ],
   "options": {
@@ -24,7 +25,49 @@
     "revealAtEnd": true,
     "noSelfVote": true,
     "ghostVotes": 1,
-    "roles": {},
-    "factions": {}
+    "roles": {
+      "seer": {
+        "fromNight": {
+          "5": 2,
+          "6": null,
+          "7": 2,
+          "8": 3
+        },
+        "checks": {
+          "5": null,
+          "6": 1
+        }
+      },
+      "priest": {
+        "feedback": true,
+        "unique": true
+      },
+      "medium": {
+        "pick": true,
+        "unique": true
+      },
+      "mad_hatter": {
+        "maddensFrom": 2
+      },
+      "meddler": {
+        "feedback": true,
+        "unique": true
+      },
+      "sleepless_child": {
+        "fragments": "seat",
+        "fakeRole": true,
+        "unique": true
+      }
+    },
+    "factions": {
+      "pack": {
+        "leaderSuccessionBeforeNight": {
+          "6": 2,
+          "24": 3
+        },
+        "leaderFromNight": 1,
+        "leaderNamedWithNight": true
+      }
+    }
   }
 }

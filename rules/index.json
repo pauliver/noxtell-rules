@@ -3,9 +3,10 @@
   "corner": "public",
   "current": "0.0.13",
   "versions": [
-    {"id":"0.0.13","status":"inProgress","schema":4,"manifest":"0.0.13/0.0.13.manifest.json","bytes":7317,"sha256":"093ad46c4c090a6367f6a1b71818ccc90115e529f2a46dc2bc5b04e2f57ddef6","langs":["en"]}
+    {"id":"0.0.13","status":"inProgress","schema":4,"manifest":"0.0.13/0.0.13.manifest.json","bytes":14654,"sha256":"8612666f02d5414317a207d2be60a8c266d9e9cf8a54503a92a1f29ec31f0328","langs":["en"]}
   ],
   "codes": {
-    "possession": {"seatOrder":"P","roleCall":"Q","tab":5,"sim":3,"since":"0.0.13"}
+    "possession": {"seatOrder":"P","roleCall":"Q","tab":5,"sim":3,"since":"0.0.13"},
+    "wolf": {"seatOrder":"W","roleCall":"X","tab":1,"sim":0,"since":"0.0.13"}
   }
 }

@@ -9,12 +9,14 @@ sets their numbers. The engine is written once; a mode chooses which of its
 verbs each role has, which team modules and win conditions its teams use,
 how the cards are dealt, and how the night runs. This guide uses
 Possession (`0.0.13/possession/0.0.13.possession.yaml`) for every example.
+This version also publishes Wolf (`0.0.13/wolf/0.0.13.wolf.yaml`): section 5 says which of its roles and teams use each entry.
 
 ### 1.1 The files of a version
 
 ```
 0.0.13/shared/0.0.13.yaml                 the version file: table sizes, its modes, the options every mode starts from
 0.0.13/possession/0.0.13.possession.yaml  a mode file: teams, roles, the deal, the night, levers
+0.0.13/wolf/0.0.13.wolf.yaml              another mode file (Wolf)
 0.0.13/shared/0.0.13.night.yaml           the night's steps and timings every mode shares
 0.0.13/shared/0.0.13.text.en.yaml         the words: every sentence a player sees or hears
 0.0.13/shared/0.0.13.rulebook.en.yaml     the rulebook: role cards and How to play
@@ -286,7 +288,7 @@ A role's `verbs:` and a team's `actions:` and `choice:` hold verb uses. A use is
 
 ## 5. The library
 
-Everything a mode file can name, from the engine's registries. Each entry gives its *arguments* (written where the file names it) and its *parameters* (set under `options`, by the version, the mode or a lever), each with its type, and the roles and teams of Possession that use it. Entries no published mode uses yet are here too, in general words: a new mode may use them.
+Everything a mode file can name, from the engine's registries. Each entry gives its *arguments* (written where the file names it) and its *parameters* (set under `options`, by the version, the mode or a lever), each with its type, and the roles and teams of Possession and Wolf that use it. Entries no published mode uses yet are here too, in general words: a new mode may use them.
 
 A verb's kind says how it plays:
 
@@ -314,6 +316,7 @@ Protects one other player from tonight's night kill, not the same player two nig
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `fromNight` (a night, or a size map of nights); `everyNight` (true or false); `feedback` (true or false); `stopsShots` (true or false).
 - Use keys: `when`, `step`, `targets`, `uses`, `pool`.
 - In Possession: `guardian`.
+- In Wolf: `priest`.
 
 #### `rite`
 
@@ -440,6 +443,7 @@ Good or evil, about one other living player, from the snapshot taken at the star
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `fromNight` (a night, or a size map of nights); `checks` (a count, or a size map of counts).
 - Use keys: `when`, `targets`, `uses`.
+- In Wolf: `seer`.
 
 #### `readDead`
 
@@ -449,6 +453,7 @@ The true role and team of every player who died since the holder's last reading,
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `pick` (true or false).
 - Use keys: `when`, `targets`, `uses`.
+- In Wolf: `medium`.
 
 #### `readDeadPick`
 
@@ -458,6 +463,7 @@ With `pick` on: once a game, after `minDead` deaths, one dead player's true role
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `pick` (true or false); `minDead` (an integer, at least 1).
 - Use keys: `when`, `targets`, `uses`.
+- In Wolf: `medium`.
 
 #### `swapCards`
 
@@ -467,6 +473,7 @@ Two other players' roles trade, if both are good; it resolves last at dawn. `use
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `usesPerGame` (an integer, at least 0); `feedback` (true or false).
 - Use keys: `when`, `step`, `targets`, `uses`.
+- In Wolf: `meddler`.
 
 #### `dawnFragments`
 
@@ -476,6 +483,7 @@ At each dawn, one true fragment of the night, naming one player. `fragments` cho
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `fragments` (one of seat, either, pair); `fakeRole` (true or false).
 - Use keys: `when`.
+- In Wolf: `sleepless_child`.
 
 #### `deathShot`
 
@@ -485,6 +493,7 @@ When the holder dies, they shoot one player, in public. Not when they die at the
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `onFinalVote` (true or false); `onOutbreak` (true or false).
 - Use keys: `targets`.
+- In Wolf: `hunter`.
 
 #### `attackGuard`
 
@@ -493,6 +502,7 @@ When the holder dies, they shoot one player, in public. Not when they die at the
 The holder survives the first night kill against them, silently.
 
 - Use keys: `uses`.
+- In Wolf: `elder`.
 
 #### `revealVoteWeight`
 
@@ -502,6 +512,7 @@ Once a game, by day, the holder reveals their role and the app confirms it in pu
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `voteWeight` (an integer, at least 1).
 - Use keys: `targets`, `uses`.
+- In Wolf: `mayor`.
 
 #### `kill`
 
@@ -519,6 +530,7 @@ One player dies at the kill step: the holder picks alone, one player each kill n
 Every holder picks; the most-picked player dies, and the team's leader breaks a tie. No kill on night 1 below the mode's `kills.nightOneFrom`.
 
 - Use keys: `when`, `step`, `targets`.
+- In Wolf: `alpha`, `wolf`.
 
 #### `poison`
 
@@ -538,6 +550,7 @@ A good player joins the holder's team. Its arguments set the cap by table size (
 
 - Arguments (written on the use): `cap` (a count, or steps [[players, count], ...]); `from` (an integer, at least 1); `blockedSpendsRecruit` (true or false); `onDeath` (one of keep, dissolve).
 - Use keys: `when`, `step`, `targets`.
+- In Wolf: `cult_leader`.
 
 #### `learnRole`
 
@@ -566,6 +579,7 @@ The team names its leader in play. With `leaderFromNight` set, it names one at t
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `leaderFromNight` (a night, or a size map of nights); `leaderSuccessionBeforeNight` (a night, or a size map of nights); `leaderNamedWithNight` (true or false).
 - Use keys: none beyond `verb`, `id` and its arguments.
+- In Wolf: `pack`.
 
 #### `infect`
 
@@ -635,6 +649,8 @@ Named in a role's `persona:`.
 
 The holder is shown a good role not in play, all game, and believes it; nothing they do works.
 
+- In Wolf: `drunk`.
+
 #### `changingCard`
 
 *statuses `mad` · needs 2 roles not in play*
@@ -642,6 +658,7 @@ The holder is shown a good role not in play, all game, and believes it; nothing 
 The holder is shown a different working role each night, and from night `maddensFrom` makes a living neighbour `mad` each dusk (alternating sides, good players only); with `maddensWhenImpaired` off, not on a night their own ability fails.
 
 - Parameters (under `options.roles.<role>`): `maddensFrom` (an integer, at least 1); `maddensWhenImpaired` (true or false).
+- In Wolf: `mad_hatter`.
 
 ### Team modules
 
@@ -653,6 +670,7 @@ Good. Wins when the evil team's leader dies, or when the final vote executes the
 
 - Parameters (under `options.factions.<team>`): `vote` (true or false).
 - In Possession: `village`.
+- In Wolf: `village`.
 
 #### `coven`
 
@@ -668,6 +686,7 @@ Possession's cult. Its members meet at the deal, with no disguises; it wins at p
 Evil, led by its leader. Its members meet at the deal, with up to `disguises` good roles not in play to claim; it wins at parity (its members at least the rest) and when the final vote misses its leader.
 
 - Parameters (under `options.factions.<team>`): `disguises` (an integer, at least 0).
+- In Wolf: `pack`.
 
 #### `cult`
 
@@ -675,6 +694,7 @@ A third team, siding with the teams in its `sidesWith`. `win` says how it wins: 
 
 - Arguments (written on the use): `win` (one of halfOverrides, leaderSurvivesOverrides, leaderSurvivesShares, withAllies).
 - Parameters (under `options.factions.<team>`): `win` (one of halfOverrides, leaderSurvivesOverrides, leaderSurvivesShares, withAllies); `parity` (true or false).
+- In Wolf: `cult`.
 
 #### `outbreakTeam`
 
@@ -711,9 +731,10 @@ Possession's public deal: the Leader (`evil.leader`) and its helpers, drawn from
 
 #### `classicDeal`
 
-The classic deal, exact to the game's seed: the evil team by table size (`evil`), its `helpers` drawn from a pool, a list shuffled and set aside first (`burnHelpers`, so the draws match a deal that drew helpers from it), a third team from a table size (`thirdParty`), the good roles always dealt, drawn and added (`good`), public lists by table size (`picked`), the evil team's claims (`disguises`) and the roles a false card may show (`fakeRoles`).
+The classic deal, exact to the game's seed: the evil team by table size (`evil`), its `helpers` drawn from a pool, a shuffle drawn and set aside first (`burnHelpers`: its length, or a list of roles that long; the draws then match a deal that drew helpers from such a list), a third team from a table size (`thirdParty`), the good roles always dealt, drawn and added (`good`), public lists by table size (`picked`), the evil team's claims (`disguises`) and the roles a false card may show (`fakeRoles`).
 
-- Arguments (written on the use): `evil` (an object); `helpers` (an object); `burnHelpers` (a list); `thirdParty` (an object); `good` (an object); `picked` (a size map ("players or fewer": value)); `disguises` (an object); `fakeRoles` (a list).
+- Arguments (written on the use): `evil` (an object); `helpers` (an object); `burnHelpers` (an integer, at least 1, or a list); `thirdParty` (an object); `good` (an object); `picked` (a size map ("players or fewer": value)); `disguises` (an object); `fakeRoles` (a list).
+- In Wolf: the mode's deal.
 
 #### `outbreakDeal`
 
@@ -796,6 +817,8 @@ The outbreak team's attack nights: from the first night an outbreak can happen (
 *takes nothing*
 
 A kill night: night 2 on, and night 1 too from the mode's `kills.nightOneFrom`.
+
+- In Wolf: `alpha`, `wolf`.
 
 #### `param`
 
@@ -881,14 +904,19 @@ Where the spirit read as being on a night, for the Tracker's "last night".
 From `protect` outside a pool: lasts to the end of dawn and stops what `stops` lists (by default a night kill, a recruit and a mark).
 
 - Arguments (written on the use): `stops` (a list).
+- In Wolf: `priest`.
 
 #### `mad`
 
 Shown a false good role for a night and the next day, and acting as a `falseCard` does: nothing the player does works.
 
+- In Wolf: `mad_hatter`.
+
 #### `revealed`
 
 The holder revealed their role by day (`revealVoteWeight`); all game.
+
+- In Wolf: `mayor`.
 
 #### `poisoned`
 

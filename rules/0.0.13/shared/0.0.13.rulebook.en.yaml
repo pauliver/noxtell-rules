@@ -3,6 +3,7 @@
   "schema": 1,
   "lang": "en",
   "modeNames": {
+    "wolf": "wolf",
     "possession": "Possession"
   },
   "bySize": {
@@ -18,12 +19,20 @@
     }
   },
   "teams": {
+    "wolf": {
+      "name": "Evil: the pack",
+      "colours": "crimson on charcoal"
+    },
     "cult": {
       "name": "The cult",
       "colours": "green on olive"
     }
   },
   "groups": [
+    {
+      "id": "wolf",
+      "title": "Wolf mode: the pack"
+    },
     {
       "id": "possession",
       "title": "Possession: the cult (5 to 15 players)"
@@ -37,22 +46,342 @@
       ],
       "team": "good",
       "card": {
-        "possession": "Each night, pick another player. At your next turn you learn how many other players also picked them."
+        "possession": "Each night, pick another player. At your next turn you learn how many other players also picked them.",
+        "other": "No night ability. Your weapon is your vote and your voice."
       },
       "when": {
-        "possession": "Every night, in your turn. Your count comes at the top of your next turn; on the final night there is none (the game ends first), and your turn says so."
+        "possession": "Every night, in your turn. Your count comes at the top of your next turn; on the final night there is none (the game ends first), and your turn says so.",
+        "other": "Never called at night. When the {device} is passed round at night, you get \"Who do you suspect? It changes nothing.\", so every turn looks the same."
       },
       "does": {
-        "possession": "Pick another player, and at your next turn you're told how many other players picked them last night. Every living player's pick counts, including the cult's picks and blocked picks; the dead's never count. If the Binder blocked you, you're told your pick was blocked instead. On the final night your turn tells you there's no count tonight (it could never arrive), but your pick still counts as a pick. Ask the table who picked whom: a count that nobody claims is a hidden pick."
+        "possession": "Pick another player, and at your next turn you're told how many other players picked them last night. Every living player's pick counts, including the cult's picks and blocked picks; the dead's never count. If the Binder blocked you, you're told your pick was blocked instead. On the final night your turn tells you there's no count tonight (it could never arrive), but your pick still counts as a pick. Ask the table who picked whom: a count that nobody claims is a hidden pick.",
+        "other": "No night ability. You find evil by talking, accusing and voting."
       },
       "notes": [
         "\"I'm a Villager\" proves nothing: evil players can say it too.",
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "Your answer to \"Who do you suspect? It changes nothing.\" is private and feeds nothing public; it's there so nobody can tell who has an ability."
+        },
         {
           "modes": [
             "possession"
           ],
           "text": "If the spirit is in you, the player you pick dies (from night 2; from night 1 at 13+ players). Nobody tells you."
         }
+      ]
+    },
+    {
+      "id": "seer",
+      "groups": [
+        "good"
+      ],
+      "team": "good",
+      "card": "On each of your nights, choose a player and learn Good or Evil.",
+      "when": {
+        "other": "Every night from night 1 at 9+ players. Small tables start later: night 2 at 4, 5 and 7 players, night 3 at 8; at 6 players the Seer looks on night 1 only."
+      },
+      "does": {
+        "wolf": "Choose a player and see Good or Evil at once. Every wolf, the Alpha, the Cult Leader and every recruit show Evil."
+      },
+      "notes": [
+        "Before its first night the Seer has no ability to use. Like a Villager, it gets \"Who do you suspect? It changes nothing.\" when the {device} is passed round at night.",
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "A drunk Seer gets believable but false answers, and isn't told."
+        },
+        "The answer reflects the start of the night: a Seer killed that night still got its result."
+      ]
+    },
+    {
+      "id": "priest",
+      "groups": [
+        "good"
+      ],
+      "team": "good",
+      "card": {
+        "other": "From night 2, protect another player from being killed or recruited tonight."
+      },
+      "when": {
+        "other": "Night 2 onwards (night 1 too at 13+ players)."
+      },
+      "does": {
+        "other": "Choose another player: they can't be killed or recruited tonight. Not yourself, and not the same player two nights running."
+      },
+      "notes": [
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "If a kill is stopped, dawn says \"a kill was stopped\" (never who). You get no private word of it."
+        },
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "A stopped recruit stays silent."
+        },
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "The Priest doesn't stop the Hunter's shot."
+        }
+      ]
+    },
+    {
+      "id": "medium",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "wolf"
+      ],
+      "team": "good",
+      "card": "Once a game, after two deaths, choose one dead player and learn their true role and team.",
+      "when": "Any one of your night turns, once at least two players have died.",
+      "does": {
+        "other": "Once a game: once at least two players have died, choose one dead player (killed at night, executed or shot) and learn their true role and team. You may pick nobody and wait for a death that matters more."
+      },
+      "notes": [
+        "Roles aren't revealed on death, so the Medium is the only one who knows; anyone can still lie about what the Medium said.",
+        "The Mad Hatter and madness never show the Medium, so two Medium claims mean one of them lies.",
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "A recruit shows on the cult's team, for example \"Kit was the Seer (the cult)\"."
+        }
+      ]
+    },
+    {
+      "id": "hunter",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "wolf"
+      ],
+      "team": "good",
+      "card": "When you die, choose a player to shoot: they die too.",
+      "when": {
+        "other": "When you die (at dawn, or right after your execution). Not after the final vote."
+      },
+      "does": "The moment you die, choose a player to shoot (or nobody): they die too. If you shoot the leader, good wins.",
+      "notes": [
+        "The shot is public: everyone hears who was shot, but not what they were.",
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "A drunk or maddened \"Hunter\" is asked too, and the shot does nothing."
+        },
+        "The Priest's protection doesn't stop the shot."
+      ]
+    },
+    {
+      "id": "meddler",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "wolf"
+      ],
+      "team": "good",
+      "card": "Once a game, choose two players (not you): if both are good, they trade roles.",
+      "when": "Every night until you use it.",
+      "does": "Once a game, choose two players (not you). If both are good, they trade roles, and each learns the new role privately the next night. If either isn't good, nothing happens.",
+      "notes": [
+        "You're told privately at dawn whether the swap happened; nobody else is.",
+        "A recruit isn't good, so a swap with a recruit does nothing.",
+        "Each player your swap reaches is told \"Your role changed.\" at their next night turn, with what they were and what they are now, never why."
+      ]
+    },
+    {
+      "id": "elder",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "wolf"
+      ],
+      "team": "good",
+      "card": "You survive the first night kill against you. Nobody is told.",
+      "when": "Never called. Passive.",
+      "does": "The first night kill against you fails. Dawn just says nobody died, and you aren't told it happened.",
+      "notes": [
+        "Only night kills: an execution or the Hunter's shot still kills the Elder.",
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "The Elder is never shown to the Drunk or the Hatter, and is never a disguise."
+        }
+      ]
+    },
+    {
+      "id": "mayor",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "wolf"
+      ],
+      "team": "good",
+      "card": "Once, by day, reveal on the {device}: it confirms you, and your vote counts double.",
+      "when": "By day, once a game, when nominations are made.",
+      "does": "Tell the host you reveal as the Mayor. The {device} confirms \"X is the Mayor\" in public, and from then on your vote counts double, in every vote and the final vote.",
+      "notes": [
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "It confirms the role, not the team: a recruited Mayor is still the Mayor."
+        },
+        "Anyone who isn't the Mayor can't reveal: the {device} won't confirm them."
+      ]
+    },
+    {
+      "id": "sleepless_child",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "wolf"
+      ],
+      "team": "good",
+      "card": "Each dawn you're told one true fragment of the night.",
+      "when": "Never called at night; told at each dawn. Only at 12+ players.",
+      "does": "Each dawn you get one fragment of what really happened, naming at most one player: \"Kit used a night ability\", \"someone used a night ability on Kit\", or on night 1 \"the evil team met\". Never which ability, never who's evil, and never who did what to whom: the day has to connect the pieces.",
+      "notes": [
+        "Below 12 players there is no Sleepless Child, and nobody is ever shown it: a Child claim at 4 to 11 players is a lie.",
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "Like any information role, a drunk or maddened Child gets believable false fragments."
+        },
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "Picking nobody, the ghost poll and the pack's naming don't count as using an ability."
+        }
+      ]
+    },
+    {
+      "id": "drunk",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "wolf"
+      ],
+      "team": "good",
+      "card": "You're shown another good role and play it as yours, but nothing you do works.",
+      "when": "As the role you're shown.",
+      "does": "You're shown a good role that isn't in play and play it all game, but nothing you do has an effect and what you learn is believable but false. You're still good.",
+      "notes": [
+        "The {device} never shows \"Drunk\" during the game: you'll see it at the reveal.",
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "With a list everyone sees (4 to 9 players), a Drunk on the list is shown a role off it."
+        },
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "The Drunk and the Mad Hatter are in the same game only from 8 players."
+        }
+      ]
+    },
+    {
+      "id": "mad_hatter",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "wolf"
+      ],
+      "team": "good",
+      "card": "Each night you're shown a different good role, and it really works.",
+      "when": "Every night, as tonight's role.",
+      "does": "You're never told you're the Hatter. Each night you're shown a different good role, and it really works. From night 2 you also unknowingly madden a neighbour each night (alternating sides): they play a false role for a night and a day.",
+      "notes": [
+        "Your role changes every night, and the {device} tells you \"Your role changed.\"; swaps and madness explain that away.",
+        "Only good neighbours can be maddened. A maddened player acts as a Drunk for that cycle and is told their true role back the next night.",
+        "Two players may both truly be shown the Seer: that's deliberate.",
+        "The Hatter and a maddened player are never shown the Priest, the Meddler, the Medium or the Sleepless Child, so two players are never both told a Priest's, Meddler's, Medium's or Child's news."
+      ]
+    },
+    {
+      "id": "wolf",
+      "groups": [
+        "wolf"
+      ],
+      "team": "wolf",
+      "card": "You're a wolf. Each kill night the pack picks one victim; most picks wins, the Alpha breaks ties.",
+      "when": "Every kill night: from night 2 (from night 1 at 13+ players).",
+      "does": "No Alpha is dealt: on night 1 the pack wakes together and picks one of you as its Alpha (if you don't agree in time, the {device} draws one). Where the good roles are drawn, you know each wolf's safe claim from the deal; with a list everyone sees, nobody is given one and the pack picks its own cover stories. Each kill night every wolf picks a victim; most picks wins and the Alpha breaks ties.",
+      "notes": [
+        "When the {device} is passed round at night, each wolf picks in their own turn and sees the pack's picks so far.",
+        "A safe claim is a role nobody can rule out. With a list everyone sees, there's none: the pack picks its own cover stories, and nobody can talk at night.",
+        "A wolf shows Evil to the Seer."
+      ]
+    },
+    {
+      "id": "alpha",
+      "groups": [
+        "wolf"
+      ],
+      "team": "wolf",
+      "card": "You lead the pack: if you die, good wins (except early on, when the pack names a new Alpha).",
+      "when": "With the pack, every kill night.",
+      "does": "A wolf, and the leader. If the Alpha dies, good wins; the final vote must catch the Alpha.",
+      "notes": [
+        "Early succession: if the Alpha dies before night 3 (before night 2 at 6 players) and a wolf lives, the pack secretly names a new Alpha at the next dusk and the game goes on.",
+        "The first Alpha is picked by the pack on night 1; nobody is dealt the card. The one picked is told at the next dusk that their role changed.",
+        "On every night that window covers, every wolf is asked to name an Alpha, with nothing to choose while the pack has one, so the night looks the same either way.",
+        "The Alpha shows as plain Evil to the Seer."
+      ]
+    },
+    {
+      "id": "cult_leader",
+      "groups": [
+        "wolf"
+      ],
+      "team": {
+        "wolf": "cult"
+      },
+      "card": {
+        "wolf": "You lead the cult: recruit players (3 a game). If the wolves win while you live, the cult wins too."
+      },
+      "when": {
+        "wolf": "From night 2, only at 15+ players: one recruit a night, 3 a game."
+      },
+      "does": {
+        "wolf": "A third party that doesn't know the wolves. Recruits keep their role but now win with the wolves and show Evil."
+      },
+      "notes": [
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "Wolves and protected players can't be recruited, and the Cult Leader is never told a recruit failed."
+        },
+        {
+          "modes": [
+            "wolf"
+          ],
+          "text": "Parity counts wolves plus the cult. If the Cult Leader dies, the cult breaks up and recruits are good again."
+        },
+        "A recruit is told privately the next night who recruited them."
       ]
     },
     {

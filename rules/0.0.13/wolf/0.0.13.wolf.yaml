@@ -1,0 +1,408 @@
+{
+  "id": "wolf",
+  "version": "0.0.13",
+  "schema": 4,
+  "status": "playable",
+  "players": {
+    "min": 4,
+    "max": 24
+  },
+  "styles": [
+    "seatOrder",
+    "roleCall"
+  ],
+  "defaultStyle": {
+    "seatOrderUpTo": 12
+  },
+  "nights": {
+    "upTo": {
+      "7": 3,
+      "14": 4,
+      "24": 5
+    }
+  },
+  "kills": {
+    "nightOneFrom": 13,
+    "twoPerNightFrom": null
+  },
+  "codes": {
+    "seatOrder": "W",
+    "roleCall": "X",
+    "tab": 1,
+    "sim": 0
+  },
+  "tone": "wolf",
+  "options": {
+    "roles": {
+      "priest": {
+        "feedback": false
+      }
+    }
+  },
+  "teams": [
+    {
+      "id": "village",
+      "alignment": "good",
+      "module": "village"
+    },
+    {
+      "id": "pack",
+      "alignment": "evil",
+      "module": "evilTeam",
+      "leader": "alpha",
+      "tone": "wolf",
+      "choice": {
+        "verb": "nameLeader",
+        "id": "pack.name"
+      },
+      "wake": "everyNight"
+    },
+    {
+      "id": "cult",
+      "alignment": "evil",
+      "module": "cult",
+      "win": "withAllies",
+      "sidesWith": [
+        "pack"
+      ],
+      "tone": "cult"
+    }
+  ],
+  "roles": [
+    {
+      "id": "villager",
+      "team": "village"
+    },
+    {
+      "id": "seer",
+      "team": "village",
+      "codeBit": 0,
+      "verbs": [
+        "senseAlignment"
+      ]
+    },
+    {
+      "id": "priest",
+      "team": "village",
+      "codeBit": 1,
+      "verbs": [
+        "protect"
+      ]
+    },
+    {
+      "id": "medium",
+      "team": "village",
+      "codeBit": 2,
+      "verbs": [
+        "readDead",
+        "readDeadPick"
+      ]
+    },
+    {
+      "id": "hunter",
+      "team": "village",
+      "codeBit": 3,
+      "verbs": [
+        "deathShot"
+      ]
+    },
+    {
+      "id": "meddler",
+      "team": "village",
+      "codeBit": 4,
+      "verbs": [
+        "swapCards"
+      ]
+    },
+    {
+      "id": "elder",
+      "team": "village",
+      "codeBit": 5,
+      "verbs": [
+        "attackGuard"
+      ]
+    },
+    {
+      "id": "mayor",
+      "team": "village",
+      "codeBit": 6,
+      "verbs": [
+        "revealVoteWeight"
+      ]
+    },
+    {
+      "id": "drunk",
+      "team": "village",
+      "codeBit": 7,
+      "persona": "falseCard"
+    },
+    {
+      "id": "mad_hatter",
+      "team": "village",
+      "codeBit": 8,
+      "persona": "changingCard"
+    },
+    {
+      "id": "wolf",
+      "team": "pack",
+      "verbs": [
+        {
+          "verb": "teamKill",
+          "id": "pack.kill",
+          "when": "killNight"
+        }
+      ]
+    },
+    {
+      "id": "alpha",
+      "team": "pack",
+      "tags": [
+        "leader"
+      ],
+      "verbs": [
+        {
+          "verb": "teamKill",
+          "id": "pack.kill",
+          "when": "killNight"
+        }
+      ]
+    },
+    {
+      "id": "cult_leader",
+      "team": "cult",
+      "tags": [
+        "cult.leader"
+      ],
+      "verbs": [
+        {
+          "verb": "recruit",
+          "cap": [
+            [
+              4,
+              2
+            ],
+            [
+              15,
+              3
+            ]
+          ],
+          "onDeath": "dissolve"
+        }
+      ]
+    },
+    {
+      "id": "sleepless_child",
+      "team": "village",
+      "pickable": true,
+      "verbs": [
+        "dawnFragments"
+      ]
+    }
+  ],
+  "deal": {
+    "recipe": "classicDeal",
+    "evil": {
+      "leader": "alpha",
+      "fill": "wolf",
+      "from": [
+        [
+          4,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          18,
+          4
+        ]
+      ]
+    },
+    "burnHelpers": 4,
+    "thirdParty": {
+      "role": "cult_leader",
+      "from": 15
+    },
+    "good": {
+      "always": [
+        "seer",
+        "priest"
+      ],
+      "drawn": {
+        "from": [
+          "hunter",
+          "meddler",
+          "medium",
+          "elder"
+        ],
+        "take": 2
+      },
+      "extra": [
+        {
+          "role": "mayor",
+          "from": 4
+        },
+        {
+          "oneOf": [
+            "drunk",
+            "mad_hatter"
+          ],
+          "bothFrom": 8
+        }
+      ],
+      "caps": [
+        [
+          4,
+          7
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          7
+        ]
+      ],
+      "villagersForUndisguised": true,
+      "child": {
+        "role": "sleepless_child",
+        "from": 12,
+        "chance": 1.0
+      }
+    },
+    "picked": {
+      "4": [
+        "priest"
+      ],
+      "5": [],
+      "6": [
+        "priest",
+        "hunter"
+      ],
+      "7": [
+        "priest",
+        "medium"
+      ],
+      "8": [
+        "priest",
+        "medium"
+      ],
+      "9": [
+        "seer",
+        "priest",
+        "medium",
+        "hunter",
+        "mad_hatter"
+      ]
+    },
+    "disguises": {
+      "pool": [
+        "seer",
+        "priest",
+        "medium",
+        "hunter",
+        "meddler",
+        "elder"
+      ],
+      "max": 2
+    },
+    "fakeRoles": [
+      "seer",
+      "priest",
+      "medium",
+      "hunter",
+      "meddler"
+    ]
+  },
+  "night": {
+    "roleCall": [
+      {
+        "team": "pack",
+        "roles": [
+          "alpha",
+          "wolf"
+        ]
+      },
+      {
+        "role": "cult_leader"
+      },
+      {
+        "role": "priest"
+      },
+      {
+        "role": "meddler"
+      },
+      {
+        "role": "seer"
+      },
+      {
+        "role": "medium"
+      }
+    ],
+    "dawnCall": [
+      "priest",
+      "meddler",
+      "sleepless_child"
+    ],
+    "timing": {
+      "seat": [
+        8,
+        30
+      ],
+      "team": [
+        25,
+        90
+      ],
+      "dawnCallOpen": [
+        5,
+        5
+      ],
+      "dawnCallName": [
+        0,
+        0
+      ]
+    }
+  },
+  "levers": [
+    {
+      "id": "bar",
+      "words": "setup.bar",
+      "players": {
+        "min": 4,
+        "max": 24
+      },
+      "choices": [
+        {
+          "id": "half",
+          "words": "setup.barHalf",
+          "default": true,
+          "options": {}
+        },
+        {
+          "id": "majority",
+          "words": "setup.barMajority",
+          "options": {
+            "execution": {
+              "need": "overHalf"
+            }
+          }
+        },
+        {
+          "id": "plurality",
+          "words": "setup.barPlurality",
+          "options": {
+            "execution": {
+              "need": "mostVotes"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

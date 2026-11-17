@@ -4,6 +4,19 @@
   "lang": "en",
   "roles": {
     "villager": "Villager",
+    "seer": "Seer",
+    "priest": "Priest",
+    "medium": "Medium",
+    "hunter": "Hunter",
+    "meddler": "Meddler",
+    "elder": "Elder",
+    "mayor": "Mayor",
+    "drunk": "Drunk",
+    "mad_hatter": "Mad Hatter",
+    "sleepless_child": "Sleepless Child",
+    "wolf": "Wolf",
+    "alpha": "Alpha",
+    "cult_leader": "Cult Leader",
     "exorcist": "Exorcist",
     "guardian": "Guardian",
     "diviner": "Diviner",
@@ -43,6 +56,52 @@
     }
   },
   "lines": {
+    "night.team.pack.meet": {
+      "say": "Wolves, open your eyes. Meet your pack.",
+      "close": "Close your eyes."
+    },
+    "night.team.pack.meetAndAct": {
+      "say": "Wolves, open your eyes. Meet your pack, then choose your victim.",
+      "close": "Close your eyes."
+    },
+    "night.team.pack.act": {
+      "say": "Wolves, open your eyes. Choose your victim.",
+      "show": "Tap a target: most picks wins, the Alpha breaks ties.",
+      "close": "Close your eyes."
+    },
+    "night.role.cult_leader": {
+      "say": "Cult Leader, open your eyes. Choose someone to recruit.",
+      "show": "Tap a target, or pick nobody. You're never told if it failed.",
+      "close": "Close your eyes."
+    },
+    "night.role.priest": {
+      "say": "Priest, open your eyes. Choose someone to protect.",
+      "show": "Not yourself, not last night's player.",
+      "close": "Close your eyes."
+    },
+    "night.role.meddler": {
+      "say": "Meddler, open your eyes. Swap two players, or nobody.",
+      "show": "Once a game.",
+      "close": "Close your eyes."
+    },
+    "night.role.seer": {
+      "say": "Seer, open your eyes. Choose someone.",
+      "show": "Good or Evil, at once.",
+      "close": "Close your eyes."
+    },
+    "night.role.medium": {
+      "say": "Medium, open your eyes.",
+      "show": "Once a game, after two deaths: pick one of the dead to learn their true role and team.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.priest": {
+      "say": "Priest, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.meddler": {
+      "say": "Meddler, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
     "night.dawnCall.diviner": {
       "say": "Diviner, open your eyes and see your results.",
       "close": "Close your eyes."
@@ -65,6 +124,14 @@
     },
     "night.dawnCall.chaplain": {
       "say": "Chaplain, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.sleepless_child": {
+      "say": "Sleepless Child, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.seer": {
+      "say": "Seer, open your eyes and see your results.",
       "close": "Close your eyes."
     },
     "night.seatOrder.duskFirst.possession": {
@@ -100,8 +167,44 @@
     "setup.card.evil.possession": {
       "show": "Evil, the cult: the {role:summoner}{n, plural, =0{} other{ + # drawn from {role:veiler}, {role:framer} and {role:binder}}}."
     },
+    "setup.card.leader.wolf": {
+      "show": "the Alpha"
+    },
+    "setup.card.more.wolf": {
+      "show": " + {n} Wolves"
+    },
+    "setup.card.moreOne.wolf": {
+      "show": " + 1 Wolf"
+    },
     "setup.card.night.possession": {
       "show": "The spirit kills from night {firstKill}."
+    },
+    "night.pack.members": {
+      "show": "Your pack: {names}."
+    },
+    "night.pack.leads": {
+      "show": "{name} leads."
+    },
+    "night.pack.huntInTurn": {
+      "show": "You choose tonight's victim in your own turn."
+    },
+    "night.pack.huntInWindow": {
+      "show": "You choose tonight's victim when the pack is called."
+    },
+    "night.pack.noHunt": {
+      "show": "The pack doesn't hunt tonight."
+    },
+    "night.pack.pickWhy": {
+      "show": "If the Alpha dies, the village wins."
+    },
+    "night.pack.pickWhyLate": {
+      "show": "If the Alpha dies from night {night} on, the village wins."
+    },
+    "night.pack.picked": {
+      "show": "{name} leads the pack."
+    },
+    "night.pack.drawn": {
+      "show": "Time ran out: the {device} chose {name}."
     },
     "countdown.first.possession": {
       "say": "Night 1 of {nights}. The spirit is too weak to kill tonight.",
@@ -111,11 +214,41 @@
       "say": "Night 1 of {nights}. In a village this big, the spirit wakes at once: it can kill tonight.",
       "show": "Night 1 of {nights}. In a village this big, the spirit wakes at once: it can kill tonight."
     },
+    "choose.ally.pack": {
+      "show": "{name} is in your pack."
+    },
+    "choose.ally.cult": {
+      "show": "{name} is in your cult."
+    },
     "choose.ally.coven": {
       "show": "{name} is in your cult."
     },
     "choose.noPass.possession": {
       "show": "Everyone picks every night. Tap a name."
+    },
+    "task.pack.kill": {
+      "show": "Choose your victim. Most picks wins."
+    },
+    "task.pack.name": {
+      "show": "Choose a wolf to lead the pack."
+    },
+    "task.cult_leader.recruit": {
+      "show": "Choose someone to recruit, or pick nobody."
+    },
+    "task.seer.check": {
+      "show": "Choose someone: you'll see Good or Evil."
+    },
+    "task.priest.protect": {
+      "show": "Choose someone to protect. Not last night's player."
+    },
+    "task.meddler.swap": {
+      "show": "Trade two players' roles, or nobody. Once a game."
+    },
+    "task.medium.read": {
+      "show": "Everyone who died since your last turn:"
+    },
+    "task.medium.pick": {
+      "show": "Read one of the dead (once a game), or wait."
     },
     "task.exorcist.rite": {
       "show": "Pick a player for tonight's Rite."
@@ -238,11 +371,59 @@
     "result.tracker.track.wasNot": {
       "show": "Last night the spirit was not in {name}."
     },
+    "result.priest.protect.ok": {
+      "show": "Your protection stopped an attack on {names}."
+    },
+    "result.priest.protect.failed": {
+      "show": "Your protection on {names} stopped nothing."
+    },
+    "result.meddler.swap.ok": {
+      "show": "Your swap happened: {names} traded roles."
+    },
+    "result.meddler.swap.failed": {
+      "show": "Your swap did not happen: nothing moved."
+    },
+    "result.medium.read.none": {
+      "show": "Nobody has died since your last turn."
+    },
+    "result.medium.read.fact": {
+      "show": "{name} was the {role} ({team})."
+    },
+    "result.medium.pick.fact": {
+      "show": "{name} was the {role} ({team})."
+    },
     "team.village.name": {
       "show": "Good"
     },
     "team.village.short": {
       "show": "good"
+    },
+    "team.pack.name": {
+      "show": "Evil (the pack)"
+    },
+    "team.pack.short": {
+      "show": "evil, the pack"
+    },
+    "team.pack.title": {
+      "show": "the Alpha"
+    },
+    "team.pack.lead": {
+      "show": "{role}"
+    },
+    "team.cult.name": {
+      "show": "The cult (with the wolves)"
+    },
+    "team.cult.short": {
+      "show": "the cult"
+    },
+    "team.cult.recruited": {
+      "show": "Recruited by {name}: now wins with the wolves."
+    },
+    "team.cult.recruitedCard": {
+      "show": "You were recruited by {name}. You now win with the wolves."
+    },
+    "team.cult.dissolved": {
+      "show": "The cult broke up. You're good again."
     },
     "team.coven.name": {
       "show": "The cult"
@@ -259,6 +440,9 @@
     "mode.possession": {
       "show": "Possession"
     },
+    "dawn.hunter": {
+      "say": "{name}, you may shoot one player."
+    },
     "day.talk.possession": {
       "say": "Day {day}. Talk it over.",
       "show": "Share (or bluff) what you learned. Then tap Nominations."
@@ -266,12 +450,18 @@
     "talk.dead.possession": {
       "show": "Ghost vote left: {names}"
     },
+    "day.mayor": {
+      "say": "{name} is the Mayor. Their vote counts double."
+    },
     "day.vote.possession": {
       "say": "Who votes to execute {name}? Hands up.",
       "show": "{bar, select, mostVotes{Needs more votes than any other nominee.} overHalf{Needs {n} votes (more than half of {alive} alive) and more than any other nominee.} other{Needs {n} votes (half of {alive} alive, rounded up) and more than any other nominee.}}"
     },
     "vote.rule.possession": {
       "show": "{ghostVotes, plural, =0{The dead have no ghost votes.} one{Each dead player has one ghost vote for the whole game.} other{Each dead player has # ghost votes for the whole game.}}"
+    },
+    "vote.mayor": {
+      "show": "A revealed Mayor counts double."
     },
     "final.talk.possession": {
       "say": "This is the final day. Tonight the spirit takes the village, unless you catch the Cult Leader who called it. At the end, everyone votes for one player to execute.",
@@ -283,6 +473,15 @@
     "final.vote.possession": {
       "say": "Final vote. Point at one player... now.",
       "show": "For each player, tap everyone pointing at them."
+    },
+    "over.good.wolf": {
+      "say": "The village is free of wolves: {reason}."
+    },
+    "over.evil.wolf": {
+      "say": "Wolves win: {reason}."
+    },
+    "over.cult": {
+      "say": "The cult wins: {reason}."
     },
     "over.good.possession": {
       "say": "The village wins: {reason}."
@@ -305,11 +504,41 @@
     "over.reason.cultParity.possession": {
       "show": "the cult matches everyone else alive. Nobody is left to stop the spirit"
     },
+    "recap.unmask.wolf": {
+      "show": "The pack"
+    },
     "recap.unmask.possession": {
       "show": "The cult"
     },
+    "recap.led.alpha": {
+      "show": "led the pack from night {n}"
+    },
     "recap.led.summoner": {
       "show": "led the cult from night {n}"
+    },
+    "recap.survived.wolf": {
+      "show": "survived the pack on night {n}"
+    },
+    "recap.act.seer.check": {
+      "show": "{actor} checked {targets}"
+    },
+    "recap.act.priest.protect": {
+      "show": "{actor} protected {targets}"
+    },
+    "recap.act.medium.pick": {
+      "show": "{actor} read {targets}"
+    },
+    "recap.act.medium.read": {
+      "show": "{actor} read the dead"
+    },
+    "recap.act.meddler.swap": {
+      "show": "{actor} swapped {targets}"
+    },
+    "recap.act.hunter.shoot": {
+      "show": "{actor} shot {targets}"
+    },
+    "recap.act.cult_leader.recruit": {
+      "show": "{actor} tried to recruit {targets}"
     },
     "recap.act.exorcist.rite": {
       "show": "{actor} performed a Rite on {targets}"
@@ -355,6 +584,75 @@
     },
     "recap.act.binder.bind": {
       "show": "{actor} bound {targets}"
+    },
+    "recap.team.pack.kill": {
+      "show": "The pack chose {targets}."
+    },
+    "recap.team.pack.name": {
+      "show": "The pack chose {targets} to lead it."
+    },
+    "recap.elder": {
+      "show": "{name}, the Elder, survived."
+    },
+    "recap.mayor": {
+      "show": "{name} revealed as the Mayor."
+    },
+    "recap.row.status.mayor.revealed": {
+      "show": "revealed as the Mayor on day {n}"
+    },
+    "history.act.pack.kill": {
+      "show": "picked a victim"
+    },
+    "history.act.pack.name": {
+      "show": "named {names} as Alpha"
+    },
+    "history.act.cult_leader.recruit": {
+      "show": "tried to recruit"
+    },
+    "history.act.seer.check": {
+      "show": "checked"
+    },
+    "history.act.priest.protect": {
+      "show": "protected"
+    },
+    "history.act.meddler.swap": {
+      "show": "swapped"
+    },
+    "history.act.medium.read": {
+      "show": "read the dead"
+    },
+    "history.act.medium.pick": {
+      "show": "read the dead"
+    },
+    "history.act.hunter.shoot": {
+      "show": "shot"
+    },
+    "history.act.mayor.reveal": {
+      "show": "revealed as the Mayor"
+    },
+    "history.pass.pack.kill": {
+      "show": "the pack's kill"
+    },
+    "history.pass.pack.name": {
+      "show": "naming the Alpha"
+    },
+    "history.pass.cult_leader.recruit": {
+      "show": "the recruit"
+    },
+    "history.pass.seer.check": {
+      "show": "the check"
+    },
+    "history.pass.priest.protect": {
+      "show": "the protection"
+    },
+    "history.pass.meddler.swap": {
+      "show": "the swap"
+    },
+    "history.pass.medium.pick": {
+      "show": "the reading"
+    },
+    "history.pass.hunter.shoot": {
+      "show": "the shot"
     },
     "history.pass.exorcist.rite": {
       "show": "the Rite"
