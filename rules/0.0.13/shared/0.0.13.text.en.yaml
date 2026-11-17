@@ -16,7 +16,15 @@
     "sleepless_child": "Sleepless Child",
     "wolf": "Wolf",
     "alpha": "Alpha",
+    "fiend": "Fiend",
+    "hexer": "Hexer",
+    "informant": "Informant",
+    "understudy": "Understudy",
     "cult_leader": "Cult Leader",
+    "implanter": "Queen",
+    "medic": "Medic",
+    "doctor": "Doctor",
+    "crawler": "Crawler",
     "exorcist": "Exorcist",
     "guardian": "Guardian",
     "diviner": "Diviner",
@@ -56,6 +64,27 @@
     }
   },
   "lines": {
+    "night.roleCall.dusk": {
+      "say": "Everyone, close your eyes."
+    },
+    "night.naming": {
+      "say": "Wolves, open your eyes. See your pack.",
+      "show": "Choose your Alpha: point, then one of you taps.",
+      "close": "Close your eyes."
+    },
+    "night.changed": {
+      "say": "If your role has changed, open your eyes and check the {device}.",
+      "show": "Your role changed tonight",
+      "close": "Close your eyes."
+    },
+    "night.glance": {
+      "say": "Everyone, open your eyes. We'll pass the {device} round for a quick look at your card, starting with {name}. Wait for your turn, and look only at your own screen.",
+      "show": "A quick look at your card, then pass it on."
+    },
+    "night.glanceEnd": {
+      "say": "Put the {device} in the middle. Everyone, close your eyes.",
+      "show": "Put the {device} in the middle. Everyone, close your eyes."
+    },
     "night.team.pack.meet": {
       "say": "Wolves, open your eyes. Meet your pack.",
       "close": "Close your eyes."
@@ -67,6 +96,47 @@
     "night.team.pack.act": {
       "say": "Wolves, open your eyes. Choose your victim.",
       "show": "Tap a target: most picks wins, the Alpha breaks ties.",
+      "close": "Close your eyes."
+    },
+    "night.team.court.meet": {
+      "say": "Evil, open your eyes. Meet your court.",
+      "close": "Close your eyes."
+    },
+    "night.team.court.meetAndAct": {
+      "say": "Evil, open your eyes. Meet your court.",
+      "close": "Close your eyes."
+    },
+    "night.team.court.act": {
+      "say": "Evil, open your eyes.",
+      "close": "Close your eyes."
+    },
+    "night.team.court.role": {
+      "say": "{role}."
+    },
+    "night.team.hive.meet": {
+      "say": "Hive, open your eyes. Meet your hive.",
+      "close": "Close your eyes."
+    },
+    "night.team.hive.meetAndAct": {
+      "say": "Hive, open your eyes. Meet your hive.",
+      "close": "Close your eyes."
+    },
+    "night.team.hive.act": {
+      "say": "Hive, open your eyes.",
+      "show": "Spread the hive's fever: tap who falls sick (most picks wins). If a Burster bursts at dawn, the Crawler attacks your pick.",
+      "close": "Close your eyes."
+    },
+    "night.team.hive.role": {
+      "say": "{role}."
+    },
+    "night.role.medic": {
+      "say": "Medic, open your eyes. Choose someone to treat.",
+      "show": "Not yourself, not last night's player. A Burster is removed and a fever breaks. You won't be told which.",
+      "close": "Close your eyes."
+    },
+    "night.role.doctor": {
+      "say": "Doctor, open your eyes. Choose someone to examine.",
+      "show": "Not yourself. At dawn you learn if they're really infected, only have a fever, or aren't sick. It's about the sickness, not their side.",
       "close": "Close your eyes."
     },
     "night.role.cult_leader": {
@@ -94,12 +164,50 @@
       "show": "Once a game, after two deaths: pick one of the dead to learn their true role and team.",
       "close": "Close your eyes."
     },
+    "night.ghosts": {
+      "say": "If you're dead, open your eyes and name a suspect, or nobody.",
+      "show": "Tap a living player.",
+      "close": "Close your eyes."
+    },
+    "night.ghosts.brood": {
+      "say": "If you're dead, open your eyes. Crawlers, choose the hive's attack. Everyone else, name a suspect, or nobody.",
+      "show": "Tap a living player.",
+      "close": "Close your eyes."
+    },
+    "night.seatOrder.dusk": {
+      "say": "Night falls. We'll pass the {device} round. Keep your eyes on the table until it's your turn."
+    },
+    "night.seat.turn": {
+      "show": "Pass to {name} →"
+    },
+    "night.seat.name": {
+      "say": "{name}."
+    },
+    "night.dawnCall.open": {
+      "say": "Everyone, close your eyes."
+    },
     "night.dawnCall.priest": {
       "say": "Priest, open your eyes and see your results.",
       "close": "Close your eyes."
     },
     "night.dawnCall.meddler": {
       "say": "Meddler, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.hexer": {
+      "say": "Hexer, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.medic": {
+      "say": "Medic, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.implanter": {
+      "say": "Queen, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.doctor": {
+      "say": "Doctor, open your eyes and see your results.",
       "close": "Close your eyes."
     },
     "night.dawnCall.diviner": {
@@ -134,6 +242,13 @@
       "say": "Seer, open your eyes and see your results.",
       "close": "Close your eyes."
     },
+    "night.dawnCall.nothing": {
+      "show": "Nothing for you this morning.",
+      "word": "NOTHING"
+    },
+    "night.volume": {
+      "show": "Turn the {device}'s volume up: the eyes-closed calls are spoken."
+    },
     "night.seatOrder.duskFirst.possession": {
       "say": "Night falls: night {night} of {nights}. The spirit grows. The {device} starts with {name}; eyes off it until your turn.",
       "show": "Night {night} of {nights}. We pass the {device} from {name}."
@@ -141,6 +256,47 @@
     "night.seatOrder.duskFirst.last.possession": {
       "say": "The final night. By dawn the spirit is at full strength. The {device} starts with {name}; eyes off it until your turn.",
       "show": "Final night ({night} of {nights}). We pass the {device} from {name}."
+    },
+    "night.parallel.all": {
+      "show": "Everyone acts at once."
+    },
+    "night.dawn": {
+      "say": "Everyone, open your eyes."
+    },
+    "setup.goodRoles": {
+      "say": "This game's good roles are {list}. No other good role is in play.",
+      "show": "This game's good roles: {list}"
+    },
+    "setup.drawn": {
+      "say": "The good roles are drawn at random from the role sheet. Nobody knows exactly which are in play.",
+      "show": "Good roles: a random draw from the role sheet"
+    },
+    "setup.quickStart": {
+      "say": "Here's how to win. Tap Teach the table to hear the rules read aloud, or Skip to start the deal."
+    },
+    "setup.teach": {
+      "show": "Teach the table"
+    },
+    "teach.next": {
+      "show": "Next ({n} of {of})"
+    },
+    "teach.start": {
+      "show": "Start the deal"
+    },
+    "deal.start": {
+      "show": "Pass the {device} round."
+    },
+    "deal.pass": {
+      "show": "Pass to {name} →"
+    },
+    "deal.evil": {
+      "show": "You're evil. Your team meets on night 1."
+    },
+    "card.ownStories": {
+      "show": "Pick your own cover story. The roles in play are public, and the pack can't talk at night."
+    },
+    "card.ownStory": {
+      "show": "Pick your own cover story. The roles in play are public."
     },
     "card.ownStories.possession": {
       "show": "Pick your own cover story. The roles in play are public, and the cult can't talk at night."
@@ -151,12 +307,95 @@
     "card.good.goal.possession": {
       "show": "The village wins if the spirit is struck twice, or the Cult Leader dies."
     },
+    "card.sameRite": {
+      "show": "The {role} has the same Rite: your strikes count together, and dawn never says whose Rite struck."
+    },
+    "card.roleChanged": {
+      "show": "Your role changed."
+    },
+    "card.yourRole": {
+      "show": "Your role"
+    },
+    "card.sameRole": {
+      "show": "Your role is the same."
+    },
+    "card.wasNow": {
+      "show": "You were the {was}."
+    },
+    "card.alphaBanner": {
+      "show": "You lead the pack."
+    },
+    "card.alphaWasNow": {
+      "show": "You were a {was}."
+    },
+    "card.roleCanChange": {
+      "show": "Your role can change during the game."
+    },
+    "card.roleChangesAgain": {
+      "show": "It can change again. You're never told why."
+    },
+    "card.roleCanChangeStill": {
+      "show": "Your role can change. You're never told why."
+    },
+    "card.roleChangedOnce": {
+      "show": "It won't change again. You're never told why."
+    },
+    "deal.pickAlpha": {
+      "show": "You're evil. Tonight your pack picks its Alpha."
+    },
+    "deal.first.merged": {
+      "say": "Pass the {device} round. Tap your name, see your role, then take your first night turn.",
+      "show": "See your role, then take your first night turn."
+    },
     "deal.first.merged.possession": {
       "say": "Pass the {device} round; eyes off it until your turn. Tap your name, see your role, then take your first night turn.",
       "show": "See your role, then take your first night turn. Eyes off the {device} until your turn."
     },
+    "deal.first.plain": {
+      "say": "Pass the {device} round. Tap your name, look at your role, and tap to hide it.",
+      "show": "Tap your name, look at your role, and tap to hide it."
+    },
+    "deal.tonight": {
+      "show": "Tonight →"
+    },
+    "deal.hive": {
+      "show": "You're the hive. Your hive meets on night 1."
+    },
+    "setup.spareCult": {
+      "show": "Spirit spares the cult (test)"
+    },
+    "setup.spareCultNote": {
+      "show": "If the possessed picks a cultist, a neighbour dies instead."
+    },
     "setup.trickster": {
       "show": "Add the Trickster"
+    },
+    "setup.tricksterNote": {
+      "show": "13+ players: one Villager becomes the Trickster, who each night swaps two players' abilities for that night."
+    },
+    "setup.bar": {
+      "show": "Votes to execute"
+    },
+    "setup.barNote": {
+      "show": "What a day's execution needs, besides the most votes."
+    },
+    "setup.barHalf": {
+      "show": "Half"
+    },
+    "setup.barMajority": {
+      "show": "Majority"
+    },
+    "setup.barPlurality": {
+      "show": "Most votes"
+    },
+    "setup.leverNeeds": {
+      "show": "Needs {n} players"
+    },
+    "setup.tooFew": {
+      "show": "{mode} mode needs at least {n} players."
+    },
+    "setup.tooMany": {
+      "show": "{mode} mode is played by at most {n} players."
     },
     "setup.tooFew.possession": {
       "show": "{mode} mode needs at least {n} players: add a player or pick another mode."
@@ -164,11 +403,38 @@
     "setup.tooMany.possession": {
       "show": "{mode} mode is played by at most {n} players: pick another mode."
     },
+    "setup.sizes": {
+      "show": "{mode} mode is for {from} to {to} players."
+    },
+    "setup.drawOnly": {
+      "show": "{mode} mode deals its good roles at random."
+    },
+    "setup.seatOrderOnly": {
+      "show": "{mode} mode is played by passing the {device}."
+    },
+    "setup.card.title": {
+      "show": "Setup card: {players} players"
+    },
+    "setup.card.evil": {
+      "show": "Evil: {leader}{more}{third}."
+    },
     "setup.card.evil.possession": {
       "show": "Evil, the cult: the {role:summoner}{n, plural, =0{} other{ + # drawn from {role:veiler}, {role:framer} and {role:binder}}}."
     },
+    "setup.card.leader": {
+      "show": "the leader"
+    },
     "setup.card.leader.wolf": {
       "show": "the Alpha"
+    },
+    "setup.card.leader.demon": {
+      "show": "the Fiend"
+    },
+    "setup.card.leader.brood": {
+      "show": "{term:hive}: the {role:implanter}"
+    },
+    "setup.card.more": {
+      "show": " + {n} drawn"
     },
     "setup.card.more.wolf": {
       "show": " + {n} Wolves"
@@ -176,8 +442,74 @@
     "setup.card.moreOne.wolf": {
       "show": " + 1 Wolf"
     },
+    "setup.card.more.demon": {
+      "show": " + {n} minions (drawn)"
+    },
+    "setup.card.moreOne.demon": {
+      "show": " + 1 minion (drawn)"
+    },
+    "setup.card.more.brood": {
+      "show": " + {n} minions (drawn)"
+    },
+    "setup.card.third": {
+      "show": " + the {role:cult_leader}"
+    },
+    "setup.card.night": {
+      "show": "Night-1 kill: {nightOneKill}."
+    },
+    "setup.card.night.brood": {
+      "show": "Every night a {term:implanted}; sick the next dawn, {termLower:burst} the dawn after. The Medic is always in play."
+    },
     "setup.card.night.possession": {
       "show": "The spirit kills from night {firstKill}."
+    },
+    "setup.card.yes": {
+      "show": "yes"
+    },
+    "setup.card.no": {
+      "show": "no"
+    },
+    "setup.card.goodKnown": {
+      "show": "Good roles, public: {list}."
+    },
+    "setup.card.goodDrawn": {
+      "show": "Good: drawn at random from the {mode} role sheet."
+    },
+    "setup.card.goodPicked": {
+      "show": "Good: {roles}, and Villagers."
+    },
+    "setup.card.goodVillagers": {
+      "show": "Good: Villagers only."
+    },
+    "setup.card.one": {
+      "show": "the {role}"
+    },
+    "setup.card.count": {
+      "show": "{n} {role}"
+    },
+    "setup.card.many": {
+      "show": "{n} {role}s"
+    },
+    "day.sick": {
+      "show": "Sick"
+    },
+    "day.hatched": {
+      "show": "Hive: no vote"
+    },
+    "turn.hidden": {
+      "show": "Hidden."
+    },
+    "turn.wait": {
+      "show": "One moment…"
+    },
+    "turn.result.timedOut": {
+      "show": "Time ran out. A pick was made for you: {names}."
+    },
+    "turn.result.partTimedOut": {
+      "show": "{part}: time ran out. A pick was made for you: {names}."
+    },
+    "turn.middle": {
+      "show": "Put the {device} in the middle."
     },
     "night.pack.members": {
       "show": "Your pack: {names}."
@@ -206,6 +538,10 @@
     "night.pack.drawn": {
       "show": "Time ran out: the {device} chose {name}."
     },
+    "deal.allDealt": {
+      "say": "Everyone has a role.",
+      "show": "Everyone has a role. Put the {device} in the middle."
+    },
     "countdown.first.possession": {
       "say": "Night 1 of {nights}. The spirit is too weak to kill tonight.",
       "show": "Night 1 of {nights}. The spirit is too weak to kill tonight."
@@ -214,8 +550,38 @@
       "say": "Night 1 of {nights}. In a village this big, the spirit wakes at once: it can kill tonight.",
       "show": "Night 1 of {nights}. In a village this big, the spirit wakes at once: it can kill tonight."
     },
+    "turn.choices": {
+      "show": "Tonight's choices: answer each, then Confirm."
+    },
+    "part.own": {
+      "show": "Your ability"
+    },
+    "part.hexer.hex": {
+      "show": "Your hex"
+    },
+    "part.implanter.implant": {
+      "show": "Your Parasite"
+    },
+    "part.informant.learn": {
+      "show": "Your look"
+    },
+    "part.village.vote": {
+      "show": "Your vote"
+    },
+    "part.hive.fever": {
+      "show": "Hive's fever"
+    },
+    "part.hexer.fever": {
+      "show": "Your fever"
+    },
     "choose.ally.pack": {
       "show": "{name} is in your pack."
+    },
+    "choose.ally.court": {
+      "show": "{name} is in your court."
+    },
+    "choose.ally.hive": {
+      "show": "{name} is in the hive."
     },
     "choose.ally.cult": {
       "show": "{name} is in your cult."
@@ -223,14 +589,32 @@
     "choose.ally.coven": {
       "show": "{name} is in your cult."
     },
+    "choose.notNow": {
+      "show": "{name} can't be chosen now."
+    },
+    "choose.noPass": {
+      "show": "You must pick tonight. Tap a name."
+    },
     "choose.noPass.possession": {
       "show": "Everyone picks every night. Tap a name."
+    },
+    "turn.pass": {
+      "show": "No pick"
     },
     "task.pack.kill": {
       "show": "Choose your victim. Most picks wins."
     },
     "task.pack.name": {
       "show": "Choose a wolf to lead the pack."
+    },
+    "task.fiend.kill": {
+      "show": "Choose your victim."
+    },
+    "task.hexer.hex": {
+      "show": "Choose a player to hex until the next dawn."
+    },
+    "task.informant.learn": {
+      "show": "Choose a player: learn their true role and team."
     },
     "task.cult_leader.recruit": {
       "show": "Choose someone to recruit, or pick nobody."
@@ -249,6 +633,39 @@
     },
     "task.medium.pick": {
       "show": "Read one of the dead (once a game), or wait."
+    },
+    "task.implanter.implant": {
+      "show": "Choose who gets tonight's Parasite."
+    },
+    "task.hive.fever": {
+      "show": "Pick who catches the hive's fever. Most picks wins."
+    },
+    "task.hive.attack": {
+      "show": "Pick who the Crawlers kill. Most picks wins."
+    },
+    "task.medic.cure": {
+      "show": "Choose someone to treat. Not last night's player."
+    },
+    "task.doctor.examine": {
+      "show": "Choose someone to examine."
+    },
+    "task.hexer.fever": {
+      "show": "Once a game: give a player a fever, or nobody."
+    },
+    "turn.hatched": {
+      "show": "You hatched. You're a Crawler now: you win with the hive, and you have no ghost vote. You aren't told who else is in it."
+    },
+    "task.ghost.poll": {
+      "show": "Name a suspect, or nobody."
+    },
+    "task.village.vote": {
+      "show": "No night ability: vote for a suspect."
+    },
+    "task.host.decoy": {
+      "show": "Who do you suspect? It changes nothing."
+    },
+    "task.changed": {
+      "show": "If your role changed, tap your name to see your new role."
     },
     "task.exorcist.rite": {
       "show": "Pick a player for tonight's Rite."
@@ -300,6 +717,21 @@
     },
     "task.binder.bind": {
       "show": "Pick a player whose pick does nothing tonight."
+    },
+    "spirit.in": {
+      "show": "The spirit is in {name}."
+    },
+    "spirit.hidden": {
+      "show": "Nobody knows where the spirit is: the {device} hid it. A Steer still moves it."
+    },
+    "spirit.fled": {
+      "show": "The spirit fled. Nobody knows where it is. A Steer still moves it."
+    },
+    "spirit.nextInLine": {
+      "show": "Next in line to lead: {name}."
+    },
+    "spirit.nobodyNext": {
+      "show": "Nobody is next in line to lead."
     },
     "result.exorcist.rite.struck": {
       "show": "Last night your Rite struck the spirit in {name}.",
@@ -371,6 +803,25 @@
     "result.tracker.track.wasNot": {
       "show": "Last night the spirit was not in {name}."
     },
+    "result.watch.count": {
+      "show": "Last night, {count} other players picked {name}."
+    },
+    "result.watch.one": {
+      "show": "Last night, 1 other player picked {name}."
+    },
+    "result.watch.none": {
+      "show": "Last night, no other player picked {name}."
+    },
+    "result.any.blocked": {
+      "show": "Last night your pick was blocked.",
+      "word": "BLOCKED"
+    },
+    "result.any.swapped": {
+      "show": "Last night your ability was swapped."
+    },
+    "result.nothing": {
+      "show": "Last night: nothing for you."
+    },
     "result.priest.protect.ok": {
       "show": "Your protection stopped an attack on {names}."
     },
@@ -383,6 +834,15 @@
     "result.meddler.swap.failed": {
       "show": "Your swap did not happen: nothing moved."
     },
+    "result.hexer.hex.ok": {
+      "show": "Your hex landed on {names}."
+    },
+    "result.hexer.hex.failed": {
+      "show": "Your hex on {names} had no effect."
+    },
+    "result.medic.cure.ok": {
+      "show": "You removed a {implant} from {names}."
+    },
     "result.medium.read.none": {
       "show": "Nobody has died since your last turn."
     },
@@ -391,6 +851,57 @@
     },
     "result.medium.pick.fact": {
       "show": "{name} was the {role} ({team})."
+    },
+    "result.any.ok": {
+      "show": "Your ability on {names} worked."
+    },
+    "result.any.failed": {
+      "show": "Your ability on {names} had no effect."
+    },
+    "result.any.good": {
+      "show": "{name} is Good."
+    },
+    "result.any.evil": {
+      "show": "{name} is Evil."
+    },
+    "result.any.fact": {
+      "show": "{name} is the {role} ({team})."
+    },
+    "result.any.none": {
+      "show": "Nothing to learn."
+    },
+    "result.any.acted": {
+      "show": "{name} used a night ability."
+    },
+    "result.any.targeted": {
+      "show": "Someone used a night ability on {name}."
+    },
+    "result.any.actedOn": {
+      "show": "{name} used a night ability on {other}."
+    },
+    "result.any.actedEither": {
+      "show": "{either} used a night ability (at least one of them)."
+    },
+    "result.any.targetedEither": {
+      "show": "Someone used a night ability on {either} (at least one of them)."
+    },
+    "result.any.evilMet": {
+      "show": "The evil team met."
+    },
+    "result.any.quiet": {
+      "show": "Nothing stirred."
+    },
+    "result.any.stirred": {
+      "show": "Something stirred in the night."
+    },
+    "result.any.stirredAround": {
+      "show": "Something stirred around {names}."
+    },
+    "notice.roleChanged": {
+      "show": "Your role changed: now the {role}."
+    },
+    "notice.youAre": {
+      "show": "Shown: the {role}."
     },
     "team.village.name": {
       "show": "Good"
@@ -410,6 +921,15 @@
     "team.pack.lead": {
       "show": "{role}"
     },
+    "team.court.name": {
+      "show": "Evil (the Fiend's court)"
+    },
+    "team.court.short": {
+      "show": "evil, the court"
+    },
+    "team.court.title": {
+      "show": "the Fiend"
+    },
     "team.cult.name": {
       "show": "The cult (with the wolves)"
     },
@@ -425,6 +945,18 @@
     "team.cult.dissolved": {
       "show": "The cult broke up. You're good again."
     },
+    "team.hive.name": {
+      "show": "Evil (the hive)"
+    },
+    "team.hive.short": {
+      "show": "evil, the hive"
+    },
+    "team.hive.title": {
+      "show": "the leader"
+    },
+    "team.hive.lead": {
+      "show": "{role}"
+    },
     "team.coven.name": {
       "show": "The cult"
     },
@@ -437,25 +969,174 @@
     "team.coven.lead": {
       "show": "{role}"
     },
+    "team.any.title": {
+      "show": "the leader"
+    },
+    "team.any.lead": {
+      "show": "leader"
+    },
+    "team.any.recruited": {
+      "show": "Recruited by {name}: now wins with evil."
+    },
+    "team.any.recruitedCard": {
+      "show": "You were recruited by {name}. You now win with evil."
+    },
+    "team.any.dissolved": {
+      "show": "Your team broke up. You're good again."
+    },
+    "card.team.none": {
+      "show": "You have no teammates."
+    },
+    "card.team.members": {
+      "show": "Your team: {members}."
+    },
+    "card.team.youLead": {
+      "show": "You lead it."
+    },
+    "card.team.coverStory": {
+      "show": "Your cover story: {role}."
+    },
+    "card.team.safeClaim": {
+      "show": "Your safe claim: {role}."
+    },
+    "card.team.claims": {
+      "show": "{name} claims {role}."
+    },
+    "dawn.nobody": {
+      "say": "Nobody died last night."
+    },
+    "dawn.died": {
+      "say": "Last night, {names} died."
+    },
+    "dawn.saves": {
+      "say": "A kill was stopped."
+    },
+    "term.implant": {
+      "show": "Burster"
+    },
+    "term.implanted": {
+      "show": "Parasite"
+    },
+    "term.burst": {
+      "show": "Burst"
+    },
+    "term.hatched": {
+      "show": "a Crawler, playing for the hive"
+    },
+    "term.hive": {
+      "show": "the hive"
+    },
     "mode.possession": {
       "show": "Possession"
     },
+    "mode.wolf": {
+      "show": "Wolf"
+    },
+    "mode.zombie": {
+      "show": "Zombie Infection"
+    },
+    "mode.demon": {
+      "show": "Fiend"
+    },
+    "dawn.spiritStruck": {
+      "say": "The spirit was struck.",
+      "show": "One more strike casts it out. Dawn never says whose Rite struck."
+    },
+    "dawn.spiritCastOut": {
+      "say": "The spirit was struck again and cast out."
+    },
+    "mode.brood": {
+      "show": "Infestation"
+    },
+    "dawn.sick": {
+      "say": "{name} is sick.",
+      "show": "A Burster, or just a fever. At the next dawn a Burster bursts and a fever breaks, unless the Medic gets there first."
+    },
+    "dawn.cured": {
+      "say": "{name}'s fever broke in the night."
+    },
+    "result.implanter.implant.ok": {
+      "show": "Your Parasite took on {name}."
+    },
+    "result.implanter.implant.failed": {
+      "show": "Your Parasite found no hold on {name}."
+    },
+    "result.doctor.examine.implant": {
+      "show": "{name} is really infected: a human host. The Burster bursts unless the Medic treats them or they die first."
+    },
+    "result.doctor.examine.fever": {
+      "show": "{name} only has a fever: it breaks, it doesn't burst. A fever can land on anyone, the hive too."
+    },
+    "result.doctor.examine.nothing": {
+      "show": "{name} isn't sick: no Burster, no fever."
+    },
+    "result.village.vote.ok": {
+      "show": "Last night's vote: {name}, the most-named suspect, went out."
+    },
+    "result.village.vote.failed": {
+      "show": "Last night's vote: {name}, the most-named suspect, stayed in."
+    },
+    "dawn.burst": {
+      "say": "Something tore its way out of {name}. {name} is dead, and plays for the hive now, as a Crawler, with no vote."
+    },
+    "dawn.attacked": {
+      "say": "The Crawler attacked. {names} died."
+    },
+    "dawn.ghostHint": {
+      "say": "The ghosts suspect {name}.",
+      "show": "It's only the dead's opinion."
+    },
     "dawn.hunter": {
       "say": "{name}, you may shoot one player."
+    },
+    "dawn.shot": {
+      "say": "{names} was shot."
+    },
+    "dawn.shotNobody": {
+      "say": "{name} fired. Nobody died."
+    },
+    "day.talk": {
+      "say": "Day {day}. Talk it over."
     },
     "day.talk.possession": {
       "say": "Day {day}. Talk it over.",
       "show": "Share (or bluff) what you learned. Then tap Nominations."
     },
+    "talk.dead": {
+      "show": "Dead ({ghostVotes, plural, =0{no ghost votes} one{one ghost vote each} other{# ghost votes each}}): {names}"
+    },
     "talk.dead.possession": {
       "show": "Ghost vote left: {names}"
+    },
+    "day.nominations": {
+      "say": "Nominations.",
+      "show": "Tap everyone who is nominated, then Vote."
     },
     "day.mayor": {
       "say": "{name} is the Mayor. Their vote counts double."
     },
+    "day.notMayor": {
+      "say": "The {device} can't confirm {name} as the Mayor."
+    },
+    "day.noNominations": {
+      "say": "Nobody was nominated. Nobody is executed today."
+    },
+    "day.vote": {
+      "say": "Who votes to execute {name}? Hands up.",
+      "show": "{ghostVotes, plural, =0{The dead have no ghost votes.} one{Each dead player has one ghost vote for the whole game.} other{Each dead player has # ghost votes for the whole game.}}"
+    },
     "day.vote.possession": {
       "say": "Who votes to execute {name}? Hands up.",
       "show": "{bar, select, mostVotes{Needs more votes than any other nominee.} overHalf{Needs {n} votes (more than half of {alive} alive) and more than any other nominee.} other{Needs {n} votes (half of {alive} alive, rounded up) and more than any other nominee.}}"
+    },
+    "vote.ghosts": {
+      "show": "Ghost votes count."
+    },
+    "vote.ghostLeft": {
+      "show": "{n, plural, one{1 ghost vote left} other{# ghost votes left}}"
+    },
+    "vote.rule": {
+      "show": "{bar, select, mostVotes{Execution needs the most votes.} overHalf{Execution needs more than half the living, and the most votes.} other{Execution needs at least half the living, and the most votes.}}{ties, select, revote{ A tie gets one revote between the tied.} other{}}"
     },
     "vote.rule.possession": {
       "show": "{ghostVotes, plural, =0{The dead have no ghost votes.} one{Each dead player has one ghost vote for the whole game.} other{Each dead player has # ghost votes for the whole game.}}"
@@ -463,16 +1144,60 @@
     "vote.mayor": {
       "show": "A revealed Mayor counts double."
     },
+    "vote.ghostKeeps": {
+      "show": "{ghostVotes, plural, one{Not voting keeps it.} other{Not voting keeps them.}}"
+    },
+    "vote.empty": {
+      "show": "No votes entered. Count anyway?"
+    },
+    "vote.emptyCount": {
+      "show": "Count anyway"
+    },
+    "vote.emptyBack": {
+      "show": "Back to the vote"
+    },
+    "day.executed": {
+      "say": "{name} is executed."
+    },
+    "day.noExecution": {
+      "say": "Nobody is executed today."
+    },
+    "final.talk": {
+      "say": "This is the final day. At the end, everyone votes for one player to execute. Catch the leader and the village wins; miss, and evil wins.",
+      "show": "At the end, everyone votes for one player. Catch the leader and the village wins; miss, and evil wins."
+    },
     "final.talk.possession": {
       "say": "This is the final day. Tonight the spirit takes the village, unless you catch the Cult Leader who called it. At the end, everyone votes for one player to execute.",
       "show": "Catch the Cult Leader and the spirit can't stay; miss, and it takes the village."
     },
+    "finalVote.rule": {
+      "show": "The player with the most votes is executed. {finalRevotes, plural, =0{A tie: evil wins.} one{A tie: one revote; still tied, evil wins.} other{A tie: up to # revotes; still tied, evil wins.}}"
+    },
     "finalVote.rule.possession": {
       "show": "The player with the most votes is executed. {finalRevotes, plural, =0{A tie: the cult wins.} one{A tie: one revote; still tied, the cult wins.} other{A tie: up to # revotes; still tied, the cult wins.}}"
+    },
+    "final.vote": {
+      "say": "Final vote. Point at one player... now.",
+      "show": "For each player, tap everyone pointing at them."
     },
     "final.vote.possession": {
       "say": "Final vote. Point at one player... now.",
       "show": "For each player, tap everyone pointing at them."
+    },
+    "final.ghosts": {
+      "show": "Ghost votes count."
+    },
+    "final.tie": {
+      "say": "It's a tie between {names}. One more vote, between them only."
+    },
+    "final.noExecution": {
+      "say": "Still tied. Nobody is executed."
+    },
+    "over.good": {
+      "say": "Good wins: {reason}."
+    },
+    "over.evil": {
+      "say": "Evil wins: {reason}."
     },
     "over.good.wolf": {
       "say": "The village is free of wolves: {reason}."
@@ -485,6 +1210,33 @@
     },
     "over.good.possession": {
       "say": "The village wins: {reason}."
+    },
+    "over.hive": {
+      "say": "The hive wins: {reason}."
+    },
+    "over.cultWithWolves": {
+      "say": "The cult wins with the wolves."
+    },
+    "over.reason.leaderDead": {
+      "show": "{leader} is dead"
+    },
+    "over.reason.finalCaught": {
+      "show": "the final vote caught {leader}"
+    },
+    "over.reason.finalMissed": {
+      "show": "the final vote missed {leader}"
+    },
+    "over.reason.packDead": {
+      "show": "every wolf is dead"
+    },
+    "over.reason.packParity": {
+      "show": "the pack overruns the village, with as many wolves as everyone else alive"
+    },
+    "over.reason.courtParity": {
+      "show": "the Fiend's side is as many as everyone else alive"
+    },
+    "over.reason.hiveParity": {
+      "show": "the hive is as many as the humans left alive"
     },
     "over.reason.castOut.possession": {
       "show": "the second strike drove the spirit out for good"
@@ -504,11 +1256,65 @@
     "over.reason.cultParity.possession": {
       "show": "the cult matches everyone else alive. Nobody is left to stop the spirit"
     },
+    "over.thanks": {
+      "say": "Thanks for playing. Same players again?"
+    },
+    "recap.reveal": {
+      "show": "Reveal"
+    },
+    "recap.skip": {
+      "show": "Skip"
+    },
+    "recap.everyone": {
+      "show": "Everyone"
+    },
+    "recap.done": {
+      "show": "Done"
+    },
+    "recap.again": {
+      "show": "See the recap"
+    },
+    "recap.unmask": {
+      "show": "The evil team"
+    },
     "recap.unmask.wolf": {
       "show": "The pack"
     },
+    "recap.unmask.demon": {
+      "show": "The Fiend's court"
+    },
+    "recap.unmask.brood": {
+      "show": "The hive"
+    },
     "recap.unmask.possession": {
       "show": "The cult"
+    },
+    "recap.tab.table": {
+      "show": "Everyone"
+    },
+    "recap.tab.story": {
+      "show": "How it happened"
+    },
+    "recap.leaderWas": {
+      "say": "The {role} was {name}."
+    },
+    "recap.leadersWere": {
+      "say": "The {role} was {first}, then {then}."
+    },
+    "recap.thought": {
+      "show": "thought they were the {role}"
+    },
+    "recap.hatter": {
+      "show": "shown {roles}, a new role each night"
+    },
+    "recap.maddened": {
+      "show": "maddened by {by} on night {n}: shown the {role}"
+    },
+    "recap.maddenedWho": {
+      "show": "maddened {name} on night {n}"
+    },
+    "recap.madness": {
+      "show": "{by}, the Mad Hatter, maddened {name}: shown the {role}."
     },
     "recap.led.alpha": {
       "show": "led the pack from night {n}"
@@ -516,8 +1322,86 @@
     "recap.led.summoner": {
       "show": "led the cult from night {n}"
     },
+    "recap.spirit.in": {
+      "show": "the spirit entered them on night {n}"
+    },
+    "recap.spirit.inAtDawn": {
+      "show": "the spirit entered them at dawn {n}"
+    },
+    "recap.spirit.moved": {
+      "show": "the Cult Leader steered the spirit out of them at dawn {n}"
+    },
+    "recap.spirit.driven": {
+      "show": "the spirit was driven out of them at dawn {n}"
+    },
+    "recap.spirit.fled": {
+      "show": "the spirit fled from them on night {n}"
+    },
+    "recap.spirit.struck": {
+      "show": "the spirit in them was struck on night {n}"
+    },
+    "recap.spirit.castOut": {
+      "show": "the spirit was cast out of them on night {n}"
+    },
+    "recap.survived": {
+      "show": "survived a night kill on night {n}"
+    },
     "recap.survived.wolf": {
       "show": "survived the pack on night {n}"
+    },
+    "recap.survived.demon": {
+      "show": "survived the Fiend on night {n}"
+    },
+    "recap.survived.brood": {
+      "show": "survived the Crawlers on night {n}"
+    },
+    "recap.savedBy": {
+      "show": "saved by {by} on night {n}"
+    },
+    "recap.saved": {
+      "show": "saved {name} on night {n}"
+    },
+    "recap.died.night": {
+      "show": "died night {n}"
+    },
+    "recap.died.execution": {
+      "show": "executed day {n}"
+    },
+    "recap.died.finalVote": {
+      "show": "executed by the final vote"
+    },
+    "recap.died.shot": {
+      "show": "shot day {n}"
+    },
+    "recap.died.shotDawn": {
+      "show": "shot at dawn {n}"
+    },
+    "recap.night": {
+      "show": "Night {n}"
+    },
+    "recap.day": {
+      "show": "Day {n}"
+    },
+    "recap.final": {
+      "show": "Final vote"
+    },
+    "recap.actor": {
+      "show": "{name}, the {role},"
+    },
+    "recap.actorShown": {
+      "show": "{name}, the {role} (shown the {shown}),"
+    },
+    "recap.actorMad": {
+      "show": "{name}, the {role} (maddened, shown the {shown}),"
+    },
+    "recap.actorHost": {
+      "show": "{name}, the {role} (possessed),"
+    },
+    "recap.noEffect": {
+      "show": "(no effect)"
+    },
+    "recap.madeUp": {
+      "show": "Made up: {result}"
     },
     "recap.act.seer.check": {
       "show": "{actor} checked {targets}"
@@ -539,6 +1423,27 @@
     },
     "recap.act.cult_leader.recruit": {
       "show": "{actor} tried to recruit {targets}"
+    },
+    "recap.act.fiend.kill": {
+      "show": "{actor} chose {targets}"
+    },
+    "recap.act.hexer.hex": {
+      "show": "{actor} hexed {targets}"
+    },
+    "recap.act.hexer.fever": {
+      "show": "{actor} gave {targets} a fever"
+    },
+    "recap.act.informant.learn": {
+      "show": "{actor} looked at {targets}"
+    },
+    "recap.act.implanter.implant": {
+      "show": "{actor} put the Parasite on {targets}"
+    },
+    "recap.act.medic.cure": {
+      "show": "{actor} treated {targets}"
+    },
+    "recap.act.doctor.examine": {
+      "show": "{actor} examined {targets}"
     },
     "recap.act.exorcist.rite": {
       "show": "{actor} performed a Rite on {targets}"
@@ -591,20 +1496,170 @@
     "recap.team.pack.name": {
       "show": "The pack chose {targets} to lead it."
     },
+    "recap.team.hive.fever": {
+      "show": "The hive's fever went to {targets}."
+    },
+    "recap.team.hive.attack": {
+      "show": "The Crawlers chose {targets}."
+    },
     "recap.elder": {
       "show": "{name}, the Elder, survived."
+    },
+    "recap.protected": {
+      "show": "{by}'s protection saved {name}."
+    },
+    "recap.spiritSpared": {
+      "show": "The spirit's kill spared {name} (in the cult) and fell on {to} instead."
+    },
+    "recap.sparedStory": {
+      "show": "the spirit's kill turned from them to {to} on night {n}"
+    },
+    "recap.escaped": {
+      "show": "{name} survived a kill."
+    },
+    "recap.swapped": {
+      "show": "{a} and {b} swapped roles."
+    },
+    "recap.tookOver": {
+      "show": "{name} took over as the {role}."
+    },
+    "recap.recruited": {
+      "show": "{name} was recruited."
+    },
+    "recap.deaths": {
+      "show": "{names} died."
+    },
+    "recap.nobodyDied": {
+      "show": "Nobody died."
+    },
+    "recap.ghosts": {
+      "show": "The ghosts suspected {name}, the {role}."
     },
     "recap.mayor": {
       "show": "{name} revealed as the Mayor."
     },
+    "recap.noNominations": {
+      "show": "Nobody was nominated."
+    },
+    "recap.executed": {
+      "show": "{name} was executed: {votes} votes, {need} needed."
+    },
+    "recap.noExecution": {
+      "show": "Nobody was executed: {votes}; {need} needed."
+    },
+    "recap.finalVotes": {
+      "show": "Votes: {votes}."
+    },
+    "recap.executedFinal": {
+      "show": "{name} was executed."
+    },
+    "recap.noFinal": {
+      "show": "Nobody was executed."
+    },
+    "recap.row.became": {
+      "show": "became the {role} on night {n}"
+    },
+    "recap.row.heir": {
+      "show": "the Understudy: took over as the {role} on night {n}, when {name} died"
+    },
+    "recap.row.tookOver": {
+      "show": "{name} took over as the {role} on night {n}"
+    },
+    "recap.row.heirByDay": {
+      "show": "the Understudy: took over as the {role} on day {n}, when {name} died"
+    },
+    "recap.row.tookOverByDay": {
+      "show": "{name} took over as the {role} on day {n}"
+    },
+    "recap.row.swapped": {
+      "show": "swapped roles with {name} on night {n}"
+    },
+    "recap.row.recruited": {
+      "show": "recruited on night {n}"
+    },
+    "recap.row.dissolved": {
+      "show": "back to good on night {n} when the cult broke up"
+    },
+    "recap.row.dissolvedByDay": {
+      "show": "back to good on day {n} when the cult broke up"
+    },
+    "recap.row.hatched": {
+      "show": "{burst} at dawn {n}: {hatched}"
+    },
+    "recap.row.team": {
+      "show": "changed sides on night {n}"
+    },
+    "recap.row.status.implanted": {
+      "show": "{implanted} on night {n}"
+    },
+    "recap.row.status.sick": {
+      "show": "sick from dawn {n}"
+    },
+    "recap.row.status.fever": {
+      "show": "a fever on night {n}"
+    },
+    "recap.row.status.hexed": {
+      "show": "hexed on night {n}"
+    },
+    "recap.row.status.mad": {
+      "show": "maddened on night {n}"
+    },
+    "recap.row.status.protected": {
+      "show": "protected on night {n}"
+    },
     "recap.row.status.mayor.revealed": {
       "show": "revealed as the Mayor on day {n}"
+    },
+    "recap.row.ended.implanted.cured": {
+      "show": "cured by the Medic on night {n}"
+    },
+    "recap.row.ended.implanted.noHold": {
+      "show": "the {implanted} found no hold on night {n}"
+    },
+    "recap.row.ended.fever.cured": {
+      "show": "the Medic broke the fever on night {n}"
+    },
+    "recap.row.ended.fever.broke": {
+      "show": "the fever broke at dawn {n}"
+    },
+    "recap.row.ended.sick.well": {
+      "show": "well again at dawn {n}"
+    },
+    "history.act.implanter.implant": {
+      "show": "put the {implanted} on {names}"
+    },
+    "history.act.hive.fever": {
+      "show": "picked {names} for the hive's fever"
+    },
+    "history.act.hive.attack": {
+      "show": "picked {names} for the hive's attack"
+    },
+    "history.act.hexer.fever": {
+      "show": "gave {names} a fever"
+    },
+    "history.act.medic.cure": {
+      "show": "treated {names}"
+    },
+    "history.act.doctor.examine": {
+      "show": "examined {names}"
+    },
+    "history.act.village.vote": {
+      "show": "named {names} in the village vote"
     },
     "history.act.pack.kill": {
       "show": "picked a victim"
     },
     "history.act.pack.name": {
       "show": "named {names} as Alpha"
+    },
+    "history.act.fiend.kill": {
+      "show": "chose to kill"
+    },
+    "history.act.hexer.hex": {
+      "show": "hexed"
+    },
+    "history.act.informant.learn": {
+      "show": "looked at"
     },
     "history.act.cult_leader.recruit": {
       "show": "tried to recruit"
@@ -624,17 +1679,62 @@
     "history.act.medium.pick": {
       "show": "read the dead"
     },
+    "history.act.ghost.poll": {
+      "show": "named {names} as a suspect"
+    },
     "history.act.hunter.shoot": {
       "show": "shot"
     },
     "history.act.mayor.reveal": {
       "show": "revealed as the Mayor"
     },
+    "history.act.day.nominate": {
+      "show": "nominated"
+    },
+    "history.act.day.ballot": {
+      "show": "voted to execute"
+    },
+    "history.act.final.vote": {
+      "show": "final vote for"
+    },
+    "history.act.final.revote": {
+      "show": "revote for"
+    },
+    "history.pass.implanter.implant": {
+      "show": "the {implanted}"
+    },
+    "history.pass.hive.fever": {
+      "show": "the hive's fever"
+    },
+    "history.pass.hive.attack": {
+      "show": "the hive's attack"
+    },
+    "history.pass.hexer.fever": {
+      "show": "the fever"
+    },
+    "history.pass.medic.cure": {
+      "show": "the treatment"
+    },
+    "history.pass.doctor.examine": {
+      "show": "the examination"
+    },
+    "history.pass.village.vote": {
+      "show": "the village vote"
+    },
     "history.pass.pack.kill": {
       "show": "the pack's kill"
     },
     "history.pass.pack.name": {
       "show": "naming the Alpha"
+    },
+    "history.pass.fiend.kill": {
+      "show": "the kill"
+    },
+    "history.pass.hexer.hex": {
+      "show": "the hex"
+    },
+    "history.pass.informant.learn": {
+      "show": "the look"
     },
     "history.pass.cult_leader.recruit": {
       "show": "the recruit"
@@ -698,6 +1798,303 @@
     },
     "history.pass.binder.bind": {
       "show": "the binding"
+    },
+    "feedback.title": {
+      "show": "How was it?"
+    },
+    "feedback.ask": {
+      "say": "How was it? Pass the {device} round once: each of you answers three quick questions, privately. Or skip.",
+      "show": "Pass the {device} round once: each of you answers three quick questions, privately."
+    },
+    "feedback.start": {
+      "show": "Start"
+    },
+    "feedback.skip": {
+      "show": "Skip"
+    },
+    "feedback.skipMine": {
+      "show": "Skip mine"
+    },
+    "feedback.done": {
+      "show": "Done"
+    },
+    "feedback.doneLeft": {
+      "show": "{n} to go"
+    },
+    "feedback.q.fun": {
+      "show": "How fun was it?"
+    },
+    "feedback.q.agency": {
+      "show": "How much did your choices matter?"
+    },
+    "feedback.scale": {
+      "show": "1 = not at all, 5 = a lot"
+    },
+    "feedback.q.nights": {
+      "show": "At night:"
+    },
+    "feedback.nights.busy": {
+      "show": "Busy"
+    },
+    "feedback.nights.little": {
+      "show": "A little to do"
+    },
+    "feedback.nights.bored": {
+      "show": "Bored"
+    },
+    "feedback.q.confused": {
+      "show": "What confused you? (optional)"
+    },
+    "feedback.confused.role": {
+      "show": "My role"
+    },
+    "feedback.confused.night": {
+      "show": "My night turn"
+    },
+    "feedback.confused.votes": {
+      "show": "The votes"
+    },
+    "feedback.confused.ghosts": {
+      "show": "The ghosts' hint"
+    },
+    "feedback.confused.ending": {
+      "show": "Why it ended"
+    },
+    "feedback.confused.nothing": {
+      "show": "Nothing"
+    },
+    "feedback.setting": {
+      "show": "\"How was it?\" after each game"
+    },
+    "feedback.settingOn": {
+      "show": "On: after the recap, each player rates the game privately (or the table skips it). Saved with the game."
+    },
+    "feedback.settingOff": {
+      "show": "Off: no questions after the game."
+    },
+    "save.otherRulesTitle": {
+      "show": "This game used rules this {device} no longer has"
+    },
+    "save.otherRules": {
+      "show": "It was played under {mode} rules {rules}. It can't be resumed. Its history is kept."
+    },
+    "save.otherRulesBuild": {
+      "show": "from build {build}"
+    },
+    "save.otherRulesFingerprint": {
+      "show": "Rules fingerprint {fingerprint}"
+    },
+    "pause.title": {
+      "show": "Paused"
+    },
+    "pause.paused": {
+      "say": "The game is paused.",
+      "show": "The game is paused."
+    },
+    "pause.note": {
+      "show": "Every timer has stopped. No turn runs out while the game is paused."
+    },
+    "pause.closeEyes": {
+      "say": "The game is paused. Everyone, close your eyes."
+    },
+    "pause.openEyes": {
+      "say": "Now, everyone, open your eyes."
+    },
+    "pause.goOn": {
+      "show": "Go on"
+    },
+    "pause.resumedTitle": {
+      "show": "Back to the game"
+    },
+    "pause.resumed": {
+      "say": "The game goes on.",
+      "show": "The game goes on."
+    },
+    "pause.backTo": {
+      "say": "Back to {name}."
+    },
+    "rules.setup.update": {
+      "show": "Rules: update {rules}"
+    },
+    "rules.setup.builtIn": {
+      "show": "Rules: built in"
+    },
+    "rules.setup.unavailable": {
+      "show": "{mode}'s downloaded rules didn't load."
+    },
+    "rules.setup.useBundled": {
+      "show": "Use built-in rules"
+    },
+    "rules.setup.useBundledScope": {
+      "show": "Plays this build's own rules for every mode. Your downloaded rules stay on this {device}."
+    },
+    "rules.meter.unknown": {
+      "show": "Difficulty for the village: not measured for these rules"
+    },
+    "rules.title": {
+      "show": "Rules"
+    },
+    "rules.open": {
+      "show": "Where this {device}'s rules come from, and checking for updates."
+    },
+    "rules.source.private": {
+      "show": "Private"
+    },
+    "rules.source.public": {
+      "show": "Public"
+    },
+    "rules.source.applied": {
+      "show": "{name} · {rules} · commit {commit} · applied {time}"
+    },
+    "rules.source.builtIn": {
+      "show": "{name} · built in (build {build})"
+    },
+    "rules.source.unavailable": {
+      "show": "{name} · unavailable: {reason}"
+    },
+    "rules.source.notInPlay": {
+      "show": "{name} · not in play: this build plays compiled rules"
+    },
+    "rules.checked": {
+      "show": "Last checked {time} by {by}"
+    },
+    "rules.applied": {
+      "show": "Applied {time} by {by}"
+    },
+    "rules.by.tap": {
+      "show": "a tap"
+    },
+    "rules.by.mcp": {
+      "show": "the MCP"
+    },
+    "rules.by.mac": {
+      "show": "the Mac"
+    },
+    "rules.retired": {
+      "show": "Rules from build {from} were set aside by build {to}. Playing build {to}'s own rules. Check for updates to move ahead."
+    },
+    "rules.modes": {
+      "show": "Modes"
+    },
+    "rules.mode.builtIn": {
+      "show": "{mode}: built in"
+    },
+    "rules.mode.update": {
+      "show": "{mode}: update {rules}"
+    },
+    "rules.mode.unavailable": {
+      "show": "{mode}: unavailable"
+    },
+    "rules.mode.differs": {
+      "show": "differs from built in"
+    },
+    "rules.pictures": {
+      "show": "Pictures"
+    },
+    "rules.pictureCount": {
+      "show": "{mode}: {n} pictures missing, {count} failed"
+    },
+    "rules.picture.failed": {
+      "show": "Picture not loaded"
+    },
+    "rules.picture.missing": {
+      "show": "No picture yet"
+    },
+    "rules.note": {
+      "show": "Encyclopedia setup tables are written by hand and aren't checked against downloaded rules."
+    },
+    "rules.check": {
+      "show": "Check for updates"
+    },
+    "rules.checking": {
+      "show": "Checking GitHub…"
+    },
+    "rules.back": {
+      "show": "Back to built-in rules"
+    },
+    "rules.backTitle": {
+      "show": "Use this build's rules for every mode?"
+    },
+    "rules.backBody": {
+      "show": "Your downloaded rules stay on this {device}; Check for updates brings them back."
+    },
+    "rules.backYes": {
+      "show": "Use built-in rules"
+    },
+    "rules.backCancel": {
+      "show": "Cancel"
+    },
+    "rules.result.title": {
+      "show": "Check for updates"
+    },
+    "rules.result.change": {
+      "show": "Will change"
+    },
+    "rules.result.changeLine": {
+      "show": "{mode}: {from} → {to} ({rules} · commit {commit})"
+    },
+    "rules.result.newer": {
+      "show": "Needs a newer app"
+    },
+    "rules.result.newerLine": {
+      "show": "{mode}: needs a newer app ({reason})"
+    },
+    "rules.result.refused": {
+      "show": "Refused"
+    },
+    "rules.result.refusedLine": {
+      "show": "{mode}: refused, {n} problems"
+    },
+    "rules.result.same": {
+      "show": "No change"
+    },
+    "rules.result.apply": {
+      "show": "Use these rules"
+    },
+    "rules.result.gameOpen": {
+      "show": "Finish or close the game first."
+    },
+    "rules.result.gateShut": {
+      "show": "This build can't play downloaded rules yet."
+    },
+    "rules.result.nothing": {
+      "show": "Nothing to apply."
+    },
+    "rules.result.stale": {
+      "show": "Other rules were checked since. Check again."
+    },
+    "rules.result.done": {
+      "show": "These rules play from the next game."
+    },
+    "rules.offline": {
+      "show": "Couldn't reach GitHub. Nothing changed. Still playing: {list}."
+    },
+    "rules.playing.update": {
+      "show": "{mode} {rules}"
+    },
+    "rules.playing.builtIn": {
+      "show": "{mode} built in"
+    },
+    "rules.rateLimit": {
+      "show": "GitHub's limit is reached until {time}."
+    },
+    "rules.busy": {
+      "show": "A check is already running."
+    },
+    "setup.goodRolesNote": {
+      "show": "Any other good role claimed is a lie."
+    },
+    "card.recruitedBy": {
+      "show": "You were recruited by {name}."
+    },
+    "vote.why.tied": {
+      "show": "Tied at {n}: nobody is executed."
+    },
+    "vote.why.needed": {
+      "show": "{bar, select, mostVotes{At least one vote needed.} overHalf{{need} needed (more than half of {alive} alive).} other{{need} needed (half of {alive} alive, rounded up).}}"
+    },
+    "vote.revote": {
+      "show": "A tie: one more vote, between {names} only."
     }
   }
 }

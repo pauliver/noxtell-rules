@@ -7,11 +7,14 @@
   },
   "modes": [
     "possession",
-    "wolf"
+    "wolf",
+    "demon",
+    "brood",
+    "zombie"
   ],
   "options": {
     "dawn": [
-      "poison",
+      "hex",
       "protect",
       "recruit",
       "kill",
@@ -52,6 +55,9 @@
       "meddler": {
         "feedback": true,
         "unique": true
+      },
+      "hexer": {
+        "feedback": true
       },
       "sleepless_child": {
         "fragments": "seat",

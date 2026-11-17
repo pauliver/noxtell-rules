@@ -3,10 +3,13 @@
   "corner": "public",
   "current": "0.0.13",
   "versions": [
-    {"id":"0.0.13","status":"inProgress","schema":4,"manifest":"0.0.13/0.0.13.manifest.json","bytes":14654,"sha256":"e40e8cea0fa44d592d37020655292f2207c19c9c78bc47ce19c91ba41ec7b502","langs":["en"]}
+    {"id":"0.0.13","status":"inProgress","schema":4,"manifest":"0.0.13/0.0.13.manifest.json","bytes":28310,"sha256":"3f8eb914d98be62644e9f2cc21a99bb7c6a95413a821583e449612e31eaaf154","langs":["en"]}
   ],
   "codes": {
+    "brood": {"seatOrder":"B","roleCall":"C","tab":3,"sim":2,"since":"0.0.13"},
+    "demon": {"seatOrder":"D","roleCall":"E","tab":2,"sim":1,"since":"0.0.13"},
     "possession": {"seatOrder":"P","roleCall":"Q","tab":5,"sim":3,"since":"0.0.13"},
-    "wolf": {"seatOrder":"W","roleCall":"X","tab":1,"sim":0,"since":"0.0.13"}
+    "wolf": {"seatOrder":"W","roleCall":"X","tab":1,"sim":0,"since":"0.0.13"},
+    "zombie": {"tab":6,"since":"0.0.13"}
   }
 }

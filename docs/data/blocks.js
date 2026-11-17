@@ -3,7 +3,10 @@ window.NOXTELL_BLOCKS = {
  "version": "0.0.13",
  "modes": [
   "possession",
-  "wolf"
+  "wolf",
+  "demon",
+  "brood",
+  "zombie"
  ],
  "verbKinds": {
   "infoNow": "answered on the holder's own turn, from the snapshot taken at the start of the night",
@@ -566,6 +569,12 @@ window.NOXTELL_BLOCKS = {
     "usedBy": {
      "wolf": [
       "seer"
+     ],
+     "demon": [
+      "seer"
+     ],
+     "brood": [
+      "seer"
      ]
     }
    },
@@ -590,6 +599,9 @@ window.NOXTELL_BLOCKS = {
     },
     "usedBy": {
      "wolf": [
+      "medium"
+     ],
+     "demon": [
       "medium"
      ]
     }
@@ -618,6 +630,9 @@ window.NOXTELL_BLOCKS = {
     },
     "usedBy": {
      "wolf": [
+      "medium"
+     ],
+     "demon": [
       "medium"
      ]
     }
@@ -664,6 +679,12 @@ window.NOXTELL_BLOCKS = {
      ],
      "wolf": [
       "priest"
+     ],
+     "demon": [
+      "priest"
+     ],
+     "brood": [
+      "priest"
      ]
     }
    },
@@ -695,6 +716,9 @@ window.NOXTELL_BLOCKS = {
     "usedBy": {
      "wolf": [
       "meddler"
+     ],
+     "demon": [
+      "meddler"
      ]
     }
    },
@@ -718,6 +742,9 @@ window.NOXTELL_BLOCKS = {
     },
     "usedBy": {
      "wolf": [
+      "sleepless_child"
+     ],
+     "demon": [
       "sleepless_child"
      ]
     }
@@ -743,6 +770,9 @@ window.NOXTELL_BLOCKS = {
     "usedBy": {
      "wolf": [
       "hunter"
+     ],
+     "demon": [
+      "hunter"
      ]
     }
    },
@@ -757,6 +787,9 @@ window.NOXTELL_BLOCKS = {
     "words": "The holder survives the first night kill against them, silently.",
     "usedBy": {
      "wolf": [
+      "elder"
+     ],
+     "demon": [
       "elder"
      ]
     }
@@ -783,6 +816,9 @@ window.NOXTELL_BLOCKS = {
     "usedBy": {
      "wolf": [
       "mayor"
+     ],
+     "demon": [
+      "mayor"
      ]
     }
    },
@@ -805,7 +841,11 @@ window.NOXTELL_BLOCKS = {
       "type": "a count, or a size map of counts"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "demon": [
+      "fiend"
+     ]
+    }
    },
    {
     "name": "teamKill",
@@ -828,10 +868,10 @@ window.NOXTELL_BLOCKS = {
     }
    },
    {
-    "name": "poison",
+    "name": "hex",
     "kind": "effect",
-    "ability": "poison",
-    "step": "poison",
+    "ability": "hex",
+    "step": "hex",
     "result": "none",
     "dawnNews": true,
     "useKeys": [
@@ -841,9 +881,9 @@ window.NOXTELL_BLOCKS = {
      "uses"
     ],
     "statuses": [
-     "poisoned"
+     "hexed"
     ],
-    "words": "The target's ability fails (the status `poisoned`) until `until`: the next dawn or the next dusk. With `feedback` on, the holder hears at the dawn call whether it landed. With the argument `feverAbility` and the parameter `fever` on, the holder also has a once-a-game fever, a second ability: the poison does nothing on the night it is used.",
+    "words": "The target's ability fails (the status `hexed`) until `until`: the next dawn or the next dusk. With `feedback` on, the holder hears at the dawn call whether it landed. With the argument `feverAbility` and the parameter `fever` on, the holder also has a once-a-game fever, a second ability: the hex does nothing on the night it is used.",
     "args": {
      "feverAbility": {
       "type": "true or false"
@@ -863,7 +903,14 @@ window.NOXTELL_BLOCKS = {
       "type": "true or false"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "demon": [
+      "hexer"
+     ],
+     "brood": [
+      "hexer"
+     ]
+    }
    },
    {
     "name": "recruit",
@@ -894,6 +941,9 @@ window.NOXTELL_BLOCKS = {
     "usedBy": {
      "wolf": [
       "cult_leader"
+     ],
+     "demon": [
+      "cult_leader"
      ]
     }
    },
@@ -913,7 +963,14 @@ window.NOXTELL_BLOCKS = {
       "type": "a count, or a size map of counts"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "demon": [
+      "informant"
+     ],
+     "brood": [
+      "informant"
+     ]
+    }
    },
    {
     "name": "successor",
@@ -932,7 +989,14 @@ window.NOXTELL_BLOCKS = {
       "type": "an integer, at least 0"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "demon": [
+      "understudy"
+     ],
+     "brood": [
+      "understudy"
+     ]
+    }
    },
    {
     "name": "nameLeader",
@@ -999,7 +1063,11 @@ window.NOXTELL_BLOCKS = {
       "type": "a night, or a size map of nights"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "implanter"
+     ]
+    }
    },
    {
     "name": "cure",
@@ -1031,7 +1099,11 @@ window.NOXTELL_BLOCKS = {
       "type": "true or false"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "medic"
+     ]
+    }
    },
    {
     "name": "diagnose",
@@ -1055,7 +1127,11 @@ window.NOXTELL_BLOCKS = {
       "type": "true or false"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "doctor"
+     ]
+    }
    },
    {
     "name": "villageVote",
@@ -1074,7 +1150,11 @@ window.NOXTELL_BLOCKS = {
       "type": "true or false"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "village"
+     ]
+    }
    },
    {
     "name": "rankedMark",
@@ -1096,7 +1176,11 @@ window.NOXTELL_BLOCKS = {
       "type": "a count, or a size map of counts"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "hive"
+     ]
+    }
    },
    {
     "name": "outbreakKill",
@@ -1124,7 +1208,11 @@ window.NOXTELL_BLOCKS = {
       "type": "one of team, turned"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "hive"
+     ]
+    }
    },
    {
     "name": "rite",
@@ -1414,6 +1502,9 @@ window.NOXTELL_BLOCKS = {
     "usedBy": {
      "wolf": [
       "drunk"
+     ],
+     "demon": [
+      "drunk"
      ]
     }
    },
@@ -1435,6 +1526,9 @@ window.NOXTELL_BLOCKS = {
     "usedBy": {
      "wolf": [
       "mad_hatter"
+     ],
+     "demon": [
+      "mad_hatter"
      ]
     }
    }
@@ -1454,6 +1548,12 @@ window.NOXTELL_BLOCKS = {
      ],
      "wolf": [
       "village"
+     ],
+     "demon": [
+      "village"
+     ],
+     "brood": [
+      "village"
      ]
     }
    },
@@ -1468,6 +1568,9 @@ window.NOXTELL_BLOCKS = {
     "usedBy": {
      "wolf": [
       "pack"
+     ],
+     "demon": [
+      "court"
      ]
     }
    },
@@ -1518,7 +1621,11 @@ window.NOXTELL_BLOCKS = {
       "type": "an integer, at least 0"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "hive"
+     ]
+    }
    },
    {
     "name": "coven",
@@ -1625,6 +1732,9 @@ window.NOXTELL_BLOCKS = {
     "usedBy": {
      "wolf": [
       "the mode's deal"
+     ],
+     "demon": [
+      "the mode's deal"
      ]
     }
    },
@@ -1654,7 +1764,11 @@ window.NOXTELL_BLOCKS = {
       "type": "a list"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "the mode's deal"
+     ]
+    }
    },
    {
     "name": "picked",
@@ -1789,6 +1903,9 @@ window.NOXTELL_BLOCKS = {
      "wolf": [
       "alpha",
       "wolf"
+     ],
+     "demon": [
+      "fiend"
      ]
     }
    },
@@ -1861,6 +1978,12 @@ window.NOXTELL_BLOCKS = {
     "usedBy": {
      "wolf": [
       "priest"
+     ],
+     "demon": [
+      "priest"
+     ],
+     "brood": [
+      "priest"
      ]
     }
    },
@@ -1869,6 +1992,9 @@ window.NOXTELL_BLOCKS = {
     "words": "Shown a false good role for a night and the next day, and acting as a `falseCard` does: nothing the player does works.",
     "usedBy": {
      "wolf": [
+      "mad_hatter"
+     ],
+     "demon": [
       "mad_hatter"
      ]
     }
@@ -1879,13 +2005,23 @@ window.NOXTELL_BLOCKS = {
     "usedBy": {
      "wolf": [
       "mayor"
+     ],
+     "demon": [
+      "mayor"
      ]
     }
    },
    {
-    "name": "poisoned",
-    "words": "From `poison`: the holder's ability fails until it ends.",
-    "usedBy": {}
+    "name": "hexed",
+    "words": "From `hex`: the holder's ability fails until it ends.",
+    "usedBy": {
+     "demon": [
+      "hexer"
+     ],
+     "brood": [
+      "hexer"
+     ]
+    }
    },
    {
     "name": "infected",
@@ -1898,7 +2034,11 @@ window.NOXTELL_BLOCKS = {
       "type": "a step id"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "implanter"
+     ]
+    }
    },
    {
     "name": "sick",
@@ -1911,7 +2051,11 @@ window.NOXTELL_BLOCKS = {
       "type": "a step id"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "implanter"
+     ]
+    }
    },
    {
     "name": "fever",
@@ -1924,7 +2068,12 @@ window.NOXTELL_BLOCKS = {
       "type": "a step id"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "hive",
+      "implanter"
+     ]
+    }
    },
    {
     "name": "turned",
@@ -1937,7 +2086,11 @@ window.NOXTELL_BLOCKS = {
       "type": "a step id"
      }
     },
-    "usedBy": {}
+    "usedBy": {
+     "brood": [
+      "implanter"
+     ]
+    }
    },
    {
     "name": "possessed",
@@ -2359,6 +2512,279 @@ window.NOXTELL_BLOCKS = {
       "feedback": false
      }
     }
+   }
+  },
+  {
+   "mode": "demon",
+   "teams": [
+    {
+     "id": "village",
+     "alignment": "good",
+     "module": "village"
+    },
+    {
+     "id": "court",
+     "alignment": "evil",
+     "module": "evilTeam"
+    }
+   ],
+   "roles": [
+    {
+     "id": "villager",
+     "team": "village"
+    },
+    {
+     "id": "seer",
+     "team": "village",
+     "codeBit": 0,
+     "verbs": [
+      "senseAlignment"
+     ]
+    },
+    {
+     "id": "priest",
+     "team": "village",
+     "codeBit": 1,
+     "verbs": [
+      "protect"
+     ]
+    },
+    {
+     "id": "medium",
+     "team": "village",
+     "codeBit": 2,
+     "verbs": [
+      "readDead",
+      "readDeadPick"
+     ]
+    },
+    {
+     "id": "hunter",
+     "team": "village",
+     "codeBit": 3,
+     "verbs": [
+      "deathShot"
+     ]
+    },
+    {
+     "id": "meddler",
+     "team": "village",
+     "codeBit": 4,
+     "verbs": [
+      "swapCards"
+     ]
+    },
+    {
+     "id": "elder",
+     "team": "village",
+     "codeBit": 5,
+     "verbs": [
+      "attackGuard"
+     ]
+    },
+    {
+     "id": "mayor",
+     "team": "village",
+     "codeBit": 6,
+     "verbs": [
+      "revealVoteWeight"
+     ]
+    },
+    {
+     "id": "drunk",
+     "team": "village",
+     "codeBit": 7,
+     "persona": "falseCard"
+    },
+    {
+     "id": "mad_hatter",
+     "team": "village",
+     "codeBit": 8,
+     "persona": "changingCard"
+    },
+    {
+     "id": "fiend",
+     "team": "court",
+     "tags": [
+      "leader"
+     ],
+     "verbs": [
+      {
+       "verb": "kill",
+       "when": "killNight"
+      }
+     ]
+    },
+    {
+     "id": "hexer",
+     "team": "court",
+     "verbs": [
+      "hex"
+     ]
+    },
+    {
+     "id": "informant",
+     "team": "court",
+     "verbs": [
+      "learnRole"
+     ]
+    },
+    {
+     "id": "understudy",
+     "team": "court",
+     "verbs": [
+      {
+       "verb": "successor",
+       "minAlive": 7
+      }
+     ]
+    },
+    {
+     "id": "cult_leader",
+     "team": "court",
+     "tags": [
+      "cult.leader"
+     ],
+     "verbs": [
+      {
+       "verb": "recruit",
+       "cap": 1,
+       "onDeath": "keep"
+      }
+     ]
+    },
+    {
+     "id": "sleepless_child",
+     "team": "village",
+     "pickable": true,
+     "verbs": [
+      "dawnFragments"
+     ]
+    }
+   ],
+   "options": {
+    "roles": {}
+   }
+  },
+  {
+   "mode": "brood",
+   "teams": [
+    {
+     "id": "village",
+     "alignment": "good",
+     "module": "village"
+    },
+    {
+     "id": "hive",
+     "alignment": "evil",
+     "module": "outbreakTeam"
+    }
+   ],
+   "roles": [
+    {
+     "id": "villager",
+     "team": "village"
+    },
+    {
+     "id": "seer",
+     "team": "village",
+     "verbs": [
+      "senseAlignment"
+     ]
+    },
+    {
+     "id": "priest",
+     "team": "village",
+     "verbs": [
+      "protect"
+     ]
+    },
+    {
+     "id": "hexer",
+     "team": "hive",
+     "verbs": [
+      {
+       "verb": "hex",
+       "feverAbility": true
+      }
+     ]
+    },
+    {
+     "id": "informant",
+     "team": "hive",
+     "verbs": [
+      "learnRole"
+     ]
+    },
+    {
+     "id": "understudy",
+     "team": "hive",
+     "verbs": [
+      {
+       "verb": "successor",
+       "minAlive": 7
+      }
+     ]
+    },
+    {
+     "id": "implanter",
+     "team": "hive",
+     "tags": [
+      "leader"
+     ],
+     "verbs": [
+      "infect"
+     ]
+    },
+    {
+     "id": "medic",
+     "team": "village",
+     "verbs": [
+      "cure"
+     ]
+    },
+    {
+     "id": "doctor",
+     "team": "village",
+     "verbs": [
+      "diagnose"
+     ]
+    }
+   ],
+   "options": {
+    "roles": {
+     "implanter": {
+      "sickAfter": 0,
+      "outbreakAfter": 1,
+      "fevers": true,
+      "feedback": true
+     },
+     "medic": {
+      "curesSick": true,
+      "unique": true
+     },
+     "doctor": {
+      "feedback": true,
+      "unique": true
+     },
+     "hexer": {
+      "fever": false
+     },
+     "priest": {
+      "everyNight": true
+     },
+     "seer": {
+      "fromNight": 1
+     }
+    }
+   }
+  },
+  {
+   "mode": "zombie",
+   "teams": [],
+   "roles": [],
+   "options": {
+    "roles": {}
    }
   }
  ]

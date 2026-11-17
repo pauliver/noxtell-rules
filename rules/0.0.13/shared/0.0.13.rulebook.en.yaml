@@ -4,6 +4,8 @@
   "lang": "en",
   "modeNames": {
     "wolf": "wolf",
+    "demon": "Fiend",
+    "brood": "Infestation",
     "possession": "Possession"
   },
   "bySize": {
@@ -19,19 +21,43 @@
     }
   },
   "teams": {
+    "good": {
+      "name": "Good",
+      "colours": "gold on teal"
+    },
     "wolf": {
       "name": "Evil: the pack",
       "colours": "crimson on charcoal"
     },
+    "demon": {
+      "name": "Evil: the Fiend's court",
+      "colours": "violet on black"
+    },
     "cult": {
       "name": "The cult",
       "colours": "green on olive"
+    },
+    "hive": {
+      "name": "Evil: the hive",
+      "colours": "acid green on black"
     }
   },
   "groups": [
     {
+      "id": "good",
+      "title": "Good roles"
+    },
+    {
       "id": "wolf",
       "title": "Wolf mode: the pack"
+    },
+    {
+      "id": "demon",
+      "title": "Fiend mode: the Fiend's court"
+    },
+    {
+      "id": "brood",
+      "title": "Infestation: the hive (9+ players)"
     },
     {
       "id": "possession",
@@ -46,24 +72,40 @@
       ],
       "team": "good",
       "card": {
+        "brood": "No night ability: each night you vote for a suspect, and may learn whether they went out.",
         "possession": "Each night, pick another player. At your next turn you learn how many other players also picked them.",
         "other": "No night ability. Your weapon is your vote and your voice."
       },
       "when": {
+        "brood": "Every night, in your turn: the village vote.",
         "possession": "Every night, in your turn. Your count comes at the top of your next turn; on the final night there is none (the game ends first), and your turn says so.",
         "other": "Never called at night. When the {device} is passed round at night, you get \"Who do you suspect? It changes nothing.\", so every turn looks the same."
       },
       "does": {
         "possession": "Pick another player, and at your next turn you're told how many other players picked them last night. Every living player's pick counts, including the cult's picks and blocked picks; the dead's never count. If the Binder blocked you, you're told your pick was blocked instead. On the final night your turn tells you there's no count tonight (it could never arrive), but your pick still counts as a pick. Ask the table who picked whom: a count that nobody claims is a hidden pick.",
+        "brood": "Each night you name a suspect, or nobody. Everyone with no night ability votes; only the most-named player is checked (a tie checks nobody). If you named them, at your next turn you learn whether they went out (used a night ability on someone) or stayed in. Nobody else is told.",
         "other": "No night ability. You find evil by talking, accusing and voting."
       },
       "notes": [
         "\"I'm a Villager\" proves nothing: evil players can say it too.",
         {
           "modes": [
-            "wolf"
+            "wolf",
+            "demon"
           ],
           "text": "Your answer to \"Who do you suspect? It changes nothing.\" is private and feeds nothing public; it's there so nobody can tell who has an ability."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "The hive's fever and the village vote aren't going out, so a Villager and the Understudy both stay in. A player who went out has a night ability: a \"Villager\" who went out is lying."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "If you're hexed, what you learn is false. If you die before your next turn, you learn nothing."
         },
         {
           "modes": [
@@ -81,10 +123,13 @@
       "team": "good",
       "card": "On each of your nights, choose a player and learn Good or Evil.",
       "when": {
+        "brood": "Every night, from night 1.",
         "other": "Every night from night 1 at 9+ players. Small tables start later: night 2 at 4, 5 and 7 players, night 3 at 8; at 6 players the Seer looks on night 1 only."
       },
       "does": {
-        "wolf": "Choose a player and see Good or Evil at once. Every wolf, the Alpha, the Cult Leader and every recruit show Evil."
+        "wolf": "Choose a player and see Good or Evil at once. Every wolf, the Alpha, the Cult Leader and every recruit show Evil.",
+        "demon": "Choose a player and see Good or Evil at once. The Fiend, every minion and every recruit show Evil.",
+        "brood": "Choose a player and see Good or Evil at once. The Queen and every minion show Evil. A player carrying a Burster is human and shows Good; a sick player may only have a fever, and the hive can give its own one."
       },
       "notes": [
         "Before its first night the Seer has no ability to use. Like a Villager, it gets \"Who do you suspect? It changes nothing.\" when the {device} is passed round at night.",
@@ -93,6 +138,18 @@
             "wolf"
           ],
           "text": "A drunk Seer gets believable but false answers, and isn't told."
+        },
+        {
+          "modes": [
+            "demon"
+          ],
+          "text": "The Drunk, or a hexed Seer, gets believable but false answers, and isn't told."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "A hexed Seer gets believable but false answers, and isn't told."
         },
         "The answer reflects the start of the night: a Seer killed that night still got its result."
       ]
@@ -104,15 +161,25 @@
       ],
       "team": "good",
       "card": {
+        "brood": "Each night, protect another player from being killed or getting a Parasite tonight.",
         "other": "From night 2, protect another player from being killed or recruited tonight."
       },
       "when": {
+        "brood": "Every night, from night 1.",
         "other": "Night 2 onwards (night 1 too at 13+ players)."
       },
       "does": {
+        "brood": "Choose another player: tonight the Crawler's attack can't kill them, and a Parasite can't take hold. Not yourself, and not the same player two nights running.",
         "other": "Choose another player: they can't be killed or recruited tonight. Not yourself, and not the same player two nights running."
       },
       "notes": [
+        {
+          "modes": [
+            "demon",
+            "brood"
+          ],
+          "text": "If your protection stops a kill, dawn says \"a kill was stopped\" (never who), and you're told privately whom you saved."
+        },
         {
           "modes": [
             "wolf"
@@ -121,13 +188,27 @@
         },
         {
           "modes": [
-            "wolf"
+            "wolf",
+            "demon"
           ],
           "text": "A stopped recruit stays silent."
         },
         {
           "modes": [
-            "wolf"
+            "brood"
+          ],
+          "text": "A stopped Parasite still leaves a fever: the player falls sick at dawn like a real host, and the fever breaks a dawn later. Nobody is told why, not even you."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "Protection doesn't stop the hive's fever, doesn't remove a Burster someone already carries, and doesn't stop a burst."
+        },
+        {
+          "modes": [
+            "wolf",
+            "demon"
           ],
           "text": "The Priest doesn't stop the Hunter's shot."
         }
@@ -139,12 +220,14 @@
         "good"
       ],
       "modes": [
-        "wolf"
+        "wolf",
+        "demon"
       ],
       "team": "good",
       "card": "Once a game, after two deaths, choose one dead player and learn their true role and team.",
       "when": "Any one of your night turns, once at least two players have died.",
       "does": {
+        "brood": "Once a game: once at least two players have died, choose one dead player (attacked at night, executed, shot or burst) and learn their true role and team. You may pick nobody and wait.",
         "other": "Once a game: once at least two players have died, choose one dead player (killed at night, executed or shot) and learn their true role and team. You may pick nobody and wait for a death that matters more."
       },
       "notes": [
@@ -155,6 +238,18 @@
             "wolf"
           ],
           "text": "A recruit shows on the cult's team, for example \"Kit was the Seer (the cult)\"."
+        },
+        {
+          "modes": [
+            "demon"
+          ],
+          "text": "A recruit shows on evil's team, for example \"Kit was the Seer (evil, the court)\"."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "A player who burst shows the role they were dealt, on the hive's team, for example \"Kit was the Seer (evil, the hive)\"."
         }
       ]
     },
@@ -164,11 +259,13 @@
         "good"
       ],
       "modes": [
-        "wolf"
+        "wolf",
+        "demon"
       ],
       "team": "good",
       "card": "When you die, choose a player to shoot: they die too.",
       "when": {
+        "brood": "When you die (at dawn, or right after your execution). Not after the final vote, and not when you burst.",
         "other": "When you die (at dawn, or right after your execution). Not after the final vote."
       },
       "does": "The moment you die, choose a player to shoot (or nobody): they die too. If you shoot the leader, good wins.",
@@ -176,9 +273,22 @@
         "The shot is public: everyone hears who was shot, but not what they were.",
         {
           "modes": [
-            "wolf"
+            "wolf",
+            "demon"
           ],
           "text": "A drunk or maddened \"Hunter\" is asked too, and the shot does nothing."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "A drunk \"Hunter\" is asked too, and the shot does nothing."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "If your Burster bursts, you don't shoot: you're the hive's now. Executed or shot while sick, you shoot as usual."
         },
         "The Priest's protection doesn't stop the shot."
       ]
@@ -189,7 +299,8 @@
         "good"
       ],
       "modes": [
-        "wolf"
+        "wolf",
+        "demon"
       ],
       "team": "good",
       "card": "Once a game, choose two players (not you): if both are good, they trade roles.",
@@ -207,7 +318,8 @@
         "good"
       ],
       "modes": [
-        "wolf"
+        "wolf",
+        "demon"
       ],
       "team": "good",
       "card": "You survive the first night kill against you. Nobody is told.",
@@ -217,9 +329,22 @@
         "Only night kills: an execution or the Hunter's shot still kills the Elder.",
         {
           "modes": [
-            "wolf"
+            "brood"
+          ],
+          "text": "The Crawler's attack is a night kill, so you survive the first one. A Burster still kills you when it bursts."
+        },
+        {
+          "modes": [
+            "wolf",
+            "demon"
           ],
           "text": "The Elder is never shown to the Drunk or the Hatter, and is never a disguise."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "The Elder is never shown to the Drunk."
         }
       ]
     },
@@ -229,7 +354,8 @@
         "good"
       ],
       "modes": [
-        "wolf"
+        "wolf",
+        "demon"
       ],
       "team": "good",
       "card": "Once, by day, reveal on the {device}: it confirms you, and your vote counts double.",
@@ -238,11 +364,25 @@
       "notes": [
         {
           "modes": [
-            "wolf"
+            "wolf",
+            "demon"
           ],
           "text": "It confirms the role, not the team: a recruited Mayor is still the Mayor."
         },
-        "Anyone who isn't the Mayor can't reveal: the {device} won't confirm them."
+        "Anyone who isn't the Mayor can't reveal: the {device} won't confirm them.",
+        {
+          "modes": [
+            "demon",
+            "brood"
+          ],
+          "text": "A hexed Mayor can still reveal, but that day the vote counts once."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "A sick Mayor still votes, and counts double once revealed."
+        }
       ]
     },
     {
@@ -251,7 +391,8 @@
         "good"
       ],
       "modes": [
-        "wolf"
+        "wolf",
+        "demon"
       ],
       "team": "good",
       "card": "Each dawn you're told one true fragment of the night.",
@@ -267,9 +408,28 @@
         },
         {
           "modes": [
+            "demon"
+          ],
+          "text": "Like any information role, the Drunk, or a hexed or maddened Child, gets believable false fragments."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "Like any information role, the Drunk, or a hexed Child, gets believable false fragments."
+        },
+        {
+          "modes": [
             "wolf"
           ],
           "text": "Picking nobody, the ghost poll and the pack's naming don't count as using an ability."
+        },
+        {
+          "modes": [
+            "demon",
+            "brood"
+          ],
+          "text": "Picking nobody and the ghost poll don't count as using an ability."
         }
       ]
     },
@@ -279,7 +439,8 @@
         "good"
       ],
       "modes": [
-        "wolf"
+        "wolf",
+        "demon"
       ],
       "team": "good",
       "card": "You're shown another good role and play it as yours, but nothing you do works.",
@@ -289,13 +450,15 @@
         "The {device} never shows \"Drunk\" during the game: you'll see it at the reveal.",
         {
           "modes": [
-            "wolf"
+            "wolf",
+            "demon"
           ],
           "text": "With a list everyone sees (4 to 9 players), a Drunk on the list is shown a role off it."
         },
         {
           "modes": [
-            "wolf"
+            "wolf",
+            "demon"
           ],
           "text": "The Drunk and the Mad Hatter are in the same game only from 8 players."
         }
@@ -307,7 +470,8 @@
         "good"
       ],
       "modes": [
-        "wolf"
+        "wolf",
+        "demon"
       ],
       "team": "good",
       "card": "Each night you're shown a different good role, and it really works.",
@@ -354,19 +518,24 @@
     {
       "id": "cult_leader",
       "groups": [
-        "wolf"
+        "wolf",
+        "demon"
       ],
       "team": {
-        "wolf": "cult"
+        "wolf": "cult",
+        "demon": "demon"
       },
       "card": {
-        "wolf": "You lead the cult: recruit players (3 a game). If the wolves win while you live, the cult wins too."
+        "wolf": "You lead the cult: recruit players (3 a game). If the wolves win while you live, the cult wins too.",
+        "demon": "A minion: once a game, recruit a good player to evil."
       },
       "when": {
-        "wolf": "From night 2, only at 15+ players: one recruit a night, 3 a game."
+        "wolf": "From night 2, only at 15+ players: one recruit a night, 3 a game.",
+        "demon": "From night 2. One recruit a game."
       },
       "does": {
-        "wolf": "A third party that doesn't know the wolves. Recruits keep their role but now win with the wolves and show Evil."
+        "wolf": "A third party that doesn't know the wolves. Recruits keep their role but now win with the wolves and show Evil.",
+        "demon": "A minion who knows the court. Your one recruit joins evil, keeps its role, shows Evil and learns who recruited it, never who the Fiend is."
       },
       "notes": [
         {
@@ -381,7 +550,189 @@
           ],
           "text": "Parity counts wolves plus the cult. If the Cult Leader dies, the cult breaks up and recruits are good again."
         },
+        {
+          "modes": [
+            "demon"
+          ],
+          "text": "A protected target can't be recruited, and the try is still used up. If the Cult Leader dies, recruits stay evil."
+        },
         "A recruit is told privately the next night who recruited them."
+      ]
+    },
+    {
+      "id": "fiend",
+      "groups": [
+        "demon"
+      ],
+      "team": "demon",
+      "card": "You lead the court: kill one player each kill night. If you die, good wins (unless the Understudy takes over).",
+      "when": "Every kill night: from night 2 (from night 1 at 13+ players).",
+      "does": "The leader. Kills one player each kill night. If the Fiend dies, good wins, unless the Understudy takes over.",
+      "notes": [
+        "All evil players meet on night 1 and know each other.",
+        "The final vote must catch the Fiend."
+      ]
+    },
+    {
+      "id": "hexer",
+      "groups": [
+        "demon",
+        "brood"
+      ],
+      "team": {
+        "demon": "demon",
+        "brood": "hive"
+      },
+      "card": "Each night, hex a player until the next dawn: their ability fails and what they learn is false.",
+      "when": "Every night.",
+      "does": "Each night choose a player (not yourself). From dawn they're hexed until the next dawn: their ability fails and what they learn is believable but false.",
+      "notes": [
+        "You're told privately at dawn whether the hex landed.",
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "In your turn you also name the hive's fever: one player (two from 12 players, in order: the second counts if the first already has tonight's Parasite). The most named falls sick; the Queen breaks ties."
+        },
+        {
+          "modes": [
+            "demon"
+          ],
+          "text": "It fails only on a hidden teammate (a recruit)."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "A hexed Medic cures nobody, a hexed Priest's protection stops nothing (a Parasite included), and a hexed Doctor's answer is false."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "The host may switch on the Hexer's fever: once a game, instead of hexing, you give a player a fever. It's off unless the setup says so."
+        },
+        {
+          "modes": [
+            "demon"
+          ],
+          "text": "A hexed Mayor still reveals, but votes once that day."
+        }
+      ]
+    },
+    {
+      "id": "informant",
+      "groups": [
+        "demon",
+        "brood"
+      ],
+      "team": {
+        "demon": "demon",
+        "brood": "hive"
+      },
+      "card": "Each night, learn one player's true role and team.",
+      "when": "Every night.",
+      "does": {
+        "demon": "Each night choose a player and learn their true role and team. This can expose a Drunk, the Hatter, a maddened player or a recruit.",
+        "brood": "Each night choose a player and learn their true role and team. It doesn't tell you whether they carry a Burster or a fever."
+      },
+      "notes": [
+        "What you learn is the truth, unless you're hexed or otherwise impaired.",
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "In your turn you also name the hive's fever: one player (two from 12 players, in order: the second counts if the first already has tonight's Parasite). The most named falls sick; the Queen breaks ties."
+        }
+      ]
+    },
+    {
+      "id": "understudy",
+      "groups": [
+        "demon",
+        "brood"
+      ],
+      "team": {
+        "demon": "demon",
+        "brood": "hive"
+      },
+      "card": {
+        "demon": "You wait in the wings for the Fiend. If it falls before the final day while 7 or more players are still alive, you quietly take its place.",
+        "brood": "You wait in the wings for the Queen. If the Queen falls before the final day while 7 or more players are still alive, you quietly take the Queen's place."
+      },
+      "when": {
+        "demon": "Never called. Passive.",
+        "brood": "No night ability of your own: each night, in your turn, you name the hive's fever with your team and vote for a suspect like a Villager."
+      },
+      "does": {
+        "demon": "You have no night ability while the Fiend lives. If it dies before the final day and 7 or more players are still alive, you take over its card: you are the Fiend from then on, nobody else is told, and the game goes on. On nights when roles are called, your court sees you answer the Fiend's call.",
+        "brood": "You have no night ability of your own while the Queen lives. If the Queen dies before the final day and 7 or more players are still alive, you take over the Queen's card: you are the Queen from then on, nobody else is told, and the game goes on."
+      },
+      "notes": [
+        {
+          "modes": [
+            "demon"
+          ],
+          "text": "Not on the final vote: catching the Fiend then means good wins."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "Not on the final vote: catching the Queen then means the humans win."
+        },
+        {
+          "modes": [
+            "brood"
+          ],
+          "text": "In your turn you also name the hive's fever: one player (two from 12 players, in order: the second counts if the first already has tonight's Parasite). The most named falls sick; the Queen breaks ties."
+        },
+        "You're told \"your role changed tonight\" when it happens."
+      ]
+    },
+    {
+      "id": "implanter",
+      "groups": [
+        "brood"
+      ],
+      "team": "hive",
+      "card": "You lead the hive. Each night, put a Parasite on another player. If you die, the humans win.",
+      "when": "Every night from night 1. At your dawn call you're told whether it took.",
+      "does": "Choose another player each night (never a sick one). If the Parasite takes hold they carry a Burster: at the next dawn they fall sick (everyone sees it), and at the dawn after it bursts: they die and join the hive as a Crawler. From then on the Crawlers kill a player every night. At your dawn call you're told only \"Your Parasite took on Kit\" or \"Your Parasite found no hold on Kit\", never why.",
+      "notes": [
+        "It finds no hold on a player the Priest protects, on a hive member, or on a player the Medic treats that night. A Parasite that finds no hold still leaves a fever: they fall sick all the same, and the fever breaks a dawn later.",
+        "Each night the hive also spreads a fever: every living hive member names another player (two from 12 players), and the most named falls sick with you; on a tie you decide. It never lands on your Parasite's player: it moves to the hive's next pick. So the table always sees at least two sick, and at most one of them is real.",
+        "Executing (or otherwise killing) a host before the burst stops it, and so does the Medic. You show Evil to the Seer. If you die before the final day while 7 or more players are still alive, the Understudy takes over."
+      ]
+    },
+    {
+      "id": "medic",
+      "groups": [
+        "brood"
+      ],
+      "team": "good",
+      "card": "Each night, treat another player: a Burster is removed and a fever breaks.",
+      "when": "Every night (Infestation only, always in play).",
+      "does": "Choose another player, not the same one two nights running. A sick player you treat gets well: a real Burster is removed (no burst), a fever breaks. At dawn everyone hears only that their fever broke, the same as a fever breaking on its own. A Parasite that found your patient tonight can't take hold (they still run a fever). You're never told what you cured.",
+      "notes": [
+        "You can't treat yourself.",
+        "A hexed Medic cures nobody.",
+        "The Doctor can tell a real Burster from a fever; you can't. The hive wants you dead: think about when to say who you are."
+      ]
+    },
+    {
+      "id": "doctor",
+      "groups": [
+        "brood"
+      ],
+      "team": "good",
+      "card": "Each night, examine another player: really infected, only a fever, or not sick.",
+      "when": "Every night (Infestation only, always in play). Your result comes at your dawn call.",
+      "does": "Choose another player. At your dawn call you're told they're \"really infected: a human host\", \"only have a fever\" or \"aren't sick\": news about the sickness, not their side. You see tonight's Parasite and fever (a player who falls sick this dawn), and a sick player's sickness before it bursts or breaks. You can't cure anyone.",
+      "notes": [
+        "You can't examine yourself.",
+        "Really infected means human: the Parasite never takes hold on the hive. A fever may be anyone, the hive included.",
+        "A hexed Doctor is told a real Burster as a fever and a fever as real (a healthy player still reads \"not sick\"), and isn't told it's wrong."
       ]
     },
     {
@@ -567,7 +918,248 @@
       "card": "Each night, pick another player: their pick does nothing tonight. They're told it was blocked.",
       "when": "Every night. Can be drawn at 7+ players.",
       "does": "Pick another player: tonight their pick does nothing, and they're told it was blocked. Whatever their pick would do doesn't happen: a Rite, a protection, a ward, a drive-out, a check, a count, even the possessed player's kill. A blocked pick still counts in the Villagers' counts. The Tracker still gets its result: it reads last night in its turn."
+    },
+    {
+      "id": "crawler",
+      "groups": [
+        "brood"
+      ],
+      "team": "hive",
+      "card": "Something burst out of you. You play for the hive now, as a dead member.",
+      "when": "Each night after you burst, in your own turn.",
+      "does": "A player whose Burster burst. You're dead, so you never count at parity, but you hunt: each night the Crawlers, and only they, pick the hive's attack, and it kills every dawn. Most picks wins; on a tie, the first of you to burst decides. You have no ghost vote: no ballot and no final-vote hand.",
+      "notes": [
+        "You're told at the next dusk only that you joined the hive: never who is in it or who leads it. You win only with the hive.",
+        "You pick the hive's attack instead of naming a suspect in the ghost poll. The living hive doesn't pick it.",
+        "Not a card: your role at the reveal is still the one you were dealt, on the hive's team."
+      ]
     }
   ],
-  "pages": []
+  "basicsTab": "Basics",
+  "plannedTitle": "Coming soon",
+  "plannedNote": "It can't be played yet.",
+  "planned": [
+    {
+      "id": "zombie",
+      "name": "Zombie Infection",
+      "pitch": "An infection spreads through the village."
+    }
+  ],
+  "pages": [
+    {
+      "id": "rounds",
+      "tab": "basics",
+      "title": "Nights and days",
+      "body": {
+        "wolf": [
+          "The {device} is the storyteller. There are two teams: most of you are good, a few are evil. Evil players start out knowing each other; good players don't.",
+          "At night the {device} calls each role in turn, or is passed round the table, and players use their abilities in secret.",
+          "Which roles the {device} calls never depends on who was dealt what, so a call proves nothing.",
+          "At dawn the {device} says who died. Roles aren't revealed on death.",
+          "By day everyone talks: share what you know, or what you want the others to believe."
+        ],
+        "demon": [
+          "The {device} is the storyteller. There are two teams: most of you are good, a few are evil. Evil players start out knowing each other; good players don't.",
+          "At night the {device} calls each role in turn, or is passed round the table, and players use their abilities in secret.",
+          "Which roles the {device} calls never depends on who was dealt what, so a call proves nothing.",
+          "At dawn the {device} says who died. Roles aren't revealed on death.",
+          "By day everyone talks: share what you know, or what you want the others to believe."
+        ],
+        "other": [
+          "The {device} is the storyteller. There are two teams: most of you are good, a few are evil. Evil players start out knowing each other; good players don't.",
+          "At night the {device} calls each role in turn, or is passed round the table, and players use their abilities in secret.",
+          "At dawn the {device} says who died. Roles aren't revealed on death.",
+          "By day everyone talks: share what you know, or what you want the others to believe."
+        ]
+      }
+    },
+    {
+      "id": "votes",
+      "tab": "basics",
+      "title": "Nominations and votes",
+      "body": [
+        "After the talk, players nominate. The {device} then goes through the nominees, and you vote by raising hands. Nobody votes for themselves.",
+        "To be executed, a player needs more votes than anyone else{bar, select, mostVotes{} overHalf{, and more than half as many votes as there are living players} other{, and at least as many votes as half the number of living players}}. Ghost votes count. {ties, select, revote{A tie for the most gets one revote between the tied; still tied, nobody is executed.} other{A tie for the most executes nobody.}} At most one execution a day.",
+        "On the final day there's a final vote: every living player{ghostVotes, plural, =0{} one{, and every dead player who still has their ghost vote,} other{, and every dead player who still has a ghost vote left,}} votes for one player, and the player with the most votes is executed. {finalRevotes, plural, =0{A tie: evil wins.} one{A tie gets one revote between the tied players; still tied, evil wins.} other{A tie gets up to # revotes between the tied players; still tied, evil wins.}}"
+      ]
+    },
+    {
+      "id": "ghosts",
+      "tab": "basics",
+      "title": "The dead",
+      "body": {
+        "possession": [
+          "The dead keep talking. {ghostVotes, plural, =0{The dead have no ghost votes.} one{Each dead player has one ghost vote for the whole game: they can use it once, on any vote, the final vote included.} other{Each dead player has # ghost votes for the whole game: they can use one on any vote, the final vote included.}} The dead don't count at parity.",
+          "There is no ghosts' hint in Possession. Instead, each night every dead player picks a living player, and at their next turn learns how many living players also picked that player (no count after the final night). A dead player's pick never kills and is never counted."
+        ],
+        "other": [
+          "The dead keep talking. {ghostVotes, plural, =0{The dead have no ghost votes.} one{Each dead player has one ghost vote for the whole game: they can use it once, on any vote, the final vote included.} other{Each dead player has # ghost votes for the whole game: they can use one on any vote, the final vote included.}} The dead don't count at parity.",
+          "Each night the dead may name a suspect. If two or more ghosts name the same player, dawn announces the ghosts' hint. It's only the dead's opinion."
+        ]
+      }
+    },
+    {
+      "id": "lies",
+      "tab": "basics",
+      "title": "Anyone may lie",
+      "body": [
+        "Anyone may lie about anything. Only what the {device} announces is fact.",
+        "At game over the {device} shows everyone's role, and what changed along the way."
+      ]
+    },
+    {
+      "id": "win",
+      "title": "How to win",
+      "art": {
+        "brood": [
+          {
+            "slot": "event/implant",
+            "term": "implanted"
+          },
+          {
+            "slot": "event/burst",
+            "term": "implant"
+          }
+        ]
+      },
+      "body": {
+        "wolf": [
+          "Most of you are good, the village. A few are evil: the pack of wolves, led by the Alpha. The pack knows each other. Good doesn't.",
+          "Good wins the moment the Alpha dies. Early in the game the pack may name a new Alpha instead.",
+          "The pack wins the moment it matches the number of everyone else alive (parity).",
+          "On the final day comes the final vote: catch the Alpha and good wins; miss, and the pack wins.",
+          "From 15 players the Cult Leader plays too, a third party that doesn't know the wolves. It recruits players; if the wolves win while it lives, the cult wins too. Parity counts the wolves plus the cult."
+        ],
+        "demon": [
+          "Most of you are good, the village. A few are evil: the Fiend's court, the Fiend and its minions. Evil players know each other. Good doesn't.",
+          "Good wins the moment the Fiend dies, unless the Understudy takes over.",
+          "Evil wins the moment it matches the number of everyone else alive (parity).",
+          "On the final day comes the final vote: catch the Fiend and good wins; miss, and evil wins.",
+          "Minions are drawn at random, so nobody knows which are in play."
+        ],
+        "brood": [
+          "1. Two sides: the humans and the hive. The hive's leader is the Queen; the hive knows each other, the humans don't. Kill the Queen and the humans win. The hive wins when it equals the living humans, or if the final day's vote misses the Queen.",
+          "2. Nights: the {device} comes to you. Read your screen and tap. Everyone's turn takes the same time, whatever their role, and keep your screen to yourself. The game lasts 4 nights at 9 to 11 players, 5 from 12, then the final day.",
+          "3. No night ability? You vote for a suspect. Only the most-named player is checked: if you named them, at your next turn you learn whether they went out (used a night ability) or stayed in.",
+          "4. Each night the Queen plants a Parasite on someone, and the hive spreads a fever to someone else. So at least two people fall sick at once.",
+          "5. Dawn: \"Kit and Jo are sick.\" One may carry a Burster; the others only have a fever. The sick still talk, vote and use their abilities.",
+          "6. The next dawn, a Burster bursts: the host dies and becomes a Crawler, the hive's hunter. A fever breaks. The Medic can treat the sick, and the Doctor can tell a real Burster from a fever.",
+          "7. Once anything has burst, the Crawlers kill someone every night.",
+          "8. Days: talk, nominate, vote. {bar, select, mostVotes{An execution needs the most votes.} overHalf{An execution needs more than half of the living.} other{An execution needs half of the living.}} Executing a sick player stops a burst, but they might only have had a fever, or be the hive faking it.",
+          "9. The dead keep talking{ghostVotes, plural, =0{, but have no ghost votes} one{ and keep one ghost vote} other{ and keep # ghost votes}}. Crawlers don't vote: they hunt.",
+          "10. Your card tells you your ability. Tap \"What does my role do?\" any time."
+        ],
+        "possession": [
+          "1. Two sides: the village and the cult. One of you is possessed and doesn't know it. The cultists know each other and their Cult Leader, and they steer the spirit.",
+          "2. Nights: the {device} comes to you. Everyone picks another player every night, with their role's ability; nobody can skip. Keep your screen to yourself. From 7 players, when everyone has picked, all eyes close, and some roles are called by name to open their eyes and read their result: the dawn call.",
+          "3. Whoever the possessed player picks dies at dawn, unless someone else protected them. {nightOne}",
+          "4. On night 1 the {device} hides the spirit in a random good player; nobody knows where. Each dawn it moves where the Cult Leader steered it, unless that player was warded or died that night. It never enters the cult.",
+          "5. Each night the Exorcist, and from 9 players the Chaplain, picks a player for a Rite. A Rite on the possessed player strikes the spirit: dawn says \"The spirit was struck.\" but never whose Rite. The second strike casts it out, and the village wins.",
+          "6. The spirit grows every night, and after night {nights}, it is at full strength. The next day is the final day, and it ends on a final vote: catch the Cult Leader, who called the spirit, and the village wins; miss, and the spirit takes the village: the cult wins.",
+          "The village also wins if the Cult Leader dies, on any day or night: executed, or picked by the possessed player. Early on, the next cultist in line takes over instead. The cult also wins at once if it matches everyone else alive.",
+          "7. Never execute the possessed: they're one of you, and the spirit just flees into a neighbour. Strike it with a Rite instead.",
+          "8. Villagers learn at their next turn how many other players also picked the same player (no count after the final night). Say who you picked: a count that nobody claims is a hidden pick.",
+          "9. The dead keep talking, {ghostVotes, plural, =0{have no ghost votes} one{keep one ghost vote for the whole game} other{keep # ghost votes for the whole game}}, and keep picking each night, but only for a count: at their next turn they learn how many living players picked the same player. A dead player's pick never kills, never uses their old ability, and is never counted.",
+          "10. Days: talk, nominate, then hands up for each nominee. The player with the most votes is executed{bar, select, mostVotes{ (ghost votes count)} overHalf{, if they have more votes than half the number of living players (ghost votes count)} other{, if they have at least as many votes as half the number of living players (ghost votes count)}}. {ties, select, revote{A tie gets one revote between the tied; still tied, nobody is executed.} other{A tie executes nobody.}}"
+        ]
+      }
+    },
+    {
+      "id": "roleChange",
+      "title": "Your role can change",
+      "body": {
+        "wolf": [
+          "Your role can change during the game. When it does, your next night turn tells you \"Your role changed.\", what you were and what you are now. It never says why, and it can happen more than once.",
+          "On nights when roles are called there are no turns: from the first night a role can have changed, the {device} goes round once early in the night instead, and every living player gets a quick, private look at their card.",
+          "In wolf mode a role changes when:",
+          "• the pack names its Alpha: on night 1, and again if the Alpha dies early. The pack sees whom it named when it wakes, and the Wolf it names reads \"You lead the pack.\" whenever it next looks at its card.",
+          "• the Meddler swaps two good players' roles, once a game. The swap happens at dawn, so you may play a whole day as your new role before your next turn tells you.",
+          "• the Mad Hatter is shown a different good role every night. From night 2 it also maddens a good neighbour, who is shown a false role for a night and a day, then their own role again.",
+          "Every card in this mode says your role can change. A card whose role has just changed also shows ⇄ beside its headline; no other card has a mark. Keep your card to yourself."
+        ],
+        "demon": [
+          "Your role can change during the game. When it does, your next night turn tells you \"Your role changed.\", what you were and what you are now. It never says why, and it can happen more than once.",
+          "On nights when roles are called there are no turns: from the first night a role can have changed, the {device} goes round once early in the night instead, and every living player gets a quick, private look at their card.",
+          "In Fiend mode a role changes when:",
+          "• the Meddler swaps two good players' roles, once a game. The swap happens at dawn, so you may play a whole day as your new role before your next turn tells you.",
+          "• the Mad Hatter is shown a different good role every night. From night 2 it also maddens a good neighbour, who is shown a false role for a night and a day, then their own role again.",
+          "• the Understudy takes over the Fiend's card, if the Fiend dies before the final day while 7 or more players are still alive.",
+          "Every card in this mode says your role can change. A card whose role has just changed also shows ⇄ beside its headline; no other card has a mark. Keep your card to yourself."
+        ],
+        "brood": [
+          "Your role can change during the game. When it does, your next night turn tells you \"Your role changed.\", what you were and what you are now. It never says why.",
+          "In Infestation only one thing changes a role: the Understudy takes over the Queen's card, if the Queen dies before the final day while 7 or more players are still alive.",
+          "Every card in this mode says your role can change. A card whose role has just changed also shows ⇄ beside its headline; no other card has a mark. Keep your card to yourself."
+        ],
+        "possession": [
+          "Your role can change during the game. When it does, your next night turn tells you \"Your role changed.\", what you were and what you are now. It never says why.",
+          "In Possession only one thing changes a role: if the Cult Leader dies early, the next cultist in line becomes the Cult Leader (before night 3, before night 2 at 7 players; at 5 or 6 players nobody takes over).",
+          "Being possessed doesn't change your role: the {device} never tells the possessed player.",
+          "Every card in this mode says your role can change. A card whose role has just changed also shows ⇄ beside its headline; no other card has a mark. Keep your card to yourself."
+        ]
+      }
+    },
+    {
+      "id": "setup",
+      "title": "Setup by table size",
+      "body": {
+        "possession": [
+          "Possession is played at 5 to 15 players, always by passing the {device}. The good roles are fixed and everyone knows them; the Cult Leader's helpers are drawn from the Veiler, the Framer and the Binder, and nobody knows which.",
+          "The spirit grows every night. Strike it twice before the final night ends, or catch the Cult Leader who called it by the final vote; otherwise it takes the village.",
+          "5 players: the Cult Leader alone; the Exorcist, the Guardian, 2 Villagers. 3 nights.",
+          "6 players: the Cult Leader alone; the Exorcist, the Guardian, 3 Villagers. 3 nights.",
+          "7 players: the Cult Leader + 1 helper; the Exorcist, the Guardian, the Diviner, 2 Villagers. 3 nights.",
+          "8 players: the Cult Leader + 1 helper; the Exorcist, the Guardian, the Diviner, the Warden, 2 Villagers. 4 nights.",
+          "9 players: the Cult Leader + 1 helper; the Exorcist, the Guardian, the Diviner, the Warden, the Chaplain, 2 Villagers. 4 nights.",
+          "10 players: the Cult Leader + 1 helper; the Exorcist, the Guardian, the Diviner, the Warden, the Chaplain, 3 Villagers. 4 nights.",
+          "11 players: the Cult Leader + 2 helpers; the Exorcist, the Guardian, the Diviner, the Warden, the Seeker, the Chaplain, 2 Villagers. 4 nights.",
+          "12 players: the Cult Leader + 2 helpers; the Exorcist, the Guardian, the Diviner, the Warden, the Seeker, the Banisher, the Chaplain, 2 Villagers. 4 nights.",
+          "13 players: the Cult Leader + 2 helpers; the Exorcist, the Guardian, the Diviner, the Warden, the Seeker, the Banisher, the Tracker, the Chaplain, 2 Villagers. 5 nights; the spirit kills from night 1.",
+          "14 players: the Cult Leader + 3 helpers (all three); the Exorcist, the Guardian, the Diviner, the Warden, the Seeker, the Banisher, the Tracker, the Chaplain, 2 Villagers. 5 nights; the spirit kills from night 1.",
+          "15 players: the Cult Leader + 3 helpers (all three); the Exorcist, the Guardian, the Diviner, the Warden, the Seeker, the Banisher, the Tracker, the Chaplain, 3 Villagers. 5 nights; the spirit kills from night 1.",
+          "At 13 to 15 players the setup can add the Trickster, an optional role, in a Villager's seat. It's off unless the table turns it on.",
+          "The next cultist in line takes over if the Cult Leader dies before night 3 (before night 2 at 7 players; nobody can take over at 5 or 6 players)."
+        ],
+        "wolf": [
+          "4 players: the Alpha alone. 3 nights. Good roles: a list everyone sees; default the Priest + 2 Villagers.",
+          "5 players: the Alpha alone. 3 nights. A list everyone sees; default none (4 Villagers, a plain game).",
+          "6 players: the Alpha + 1 Wolf. 3 nights. A list everyone sees; default the Priest and the Hunter + 2 Villagers.",
+          "7 players: the Alpha + 1 Wolf. 3 nights. A list everyone sees; default the Priest and the Medium + 3 Villagers.",
+          "8 players: the Alpha + 1 Wolf. 4 nights. A list everyone sees; default the Priest and the Medium + 4 Villagers. With the random draw: the Seer only (first look night 3).",
+          "9 players: the Alpha + 2 Wolves. 4 nights. A list everyone sees; default the Seer, the Priest, the Medium, the Hunter and the Mad Hatter + 1 Villager. With the random draw: the Seer, the Priest, 3 drawn roles with abilities, and 1 Villager.",
+          "10 players: the Alpha + 2 Wolves. 4 nights. The Seer, the Priest and drawn roles with abilities (6 in all), and 1 Villager.",
+          "11 players: the Alpha + 2 Wolves. 4 nights. The Seer, the Priest and drawn roles with abilities (up to 7 in all), and 1 Villager.",
+          "12 players: the Alpha + 2 Wolves. 4 nights. The Seer, the Priest and drawn roles with abilities (up to 7 in all), the Sleepless Child and 1 Villager.",
+          "13 or 14 players: the Alpha + 2 Wolves. 4 nights. The pack kills from night 1.",
+          "15 to 17 players: the Alpha + 2 Wolves + the Cult Leader. 5 nights.",
+          "18 to 24 players: the Alpha + 3 Wolves + the Cult Leader. 5 nights.",
+          "Night 1 has no kill below 13 players.",
+          "With a list everyone sees, any good role claimed that isn't on it is a lie (only a Drunk or Hatter on the list, or a player the Hatter maddens, can be shown a role off it). From 10 players the good roles are drawn at random from the role sheet."
+        ],
+        "demon": [
+          "4 players: the Fiend alone. 3 nights. Good roles: a list everyone sees; default the Priest + 2 Villagers.",
+          "5 players: the Fiend alone. 3 nights. A list everyone sees; default none (4 Villagers, a plain game).",
+          "6 players: the Fiend + 1 minion. 3 nights. A list everyone sees; default the Priest and the Hunter + 2 Villagers.",
+          "7 players: the Fiend + 1 minion. 3 nights. A list everyone sees; default the Priest and the Medium + 3 Villagers.",
+          "8 players: the Fiend + 1 minion. 4 nights. A list everyone sees; default the Priest and the Medium + 4 Villagers. With the random draw: the Seer only (first look night 3).",
+          "9 players: the Fiend + 2 minions. 4 nights. A list everyone sees; default the Seer, the Priest, the Medium, the Hunter and the Mad Hatter + 1 Villager. With the random draw: the Seer, the Priest, 3 drawn roles with abilities, and 1 Villager.",
+          "10 players: the Fiend + 2 minions. 4 nights. The Seer, the Priest and drawn roles with abilities (6 in all), and 1 Villager.",
+          "11 players: the Fiend + 2 minions. 4 nights. The Seer, the Priest and drawn roles with abilities (up to 7 in all), and 1 Villager.",
+          "12 players: the Fiend + 2 minions. 4 nights. The Seer, the Priest and drawn roles with abilities (up to 7 in all), the Sleepless Child and 1 Villager.",
+          "13 or 14 players: the Fiend + 2 minions. 4 nights. The Fiend kills from night 1.",
+          "15 to 24 players: the Fiend + 3 minions. 5 nights.",
+          "Night 1 has no kill below 13 players. Minions are drawn at random, so the table never knows which are in play.",
+          "With a list everyone sees, any good role claimed that isn't on it is a lie (only a Drunk or Hatter on the list, or a player the Hatter maddens, can be shown a role off it). From 10 players the good roles are drawn at random from the role sheet."
+        ],
+        "brood": [
+          "Infestation needs 9 players or more, and is always played by passing the {device}.",
+          "9 players: the Queen + 2 minions; the Seer, the Medic and the Doctor; 3 Villagers.",
+          "10 or 11 players: the Queen + 2 minions; the Seer, the Medic, the Doctor and the Priest; 3 or 4 Villagers. At 9 to 11 players the 2 minions are drawn from the Hexer, the Informant and the Understudy.",
+          "12 to 24 players: the Queen, the Hexer, the Informant and the Understudy; the Seer, the Medic, the Doctor and the Priest; every other player is a Villager (4 at 12, 16 at 24).",
+          "No other role is in base Infestation: anyone who claims one is lying. The hive has no role with an ability to claim as cover, so its members claim Villager, and the deal keeps a Villager seat for each.",
+          "4 nights at 9 to 11 players, 5 at 12 to 24. The Queen's Parasite, the hive's fever and the Seer's first look are all on night 1 at every size; the fever names one player, two from 12 players."
+        ]
+      }
+    }
+  ]
 }

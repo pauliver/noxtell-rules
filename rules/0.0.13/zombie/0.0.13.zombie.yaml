@@ -1,0 +1,9 @@
+{
+  "id": "zombie",
+  "version": "0.0.13",
+  "schema": 4,
+  "status": "planned",
+  "codes": {
+    "tab": 6
+  }
+}

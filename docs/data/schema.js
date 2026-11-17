@@ -179,6 +179,7 @@ window.NOXTELL_SCHEMA = {
    "enum": [
     "good",
     "wolf",
+    "demon",
     "cult"
    ]
   },
@@ -353,7 +354,7 @@ window.NOXTELL_SCHEMA = {
        "protected",
        "mad",
        "revealed",
-       "poisoned",
+       "hexed",
        "infected",
        "sick",
        "fever",
@@ -376,7 +377,7 @@ window.NOXTELL_SCHEMA = {
       "$ref": "#/$defs/status.revealed"
      },
      {
-      "$ref": "#/$defs/status.poisoned"
+      "$ref": "#/$defs/status.hexed"
      },
      {
       "$ref": "#/$defs/status.infected"
@@ -2894,6 +2895,20 @@ window.NOXTELL_SCHEMA = {
     "status"
    ]
   },
+  "status.hexed": {
+   "type": "object",
+   "properties": {
+    "status": {
+     "enum": [
+      "hexed"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "status"
+   ]
+  },
   "status.infected": {
    "type": "object",
    "properties": {
@@ -2921,18 +2936,6 @@ window.NOXTELL_SCHEMA = {
    "properties": {
     "status": {
      "const": "mad"
-    }
-   },
-   "additionalProperties": false,
-   "required": [
-    "status"
-   ]
-  },
-  "status.poisoned": {
-   "type": "object",
-   "properties": {
-    "status": {
-     "const": "poisoned"
     }
    },
    "additionalProperties": false,
@@ -3172,6 +3175,7 @@ window.NOXTELL_SCHEMA = {
      "enum": [
       "good",
       "wolf",
+      "demon",
       "cult"
      ]
     },
@@ -3275,6 +3279,7 @@ window.NOXTELL_SCHEMA = {
      "enum": [
       "good",
       "wolf",
+      "demon",
       "cult"
      ]
     },
@@ -3386,6 +3391,7 @@ window.NOXTELL_SCHEMA = {
      "enum": [
       "good",
       "wolf",
+      "demon",
       "cult"
      ]
     },
@@ -3491,6 +3497,7 @@ window.NOXTELL_SCHEMA = {
      "enum": [
       "good",
       "wolf",
+      "demon",
       "cult"
      ]
     },
@@ -3602,6 +3609,7 @@ window.NOXTELL_SCHEMA = {
      "enum": [
       "good",
       "wolf",
+      "demon",
       "cult"
      ]
     },
@@ -3913,6 +3921,45 @@ window.NOXTELL_SCHEMA = {
     "verb"
    ]
   },
+  "verb.hex": {
+   "type": "object",
+   "properties": {
+    "verb": {
+     "enum": [
+      "hex"
+     ]
+    },
+    "id": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-zA-Z0-9_]*$"
+    },
+    "step": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "when": {
+     "$ref": "#/$defs/condition"
+    },
+    "targets": {
+     "$ref": "#/$defs/targets"
+    },
+    "uses": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "d248": {
+     "type": "string",
+     "pattern": "^(checked \\(D[0-9]+\\)|owed)$"
+    },
+    "feverAbility": {
+     "type": "boolean"
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "verb"
+   ]
+  },
   "verb.infect": {
    "type": "object",
    "properties": {
@@ -4062,43 +4109,6 @@ window.NOXTELL_SCHEMA = {
     "timelineOf": {
      "type": "string",
      "pattern": "^[a-z][a-z0-9_]*$"
-    }
-   },
-   "additionalProperties": false,
-   "required": [
-    "verb"
-   ]
-  },
-  "verb.poison": {
-   "type": "object",
-   "properties": {
-    "verb": {
-     "const": "poison"
-    },
-    "id": {
-     "type": "string",
-     "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-zA-Z0-9_]*$"
-    },
-    "step": {
-     "type": "string",
-     "pattern": "^[a-z][a-z0-9_]*$"
-    },
-    "when": {
-     "$ref": "#/$defs/condition"
-    },
-    "targets": {
-     "$ref": "#/$defs/targets"
-    },
-    "uses": {
-     "type": "integer",
-     "minimum": 1
-    },
-    "d248": {
-     "type": "string",
-     "pattern": "^(checked \\(D[0-9]+\\)|owed)$"
-    },
-    "feverAbility": {
-     "type": "boolean"
     }
    },
    "additionalProperties": false,
@@ -4776,7 +4786,7 @@ window.NOXTELL_SCHEMA = {
       "revealVoteWeight",
       "kill",
       "teamKill",
-      "poison",
+      "hex",
       "recruit",
       "learnRole",
       "successor",
@@ -4835,7 +4845,7 @@ window.NOXTELL_SCHEMA = {
      "$ref": "#/$defs/verb.teamKill"
     },
     {
-     "$ref": "#/$defs/verb.poison"
+     "$ref": "#/$defs/verb.hex"
     },
     {
      "$ref": "#/$defs/verb.recruit"

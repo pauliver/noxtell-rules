@@ -9,7 +9,7 @@ sets their numbers. The engine is written once; a mode chooses which of its
 verbs each role has, which team modules and win conditions its teams use,
 how the cards are dealt, and how the night runs. This guide uses
 Possession (`0.0.13/possession/0.0.13.possession.yaml`) for every example.
-This version also publishes Wolf (`0.0.13/wolf/0.0.13.wolf.yaml`): section 5 says which of its roles and teams use each entry.
+This version also publishes Wolf (`0.0.13/wolf/0.0.13.wolf.yaml`), Fiend (`0.0.13/demon/0.0.13.demon.yaml`), Infestation (`0.0.13/brood/0.0.13.brood.yaml`), Zombie Infection (`0.0.13/zombie/0.0.13.zombie.yaml`, planned: a coming-soon stub with no rules): section 5 says which of its roles and teams use each entry.
 
 ### 1.1 The files of a version
 
@@ -17,6 +17,9 @@ This version also publishes Wolf (`0.0.13/wolf/0.0.13.wolf.yaml`): section 5 say
 0.0.13/shared/0.0.13.yaml                 the version file: table sizes, its modes, the options every mode starts from
 0.0.13/possession/0.0.13.possession.yaml  a mode file: teams, roles, the deal, the night, levers
 0.0.13/wolf/0.0.13.wolf.yaml              another mode file (Wolf)
+0.0.13/demon/0.0.13.demon.yaml            another mode file (Fiend)
+0.0.13/brood/0.0.13.brood.yaml            another mode file (Infestation)
+0.0.13/zombie/0.0.13.zombie.yaml          a planned mode's coming-soon stub (Zombie Infection)
 0.0.13/shared/0.0.13.night.yaml           the night's steps and timings every mode shares
 0.0.13/shared/0.0.13.text.en.yaml         the words: every sentence a player sees or hears
 0.0.13/shared/0.0.13.rulebook.en.yaml     the rulebook: role cards and How to play
@@ -288,7 +291,7 @@ A role's `verbs:` and a team's `actions:` and `choice:` hold verb uses. A use is
 
 ## 5. The library
 
-Everything a mode file can name, from the engine's registries. Each entry gives its *arguments* (written where the file names it) and its *parameters* (set under `options`, by the version, the mode or a lever), each with its type, and the roles and teams of Possession and Wolf that use it. Entries no published mode uses yet are here too, in general words: a new mode may use them.
+Everything a mode file can name, from the engine's registries. Each entry gives its *arguments* (written where the file names it) and its *parameters* (set under `options`, by the version, the mode or a lever), each with its type, and the roles and teams of Possession, Wolf, Fiend and Infestation that use it. Entries no published mode uses yet are here too, in general words: a new mode may use them.
 
 A verb's kind says how it plays:
 
@@ -317,6 +320,8 @@ Protects one other player from tonight's night kill, not the same player two nig
 - Use keys: `when`, `step`, `targets`, `uses`, `pool`.
 - In Possession: `guardian`.
 - In Wolf: `priest`.
+- In Fiend: `priest`.
+- In Infestation: `priest`.
 
 #### `rite`
 
@@ -444,6 +449,8 @@ Good or evil, about one other living player, from the snapshot taken at the star
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `fromNight` (a night, or a size map of nights); `checks` (a count, or a size map of counts).
 - Use keys: `when`, `targets`, `uses`.
 - In Wolf: `seer`.
+- In Fiend: `seer`.
+- In Infestation: `seer`.
 
 #### `readDead`
 
@@ -454,6 +461,7 @@ The true role and team of every player who died since the holder's last reading,
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `pick` (true or false).
 - Use keys: `when`, `targets`, `uses`.
 - In Wolf: `medium`.
+- In Fiend: `medium`.
 
 #### `readDeadPick`
 
@@ -464,6 +472,7 @@ With `pick` on: once a game, after `minDead` deaths, one dead player's true role
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `pick` (true or false); `minDead` (an integer, at least 1).
 - Use keys: `when`, `targets`, `uses`.
 - In Wolf: `medium`.
+- In Fiend: `medium`.
 
 #### `swapCards`
 
@@ -474,6 +483,7 @@ Two other players' roles trade, if both are good; it resolves last at dawn. `use
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `usesPerGame` (an integer, at least 0); `feedback` (true or false).
 - Use keys: `when`, `step`, `targets`, `uses`.
 - In Wolf: `meddler`.
+- In Fiend: `meddler`.
 
 #### `dawnFragments`
 
@@ -484,6 +494,7 @@ At each dawn, one true fragment of the night, naming one player. `fragments` cho
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `fragments` (one of seat, either, pair); `fakeRole` (true or false).
 - Use keys: `when`.
 - In Wolf: `sleepless_child`.
+- In Fiend: `sleepless_child`.
 
 #### `deathShot`
 
@@ -494,6 +505,7 @@ When the holder dies, they shoot one player, in public. Not when they die at the
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `onFinalVote` (true or false); `onOutbreak` (true or false).
 - Use keys: `targets`.
 - In Wolf: `hunter`.
+- In Fiend: `hunter`.
 
 #### `attackGuard`
 
@@ -503,6 +515,7 @@ The holder survives the first night kill against them, silently.
 
 - Use keys: `uses`.
 - In Wolf: `elder`.
+- In Fiend: `elder`.
 
 #### `revealVoteWeight`
 
@@ -513,6 +526,7 @@ Once a game, by day, the holder reveals their role and the app confirms it in pu
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `voteWeight` (an integer, at least 1).
 - Use keys: `targets`, `uses`.
 - In Wolf: `mayor`.
+- In Fiend: `mayor`.
 
 #### `kill`
 
@@ -522,6 +536,7 @@ One player dies at the kill step: the holder picks alone, one player each kill n
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts).
 - Use keys: `when`, `step`, `targets`, `uses`.
+- In Fiend: `fiend`.
 
 #### `teamKill`
 
@@ -532,15 +547,17 @@ Every holder picks; the most-picked player dies, and the team's leader breaks a 
 - Use keys: `when`, `step`, `targets`.
 - In Wolf: `alpha`, `wolf`.
 
-#### `poison`
+#### `hex`
 
-*`effect` · ability `<owner>.poison` · dawn step `poison` · news at the dawn call · statuses `poisoned`*
+*`effect` · ability `<owner>.hex` · dawn step `hex` · news at the dawn call · statuses `hexed`*
 
-The target's ability fails (the status `poisoned`) until `until`: the next dawn or the next dusk. With `feedback` on, the holder hears at the dawn call whether it landed. With the argument `feverAbility` and the parameter `fever` on, the holder also has a once-a-game fever, a second ability: the poison does nothing on the night it is used.
+The target's ability fails (the status `hexed`) until `until`: the next dawn or the next dusk. With `feedback` on, the holder hears at the dawn call whether it landed. With the argument `feverAbility` and the parameter `fever` on, the holder also has a once-a-game fever, a second ability: the hex does nothing on the night it is used.
 
 - Arguments (written on the use): `feverAbility` (true or false).
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `until` (one of nextDawn, nextDusk); `feedback` (true or false); `fever` (true or false).
 - Use keys: `when`, `step`, `targets`, `uses`.
+- In Fiend: `hexer`.
+- In Infestation: `hexer`.
 
 #### `recruit`
 
@@ -551,6 +568,7 @@ A good player joins the holder's team. Its arguments set the cap by table size (
 - Arguments (written on the use): `cap` (a count, or steps [[players, count], ...]); `from` (an integer, at least 1); `blockedSpendsRecruit` (true or false); `onDeath` (one of keep, dissolve).
 - Use keys: `when`, `step`, `targets`.
 - In Wolf: `cult_leader`.
+- In Fiend: `cult_leader`.
 
 #### `learnRole`
 
@@ -560,6 +578,8 @@ One player's true role and team, from the snapshot taken at the start of the nig
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts).
 - Use keys: `when`, `targets`, `uses`.
+- In Fiend: `informant`.
+- In Infestation: `informant`.
 
 #### `successor`
 
@@ -570,6 +590,8 @@ When the team's leader dies, the holder takes the leader's card if at least `min
 - Arguments (written on the use): `minAlive` (an integer, at least 0).
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `minAlive` (an integer, at least 0).
 - Use keys: none beyond `verb`, `id` and its arguments.
+- In Fiend: `understudy`.
+- In Infestation: `understudy`.
 
 #### `nameLeader`
 
@@ -589,6 +611,7 @@ Plants a hidden infection on one other player (the status `infected`): they are 
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `sickAfter` (an integer, at least 0); `outbreakAfter` (an integer, at least 0); `fevers` (true or false); `feedback` (true or false); `fromNight` (a night, or a size map of nights).
 - Use keys: `when`, `step`, `targets`, `uses`.
+- In Infestation: `implanter`.
 
 #### `cure`
 
@@ -599,6 +622,7 @@ Treats one other player: an `infected` player is cured, an old `fever` breaks, a
 - Arguments (written on the use): `timelineOf` (an id (lower case, digits and _)).
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `curesSick` (true or false); `feedback` (true or false).
 - Use keys: `when`, `step`, `targets`, `uses`.
+- In Infestation: `medic`.
 
 #### `diagnose`
 
@@ -608,6 +632,7 @@ At its dawn call, tells the holder about one other player: a real infection, jus
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `uses` (a count, or a size map of counts); `feedback` (true or false).
 - Use keys: `when`, `step`, `targets`, `uses`.
+- In Infestation: `doctor`.
 
 #### `villageVote`
 
@@ -617,6 +642,7 @@ Every seat with no night ability names a suspect; the most named alone is checke
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `vote` (true or false).
 - Use keys: `when`, `step`, `targets`.
+- In Infestation: `village`.
 
 #### `rankedMark`
 
@@ -626,6 +652,7 @@ Each living member of the team names `fever` players (a number, or a number by t
 
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `fever` (a count, or a size map of counts).
 - Use keys: `when`, `step`.
+- In Infestation: `hive`.
 
 #### `outbreakKill`
 
@@ -636,6 +663,7 @@ The team's kill, its dead asked too, from the first night an outbreak can happen
 - Arguments (written on the use): `timelineOf` (an id (lower case, digits and _)).
 - Parameters (under `options.roles.<role>`, or `options.factions.<team>` for a team's): `attack` (one of perOutbreak, afterFirstOutbreak, nightly); `attackBy` (one of team, turned).
 - Use keys: `when`, `step`, `targets`.
+- In Infestation: `hive`.
 
 ### Personas
 
@@ -650,6 +678,7 @@ Named in a role's `persona:`.
 The holder is shown a good role not in play, all game, and believes it; nothing they do works.
 
 - In Wolf: `drunk`.
+- In Fiend: `drunk`.
 
 #### `changingCard`
 
@@ -659,6 +688,7 @@ The holder is shown a different working role each night, and from night `maddens
 
 - Parameters (under `options.roles.<role>`): `maddensFrom` (an integer, at least 1); `maddensWhenImpaired` (true or false).
 - In Wolf: `mad_hatter`.
+- In Fiend: `mad_hatter`.
 
 ### Team modules
 
@@ -671,6 +701,8 @@ Good. Wins when the evil team's leader dies, or when the final vote executes the
 - Parameters (under `options.factions.<team>`): `vote` (true or false).
 - In Possession: `village`.
 - In Wolf: `village`.
+- In Fiend: `village`.
+- In Infestation: `village`.
 
 #### `coven`
 
@@ -687,6 +719,7 @@ Evil, led by its leader. Its members meet at the deal, with up to `disguises` go
 
 - Parameters (under `options.factions.<team>`): `disguises` (an integer, at least 0).
 - In Wolf: `pack`.
+- In Fiend: `court`.
 
 #### `cult`
 
@@ -702,6 +735,7 @@ Evil, as `evilTeam` is (it meets at the deal, up to `disguises` good roles from 
 
 - Arguments (written on the use): `disguisePool` (a list).
 - Parameters (under `options.factions.<team>`): `turnedGhostVote` (true or false); `turnedGhostVotes` (an integer, at least 0); `turnedLearnTeam` (true or false); `sickVote` (true or false); `disguises` (an integer, at least 0).
+- In Infestation: `hive`.
 
 ### Pools
 
@@ -735,12 +769,14 @@ The classic deal, exact to the game's seed: the evil team by table size (`evil`)
 
 - Arguments (written on the use): `evil` (an object); `helpers` (an object); `burnHelpers` (an integer, at least 1, or a list); `thirdParty` (an object); `good` (an object); `picked` (a size map ("players or fewer": value)); `disguises` (an object); `fakeRoles` (a list).
 - In Wolf: the mode's deal.
+- In Fiend: the mode's deal.
 
 #### `outbreakDeal`
 
 The outbreak deal, from `from` players: the evil team by table size (`evil`) with `helpers`, the good roles (`good`), public lists (`picked`), claims (`disguises`) and the roles a false card may show (`fakeRoles`).
 
 - Arguments (written on the use): `from` (an integer, at least 1); `evil` (an object); `helpers` (an object); `good` (an object); `picked` (a size map ("players or fewer": value)); `disguises` (an object); `fakeRoles` (a list).
+- In Infestation: the mode's deal.
 
 #### `picked`
 
@@ -819,6 +855,7 @@ The outbreak team's attack nights: from the first night an outbreak can happen (
 A kill night: night 2 on, and night 1 too from the mode's `kills.nightOneFrom`.
 
 - In Wolf: `alpha`, `wolf`.
+- In Fiend: `fiend`.
 
 #### `param`
 
@@ -905,46 +942,57 @@ From `protect` outside a pool: lasts to the end of dawn and stops what `stops` l
 
 - Arguments (written on the use): `stops` (a list).
 - In Wolf: `priest`.
+- In Fiend: `priest`.
+- In Infestation: `priest`.
 
 #### `mad`
 
 Shown a false good role for a night and the next day, and acting as a `falseCard` does: nothing the player does works.
 
 - In Wolf: `mad_hatter`.
+- In Fiend: `mad_hatter`.
 
 #### `revealed`
 
 The holder revealed their role by day (`revealVoteWeight`); all game.
 
 - In Wolf: `mayor`.
+- In Fiend: `mayor`.
 
-#### `poisoned`
+#### `hexed`
 
-From `poison`: the holder's ability fails until it ends.
+From `hex`: the holder's ability fails until it ends.
+
+- In Fiend: `hexer`.
+- In Infestation: `hexer`.
 
 #### `infected`
 
 A real infection: `sick` after `sickAfter` dawns, and an outbreak after `outbreakAfter` (the player dies and joins the team, `turned`).
 
 - Arguments (written on the use): `timelineOf` (an id (lower case, digits and _)); `at` (a step id).
+- In Infestation: `implanter`.
 
 #### `sick`
 
 Public, by name. The sick have no vote unless the team's `sickVote`; with `fevers` on, it ends (cured) once no infection or fever is left.
 
 - Arguments (written on the use): `timelineOf` (an id (lower case, digits and _)); `at` (a step id).
+- In Infestation: `implanter`.
 
 #### `fever`
 
 Sick, as an infected player is, then it breaks at the dawn an infection would break out.
 
 - Arguments (written on the use): `timelineOf` (an id (lower case, digits and _)); `at` (a step id).
+- In Infestation: `hive`, `implanter`.
 
 #### `turned`
 
 A player whose infection broke out: no ghost vote, or the team's `turnedGhostVotes`.
 
 - Arguments (written on the use): `timelineOf` (an id (lower case, digits and _)); `at` (a step id).
+- In Infestation: `implanter`.
 
 #### `full_strength`
 

@@ -1,0 +1,270 @@
+{
+  "id": "brood",
+  "version": "0.0.13",
+  "schema": 4,
+  "status": "playable",
+  "players": {
+    "min": 9,
+    "max": 24
+  },
+  "styles": [
+    "seatOrder"
+  ],
+  "defaultStyle": "seatOrder",
+  "nights": {
+    "upTo": {
+      "11": 4,
+      "24": 5
+    }
+  },
+  "kills": {
+    "nightOneFrom": 13,
+    "twoPerNightFrom": null
+  },
+  "codes": {
+    "seatOrder": "B",
+    "roleCall": "C",
+    "tab": 3,
+    "sim": 2
+  },
+  "tone": "hive",
+  "options": {
+    "dawn": [
+      "hex",
+      "protect",
+      "implant",
+      "fever",
+      "examine",
+      "cure",
+      "burst",
+      "kill",
+      "swap",
+      "vote"
+    ],
+    "roles": {
+      "implanter": {
+        "sickAfter": 0,
+        "outbreakAfter": 1,
+        "fevers": true,
+        "feedback": true
+      },
+      "medic": {
+        "curesSick": true,
+        "unique": true
+      },
+      "doctor": {
+        "feedback": true,
+        "unique": true
+      },
+      "hexer": {
+        "fever": false
+      },
+      "priest": {
+        "everyNight": true
+      },
+      "seer": {
+        "fromNight": 1
+      }
+    },
+    "factions": {
+      "hive": {
+        "turnedGhostVotes": 0,
+        "fever": {
+          "11": 1,
+          "24": 2
+        },
+        "sickVote": true,
+        "attack": "afterFirstOutbreak",
+        "attackBy": "turned",
+        "disguises": 0
+      },
+      "village": {
+        "vote": true
+      }
+    }
+  },
+  "teams": [
+    {
+      "id": "village",
+      "alignment": "good",
+      "module": "village",
+      "actions": [
+        {
+          "verb": "villageVote",
+          "id": "village.vote"
+        }
+      ]
+    },
+    {
+      "id": "hive",
+      "alignment": "evil",
+      "module": "outbreakTeam",
+      "leader": "implanter",
+      "tone": "hive",
+      "disguisePool": [
+        "seer",
+        "priest",
+        "medium",
+        "hunter",
+        "elder"
+      ],
+      "actions": [
+        {
+          "verb": "outbreakKill",
+          "id": "hive.attack"
+        },
+        {
+          "verb": "rankedMark",
+          "id": "hive.fever"
+        }
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "id": "villager",
+      "team": "village"
+    },
+    {
+      "id": "seer",
+      "team": "village",
+      "verbs": [
+        "senseAlignment"
+      ]
+    },
+    {
+      "id": "priest",
+      "team": "village",
+      "verbs": [
+        "protect"
+      ]
+    },
+    {
+      "id": "hexer",
+      "team": "hive",
+      "verbs": [
+        {
+          "verb": "hex",
+          "feverAbility": true
+        }
+      ]
+    },
+    {
+      "id": "informant",
+      "team": "hive",
+      "verbs": [
+        "learnRole"
+      ]
+    },
+    {
+      "id": "understudy",
+      "team": "hive",
+      "verbs": [
+        {
+          "verb": "successor",
+          "minAlive": 7
+        }
+      ]
+    },
+    {
+      "id": "implanter",
+      "team": "hive",
+      "tags": [
+        "leader"
+      ],
+      "verbs": [
+        "infect"
+      ]
+    },
+    {
+      "id": "medic",
+      "team": "village",
+      "verbs": [
+        "cure"
+      ]
+    },
+    {
+      "id": "doctor",
+      "team": "village",
+      "verbs": [
+        "diagnose"
+      ]
+    }
+  ],
+  "deal": {
+    "recipe": "outbreakDeal",
+    "from": 9,
+    "evil": {
+      "leader": "implanter",
+      "from": [
+        [
+          4,
+          2
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          12,
+          4
+        ]
+      ]
+    },
+    "helpers": {
+      "draw": "random",
+      "pool": [
+        "hexer",
+        "informant",
+        "understudy"
+      ]
+    },
+    "good": {
+      "always": [
+        "seer",
+        "medic",
+        "doctor",
+        "priest"
+      ],
+      "drawn": {
+        "from": [],
+        "take": 0
+      },
+      "extra": [],
+      "caps": [
+        [
+          9,
+          3
+        ],
+        [
+          10,
+          4
+        ]
+      ],
+      "villagersForUndisguised": true,
+      "child": false
+    }
+  },
+  "night": {
+    "dawnCall": [
+      "priest",
+      "hexer",
+      "implanter",
+      "doctor"
+    ],
+    "timing": {
+      "seat": [
+        10,
+        30
+      ],
+      "dawnCallOpen": [
+        5,
+        5
+      ],
+      "dawnCallName": [
+        0,
+        0
+      ]
+    }
+  }
+}

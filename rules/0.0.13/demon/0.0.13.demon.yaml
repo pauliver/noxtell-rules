@@ -1,0 +1,356 @@
+{
+  "id": "demon",
+  "version": "0.0.13",
+  "schema": 4,
+  "status": "playable",
+  "players": {
+    "min": 4,
+    "max": 24
+  },
+  "styles": [
+    "seatOrder",
+    "roleCall"
+  ],
+  "defaultStyle": {
+    "seatOrderUpTo": 12
+  },
+  "nights": {
+    "upTo": {
+      "7": 3,
+      "14": 4,
+      "24": 5
+    }
+  },
+  "kills": {
+    "nightOneFrom": 13,
+    "twoPerNightFrom": null
+  },
+  "codes": {
+    "seatOrder": "D",
+    "roleCall": "E",
+    "tab": 2,
+    "sim": 1
+  },
+  "tone": "demon",
+  "teams": [
+    {
+      "id": "village",
+      "alignment": "good",
+      "module": "village"
+    },
+    {
+      "id": "court",
+      "alignment": "evil",
+      "module": "evilTeam",
+      "leader": "fiend",
+      "tone": "demon"
+    }
+  ],
+  "roles": [
+    {
+      "id": "villager",
+      "team": "village"
+    },
+    {
+      "id": "seer",
+      "team": "village",
+      "codeBit": 0,
+      "verbs": [
+        "senseAlignment"
+      ]
+    },
+    {
+      "id": "priest",
+      "team": "village",
+      "codeBit": 1,
+      "verbs": [
+        "protect"
+      ]
+    },
+    {
+      "id": "medium",
+      "team": "village",
+      "codeBit": 2,
+      "verbs": [
+        "readDead",
+        "readDeadPick"
+      ]
+    },
+    {
+      "id": "hunter",
+      "team": "village",
+      "codeBit": 3,
+      "verbs": [
+        "deathShot"
+      ]
+    },
+    {
+      "id": "meddler",
+      "team": "village",
+      "codeBit": 4,
+      "verbs": [
+        "swapCards"
+      ]
+    },
+    {
+      "id": "elder",
+      "team": "village",
+      "codeBit": 5,
+      "verbs": [
+        "attackGuard"
+      ]
+    },
+    {
+      "id": "mayor",
+      "team": "village",
+      "codeBit": 6,
+      "verbs": [
+        "revealVoteWeight"
+      ]
+    },
+    {
+      "id": "drunk",
+      "team": "village",
+      "codeBit": 7,
+      "persona": "falseCard"
+    },
+    {
+      "id": "mad_hatter",
+      "team": "village",
+      "codeBit": 8,
+      "persona": "changingCard"
+    },
+    {
+      "id": "fiend",
+      "team": "court",
+      "tags": [
+        "leader"
+      ],
+      "verbs": [
+        {
+          "verb": "kill",
+          "when": "killNight"
+        }
+      ]
+    },
+    {
+      "id": "hexer",
+      "team": "court",
+      "verbs": [
+        "hex"
+      ]
+    },
+    {
+      "id": "informant",
+      "team": "court",
+      "verbs": [
+        "learnRole"
+      ]
+    },
+    {
+      "id": "understudy",
+      "team": "court",
+      "verbs": [
+        {
+          "verb": "successor",
+          "minAlive": 7
+        }
+      ]
+    },
+    {
+      "id": "cult_leader",
+      "team": "court",
+      "tags": [
+        "cult.leader"
+      ],
+      "verbs": [
+        {
+          "verb": "recruit",
+          "cap": 1,
+          "onDeath": "keep"
+        }
+      ]
+    },
+    {
+      "id": "sleepless_child",
+      "team": "village",
+      "pickable": true,
+      "verbs": [
+        "dawnFragments"
+      ]
+    }
+  ],
+  "deal": {
+    "recipe": "classicDeal",
+    "evil": {
+      "leader": "fiend",
+      "from": [
+        [
+          4,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          15,
+          4
+        ]
+      ]
+    },
+    "helpers": {
+      "draw": "random",
+      "pool": [
+        "hexer",
+        "informant",
+        "cult_leader",
+        "understudy"
+      ]
+    },
+    "good": {
+      "always": [
+        "seer",
+        "priest"
+      ],
+      "drawn": {
+        "from": [
+          "hunter",
+          "meddler",
+          "medium",
+          "elder"
+        ],
+        "take": 2
+      },
+      "extra": [
+        {
+          "role": "mayor",
+          "from": 4
+        },
+        {
+          "oneOf": [
+            "drunk",
+            "mad_hatter"
+          ],
+          "bothFrom": 8
+        }
+      ],
+      "caps": [
+        [
+          4,
+          7
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          7
+        ]
+      ],
+      "villagersForUndisguised": true,
+      "child": {
+        "role": "sleepless_child",
+        "from": 12,
+        "chance": 1.0
+      }
+    },
+    "picked": {
+      "4": [
+        "priest"
+      ],
+      "5": [],
+      "6": [
+        "priest",
+        "hunter"
+      ],
+      "7": [
+        "priest",
+        "medium"
+      ],
+      "8": [
+        "priest",
+        "medium"
+      ],
+      "9": [
+        "seer",
+        "priest",
+        "medium",
+        "hunter",
+        "mad_hatter"
+      ]
+    },
+    "disguises": {
+      "pool": [
+        "seer",
+        "priest",
+        "medium",
+        "hunter",
+        "meddler",
+        "elder"
+      ],
+      "max": 2
+    },
+    "fakeRoles": [
+      "seer",
+      "priest",
+      "medium",
+      "hunter",
+      "meddler"
+    ]
+  },
+  "night": {
+    "roleCall": [
+      {
+        "team": "court",
+        "roles": [
+          "hexer",
+          "informant",
+          "cult_leader",
+          "fiend"
+        ]
+      },
+      {
+        "role": "priest"
+      },
+      {
+        "role": "meddler"
+      },
+      {
+        "role": "seer"
+      },
+      {
+        "role": "medium"
+      }
+    ],
+    "dawnCall": [
+      "priest",
+      "meddler",
+      "hexer",
+      "sleepless_child"
+    ],
+    "timing": {
+      "seat": [
+        8,
+        30
+      ],
+      "team": [
+        45,
+        120
+      ],
+      "dawnCallOpen": [
+        5,
+        5
+      ],
+      "dawnCallName": [
+        0,
+        0
+      ]
+    }
+  }
+}
