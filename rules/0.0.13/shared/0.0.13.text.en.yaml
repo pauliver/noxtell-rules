@@ -1,0 +1,405 @@
+{
+  "id": "0.0.13",
+  "schema": 1,
+  "lang": "en",
+  "roles": {
+    "villager": "Villager",
+    "exorcist": "Exorcist",
+    "guardian": "Guardian",
+    "diviner": "Diviner",
+    "warden": "Warden",
+    "seeker": "Seeker",
+    "banisher": "Banisher",
+    "tracker": "Tracker",
+    "trickster": "Trickster",
+    "summoner": "Cult Leader",
+    "veiler": "Veiler",
+    "framer": "Framer",
+    "binder": "Binder",
+    "chaplain": "Chaplain"
+  },
+  "modes": {
+    "possession": {
+      "screens": {
+        "sayEachName": true,
+        "bothWays": [
+          "dealt",
+          "narration",
+          "dawnCall",
+          "dawnReport",
+          "verdict",
+          "talk"
+        ],
+        "voteBar": "numbers",
+        "emptyVoteAsks": true,
+        "sameRite": [
+          [
+            "exorcist",
+            "chaplain"
+          ]
+        ],
+        "deadLine": "unspent"
+      }
+    }
+  },
+  "lines": {
+    "night.dawnCall.diviner": {
+      "say": "Diviner, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.warden": {
+      "say": "Warden, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.seeker": {
+      "say": "Seeker, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.banisher": {
+      "say": "Banisher, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.exorcist": {
+      "say": "Exorcist, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.dawnCall.chaplain": {
+      "say": "Chaplain, open your eyes and see your results.",
+      "close": "Close your eyes."
+    },
+    "night.seatOrder.duskFirst.possession": {
+      "say": "Night falls: night {night} of {nights}. The spirit grows. The {device} starts with {name}; eyes off it until your turn.",
+      "show": "Night {night} of {nights}. We pass the {device} from {name}."
+    },
+    "night.seatOrder.duskFirst.last.possession": {
+      "say": "The final night. By dawn the spirit is at full strength. The {device} starts with {name}; eyes off it until your turn.",
+      "show": "Final night ({night} of {nights}). We pass the {device} from {name}."
+    },
+    "card.ownStories.possession": {
+      "show": "Pick your own cover story. The roles in play are public, and the cult can't talk at night."
+    },
+    "card.good.team.possession": {
+      "show": "You're good. The spirit could be in you: if so, whoever you pick dies."
+    },
+    "card.good.goal.possession": {
+      "show": "The village wins if the spirit is struck twice, or the Cult Leader dies."
+    },
+    "deal.first.merged.possession": {
+      "say": "Pass the {device} round; eyes off it until your turn. Tap your name, see your role, then take your first night turn.",
+      "show": "See your role, then take your first night turn. Eyes off the {device} until your turn."
+    },
+    "setup.trickster": {
+      "show": "Add the Trickster"
+    },
+    "setup.tooFew.possession": {
+      "show": "{mode} mode needs at least {n} players: add a player or pick another mode."
+    },
+    "setup.tooMany.possession": {
+      "show": "{mode} mode is played by at most {n} players: pick another mode."
+    },
+    "setup.card.evil.possession": {
+      "show": "Evil, the cult: the {role:summoner}{n, plural, =0{} other{ + # drawn from {role:veiler}, {role:framer} and {role:binder}}}."
+    },
+    "setup.card.night.possession": {
+      "show": "The spirit kills from night {firstKill}."
+    },
+    "countdown.first.possession": {
+      "say": "Night 1 of {nights}. The spirit is too weak to kill tonight.",
+      "show": "Night 1 of {nights}. The spirit is too weak to kill tonight."
+    },
+    "countdown.firstKill.possession": {
+      "say": "Night 1 of {nights}. In a village this big, the spirit wakes at once: it can kill tonight.",
+      "show": "Night 1 of {nights}. In a village this big, the spirit wakes at once: it can kill tonight."
+    },
+    "choose.ally.coven": {
+      "show": "{name} is in your cult."
+    },
+    "choose.noPass.possession": {
+      "show": "Everyone picks every night. Tap a name."
+    },
+    "task.exorcist.rite": {
+      "show": "Pick a player for tonight's Rite."
+    },
+    "task.chaplain.rite": {
+      "show": "Pick a player for tonight's Rite."
+    },
+    "task.guardian.protect": {
+      "show": "Pick a player to protect tonight."
+    },
+    "task.diviner.sense": {
+      "show": "Pick a player: was the spirit near them?"
+    },
+    "task.warden.ward": {
+      "show": "Pick a player the spirit can't move into at dawn."
+    },
+    "task.seeker.sense": {
+      "show": "Pick a player: are they in the cult?"
+    },
+    "task.banisher.drive": {
+      "show": "Pick a player to drive the spirit out of."
+    },
+    "task.tracker.track": {
+      "show": "Pick a player: was the spirit in them last night?"
+    },
+    "task.villager.watch": {
+      "show": "Pick a player: how many others picked them?"
+    },
+    "task.ghost.watch": {
+      "show": "You're dead. Pick a player: how many picked them?"
+    },
+    "task.lastNight.villager.watch": {
+      "show": "Final night: no count tonight. Pick a player."
+    },
+    "task.lastNight.ghost.watch": {
+      "show": "Final night: no count tonight. Pick a player."
+    },
+    "task.trickster.swap": {
+      "show": "Pick two players to swap their abilities tonight."
+    },
+    "task.summoner.steer": {
+      "show": "Pick who the spirit moves into at dawn."
+    },
+    "task.veiler.veil": {
+      "show": "Pick a player to veil tonight."
+    },
+    "task.framer.frame": {
+      "show": "Pick a player to frame tonight."
+    },
+    "task.binder.bind": {
+      "show": "Pick a player whose pick does nothing tonight."
+    },
+    "result.exorcist.rite.struck": {
+      "show": "Last night your Rite struck the spirit in {name}.",
+      "word": "STRUCK"
+    },
+    "result.exorcist.rite.missed": {
+      "show": "Last night the spirit was not in {name}.",
+      "word": "EMPTY"
+    },
+    "result.chaplain.rite.struck": {
+      "show": "Last night your Rite struck the spirit in {name}.",
+      "word": "STRUCK"
+    },
+    "result.chaplain.rite.missed": {
+      "show": "Last night the spirit was not in {name}.",
+      "word": "EMPTY"
+    },
+    "result.diviner.sense.near": {
+      "show": "Last night the spirit was in one of: {names}.",
+      "word": "NEAR"
+    },
+    "result.diviner.sense.notNear": {
+      "show": "Last night the spirit was in none of: {names}.",
+      "word": "NONE"
+    },
+    "result.diviner.sense.nearPick": {
+      "show": "Last night the spirit was in {name} or the nearest living player on either side.",
+      "word": "NEAR"
+    },
+    "result.diviner.sense.notNearPick": {
+      "show": "Last night the spirit was not in {name}, nor in the nearest living player on either side.",
+      "word": "NONE"
+    },
+    "result.diviner.sense.nearPickTwo": {
+      "show": "Last night the spirit was in {name} or in the two nearest living players on either side.",
+      "word": "NEAR"
+    },
+    "result.diviner.sense.notNearPickTwo": {
+      "show": "Last night the spirit was not in {name}, nor in the two nearest living players on either side.",
+      "word": "NONE"
+    },
+    "result.warden.ward.tried": {
+      "show": "Last night the spirit tried to enter {name} and was turned away.",
+      "word": "REPELLED"
+    },
+    "result.warden.ward.nothing": {
+      "show": "Last night nothing tried to enter {name}.",
+      "word": "QUIET"
+    },
+    "result.seeker.sense.cult": {
+      "show": "{name} is in the cult.",
+      "word": "CULT"
+    },
+    "result.seeker.sense.notCult": {
+      "show": "{name} is not in the cult.",
+      "word": "CLEAN"
+    },
+    "result.banisher.drive.was": {
+      "show": "Last night the spirit was in {name}. You drove it out.",
+      "word": "FOUND"
+    },
+    "result.banisher.drive.wasNot": {
+      "show": "Last night the spirit was not in {name}.",
+      "word": "EMPTY"
+    },
+    "result.tracker.track.was": {
+      "show": "Last night the spirit was in {name}."
+    },
+    "result.tracker.track.wasNot": {
+      "show": "Last night the spirit was not in {name}."
+    },
+    "team.village.name": {
+      "show": "Good"
+    },
+    "team.village.short": {
+      "show": "good"
+    },
+    "team.coven.name": {
+      "show": "The cult"
+    },
+    "team.coven.short": {
+      "show": "evil, the cult"
+    },
+    "team.coven.title": {
+      "show": "the Cult Leader"
+    },
+    "team.coven.lead": {
+      "show": "{role}"
+    },
+    "mode.possession": {
+      "show": "Possession"
+    },
+    "day.talk.possession": {
+      "say": "Day {day}. Talk it over.",
+      "show": "Share (or bluff) what you learned. Then tap Nominations."
+    },
+    "talk.dead.possession": {
+      "show": "Ghost vote left: {names}"
+    },
+    "day.vote.possession": {
+      "say": "Who votes to execute {name}? Hands up.",
+      "show": "{bar, select, mostVotes{Needs more votes than any other nominee.} overHalf{Needs {n} votes (more than half of {alive} alive) and more than any other nominee.} other{Needs {n} votes (half of {alive} alive, rounded up) and more than any other nominee.}}"
+    },
+    "vote.rule.possession": {
+      "show": "{ghostVotes, plural, =0{The dead have no ghost votes.} one{Each dead player has one ghost vote for the whole game.} other{Each dead player has # ghost votes for the whole game.}}"
+    },
+    "final.talk.possession": {
+      "say": "This is the final day. Tonight the spirit takes the village, unless you catch the Cult Leader who called it. At the end, everyone votes for one player to execute.",
+      "show": "Catch the Cult Leader and the spirit can't stay; miss, and it takes the village."
+    },
+    "finalVote.rule.possession": {
+      "show": "The player with the most votes is executed. {finalRevotes, plural, =0{A tie: the cult wins.} one{A tie: one revote; still tied, the cult wins.} other{A tie: up to # revotes; still tied, the cult wins.}}"
+    },
+    "final.vote.possession": {
+      "say": "Final vote. Point at one player... now.",
+      "show": "For each player, tap everyone pointing at them."
+    },
+    "over.good.possession": {
+      "say": "The village wins: {reason}."
+    },
+    "over.reason.castOut.possession": {
+      "show": "the second strike drove the spirit out for good"
+    },
+    "over.reason.leaderDead.possession": {
+      "show": "{leader} is dead. Without its caller, the spirit can't stay"
+    },
+    "over.reason.leaderKilled.possession": {
+      "show": "the spirit killed the one who called it, and it can't stay"
+    },
+    "over.reason.finalCaught.possession": {
+      "show": "the final vote caught {leader}. Without its caller, the spirit fades by dawn"
+    },
+    "over.reason.finalMissed.possession": {
+      "show": "the final vote missed {leader}. Night falls, and the spirit takes the village"
+    },
+    "over.reason.cultParity.possession": {
+      "show": "the cult matches everyone else alive. Nobody is left to stop the spirit"
+    },
+    "recap.unmask.possession": {
+      "show": "The cult"
+    },
+    "recap.led.summoner": {
+      "show": "led the cult from night {n}"
+    },
+    "recap.act.exorcist.rite": {
+      "show": "{actor} performed a Rite on {targets}"
+    },
+    "recap.act.chaplain.rite": {
+      "show": "{actor} performed a Rite on {targets}"
+    },
+    "recap.act.guardian.protect": {
+      "show": "{actor} protected {targets}"
+    },
+    "recap.act.diviner.sense": {
+      "show": "{actor} sensed around {targets}"
+    },
+    "recap.act.warden.ward": {
+      "show": "{actor} warded {targets}"
+    },
+    "recap.act.seeker.sense": {
+      "show": "{actor} looked into {targets}"
+    },
+    "recap.act.banisher.drive": {
+      "show": "{actor} tried to drive the spirit out of {targets}"
+    },
+    "recap.act.tracker.track": {
+      "show": "{actor} tracked {targets}"
+    },
+    "recap.act.villager.watch": {
+      "show": "{actor} watched {targets}"
+    },
+    "recap.act.ghost.watch": {
+      "show": "{actor} watched {targets}, from beyond"
+    },
+    "recap.act.trickster.swap": {
+      "show": "{actor} swapped {targets}"
+    },
+    "recap.act.summoner.steer": {
+      "show": "{actor} steered the spirit to {targets}"
+    },
+    "recap.act.veiler.veil": {
+      "show": "{actor} veiled {targets}"
+    },
+    "recap.act.framer.frame": {
+      "show": "{actor} framed {targets}"
+    },
+    "recap.act.binder.bind": {
+      "show": "{actor} bound {targets}"
+    },
+    "history.pass.exorcist.rite": {
+      "show": "the Rite"
+    },
+    "history.pass.chaplain.rite": {
+      "show": "the Rite"
+    },
+    "history.pass.guardian.protect": {
+      "show": "the protection"
+    },
+    "history.pass.diviner.sense": {
+      "show": "the sensing"
+    },
+    "history.pass.warden.ward": {
+      "show": "the ward"
+    },
+    "history.pass.seeker.sense": {
+      "show": "the look"
+    },
+    "history.pass.banisher.drive": {
+      "show": "the banishing"
+    },
+    "history.pass.tracker.track": {
+      "show": "the tracking"
+    },
+    "history.pass.villager.watch": {
+      "show": "the watch"
+    },
+    "history.pass.ghost.watch": {
+      "show": "the watch"
+    },
+    "history.pass.trickster.swap": {
+      "show": "the swap"
+    },
+    "history.pass.summoner.steer": {
+      "show": "the steering"
+    },
+    "history.pass.veiler.veil": {
+      "show": "the veil"
+    },
+    "history.pass.framer.frame": {
+      "show": "the framing"
+    },
+    "history.pass.binder.bind": {
+      "show": "the binding"
+    }
+  }
+}

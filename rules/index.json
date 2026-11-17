@@ -1,0 +1,11 @@
+{
+  "index": 1,
+  "corner": "public",
+  "current": "0.0.13",
+  "versions": [
+    {"id":"0.0.13","status":"inProgress","schema":4,"manifest":"0.0.13/0.0.13.manifest.json","bytes":7317,"sha256":"093ad46c4c090a6367f6a1b71818ccc90115e529f2a46dc2bc5b04e2f57ddef6","langs":["en"]}
+  ],
+  "codes": {
+    "possession": {"seatOrder":"P","roleCall":"Q","tab":5,"sim":3,"since":"0.0.13"}
+  }
+}

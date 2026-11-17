@@ -1,0 +1,30 @@
+{
+  "id": "0.0.13",
+  "schema": 4,
+  "players": {
+    "min": 4,
+    "max": 24
+  },
+  "modes": [
+    "possession"
+  ],
+  "options": {
+    "dawn": [
+      "poison",
+      "protect",
+      "recruit",
+      "kill",
+      "swap"
+    ],
+    "misinformation": "plausible",
+    "roleChanged": true,
+    "ghostPoll": {
+      "minVotes": 2
+    },
+    "revealAtEnd": true,
+    "noSelfVote": true,
+    "ghostVotes": 1,
+    "roles": {},
+    "factions": {}
+  }
+}

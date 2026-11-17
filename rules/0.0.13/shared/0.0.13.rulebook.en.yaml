@@ -1,0 +1,244 @@
+{
+  "id": "0.0.13",
+  "schema": 1,
+  "lang": "en",
+  "modeNames": {
+    "possession": "Possession"
+  },
+  "bySize": {
+    "possession": {
+      "nights": {
+        "any": "{list} by table size"
+      },
+      "nightOne": {
+        "weak": "On night 1 the spirit is too weak to kill.",
+        "wakes": "In a village this big, the spirit wakes at once: it can kill from night 1.",
+        "any": "On night 1 the spirit is too weak to kill below {from} players; from {from} it wakes at once and can kill from night 1."
+      }
+    }
+  },
+  "teams": {
+    "cult": {
+      "name": "The cult",
+      "colours": "green on olive"
+    }
+  },
+  "groups": [
+    {
+      "id": "possession",
+      "title": "Possession: the cult (5 to 15 players)"
+    }
+  ],
+  "roles": [
+    {
+      "id": "villager",
+      "groups": [
+        "good"
+      ],
+      "team": "good",
+      "card": {
+        "possession": "Each night, pick another player. At your next turn you learn how many other players also picked them."
+      },
+      "when": {
+        "possession": "Every night, in your turn. Your count comes at the top of your next turn; on the final night there is none (the game ends first), and your turn says so."
+      },
+      "does": {
+        "possession": "Pick another player, and at your next turn you're told how many other players picked them last night. Every living player's pick counts, including the cult's picks and blocked picks; the dead's never count. If the Binder blocked you, you're told your pick was blocked instead. On the final night your turn tells you there's no count tonight (it could never arrive), but your pick still counts as a pick. Ask the table who picked whom: a count that nobody claims is a hidden pick."
+      },
+      "notes": [
+        "\"I'm a Villager\" proves nothing: evil players can say it too.",
+        {
+          "modes": [
+            "possession"
+          ],
+          "text": "If the spirit is in you, the player you pick dies (from night 2; from night 1 at 13+ players). Nobody tells you."
+        }
+      ]
+    },
+    {
+      "id": "exorcist",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "possession"
+      ],
+      "team": "good",
+      "card": "Each night, pick another player for a Rite. If the spirit is in them, it is struck, and the dawn tells everyone. The second strike casts it out and the village wins.",
+      "when": "Every night, from night 1. From 7 players your result comes at your dawn call the same night; at 5 or 6 players, at the top of your next turn. Strike the spirit twice before the final night ends.",
+      "does": "Pick another player. If the spirit is in them tonight, it is struck, and at dawn everyone hears \"The spirit was struck.\" The spirit can be struck at most once a night, however many Rites find it. Strikes stay on the spirit when it moves. The second strike casts it out: the village wins at once, and nobody dies that night. You're told \"Last night your Rite struck the spirit in Kit\", \"Last night the spirit was not in Kit\" or that your pick was blocked.",
+      "notes": [
+        "From 9 players the Chaplain has the same Rite, and its strikes count toward the same two. Dawn never says whose Rite struck, so both of you can be telling the truth: one reads STRUCK while the other reads that the spirit wasn't in their pick. If both Rites find the spirit the same night, both read STRUCK, and it counts as one strike.",
+        "If the spirit is in you, your Rite works as usual, and the player you pick also dies."
+      ]
+    },
+    {
+      "id": "chaplain",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "possession"
+      ],
+      "team": "good",
+      "card": "Each night, pick another player for a Rite. If the spirit is in them, it is struck, and the dawn tells everyone. The second strike casts it out and the village wins.",
+      "when": "Every night, from night 1, at 9+ players. Your result comes at your dawn call the same night. Strike the spirit twice before the final night ends.",
+      "does": "Pick another player. If the spirit is in them tonight, it is struck, and at dawn everyone hears \"The spirit was struck.\" The spirit can be struck at most once a night, however many Rites find it. Strikes stay on the spirit when it moves. The second strike casts it out: the village wins at once, and nobody dies that night. You're told \"Last night your Rite struck the spirit in Kit\", \"Last night the spirit was not in Kit\" or that your pick was blocked.",
+      "notes": [
+        "The Chaplain has the Exorcist's Rite under its own name (9+ players): its strikes and the Exorcist's count toward the same two, and each reads its own result at its own dawn call. Dawn never says whose Rite struck, so both of you can be telling the truth: one reads STRUCK while the other reads that the spirit wasn't in their pick. If both Rites find the spirit the same night, both read STRUCK, and it counts as one strike.",
+        "If the spirit is in you, your Rite works as usual, and the player you pick also dies."
+      ]
+    },
+    {
+      "id": "guardian",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "possession"
+      ],
+      "team": "good",
+      "card": "Each night, pick another player: they can't be killed tonight. If the spirit is in you, your own protection doesn't hold: the player you pick dies.",
+      "when": "Every night, from night 1 (nobody can die on night 1 below 13 players).",
+      "does": "Pick another player, any one, the same one again if you like: tonight the spirit's kill can't touch them. But if the spirit is in you, your pick is its kill, and your own protection doesn't stop it. You learn nothing, unless your pick was blocked (told at your next turn).",
+      "notes": [
+        "\"I protected Jo and Jo died\" means the spirit was in you last night, unless your pick was blocked or your ability was swapped; you'd only learn either at your next turn."
+      ]
+    },
+    {
+      "id": "diviner",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "possession"
+      ],
+      "team": "good",
+      "card": "Each night, pick a player. At dawn you learn whether the spirit was in them or in the nearest living player on either side (two each side from 12 players).",
+      "when": "Every night, at 7+ players. Your result comes at your dawn call.",
+      "does": "Pick any player, yourself included. At your dawn call you learn whether the spirit was near them during the night: in them, or in the nearest living player on either side (two on each side from 12 players). Your result names those players in seat order, your pick in its place: \"Last night the spirit was in one of: Sam, Kit and Ash.\" (NEAR) or \"Last night the spirit was in none of: Sam, Kit and Ash.\" (NONE). \"Near\" is about last night: the spirit may have moved at dawn. A Veiler can hide the possessed player from you, and a Framer can make your pick or one of their neighbours read as the spirit.",
+      "notes": [
+        "The window is fixed by the seating, so everyone can work out who was in it.",
+        "Neighbours are counted among the players alive when the night began: a player who died at this dawn still counts.",
+        "If the spirit is in you and you pick yourself, nobody dies."
+      ]
+    },
+    {
+      "id": "warden",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "possession"
+      ],
+      "team": "good",
+      "card": "Each night, pick another player: the spirit can't move into them at dawn. At dawn you learn whether it tried.",
+      "when": "Every night, at 8+ players. Your result comes at your dawn call.",
+      "does": "Pick another player. If the Cult Leader tried to move the spirit into them tonight, it is turned away and stays where it was, and at your dawn call you hear \"Last night the spirit tried to enter Kit and was turned away.\" Otherwise \"Last night nothing tried to enter Kit.\" A spirit driven out never tries: it just skips warded players.",
+      "notes": [
+        "If it was turned away, whoever held it last night still holds it tonight.",
+        "If the player you warded died tonight, you hear that nothing tried, even if the Cult Leader tried to move the spirit into them."
+      ]
+    },
+    {
+      "id": "seeker",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "possession"
+      ],
+      "team": "good",
+      "card": "Each night, pick another player. At dawn you learn whether they're in the cult.",
+      "when": "Every night, at 11+ players. Your result comes at your dawn call.",
+      "does": "Pick another player. At your dawn call you learn \"Kit is in the cult\" or \"Kit is not in the cult.\" A veiled cultist reads as not in the cult, and a framed player reads as in it; a player both veiled and framed reads true. You can't tell the Cult Leader from the other cultists."
+    },
+    {
+      "id": "banisher",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "possession"
+      ],
+      "team": "good",
+      "card": "Each night, pick another player. If the spirit is in them, you drive it out: at dawn it flees into a neighbour instead of where the cult sent it. At dawn you learn whether it was there.",
+      "when": "Every night, at 12+ players. Your result comes at your dawn call.",
+      "does": "Pick another player. If the spirit is in them, it flees at dawn instead of going where the Cult Leader steered it: into the nearest living player on one side or the other who isn't in the cult and isn't warded (the {device} picks the side; if neither side has one, a ward doesn't stop it). At your dawn call you hear \"Last night the spirit was in Kit. You drove it out.\" or \"Last night the spirit was not in Kit.\" The cult no longer knows where the spirit is until the Cult Leader steers it again.",
+      "notes": [
+        "A Veiler or a Framer never changes your result."
+      ]
+    },
+    {
+      "id": "tracker",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "possession"
+      ],
+      "team": "good",
+      "card": "From night 2, each night pick another player: you learn at once whether the spirit was in them last night.",
+      "when": "Every night from night 2, at 13+ players. On night 1 you have nothing to pick: your turn asks \"Who do you suspect? It changes nothing.\", and your answer is never counted. From night 2 your result comes at once, in your turn.",
+      "does": "Pick another player, and see at once \"Last night the spirit was in Kit\" or \"Last night the spirit was not in Kit\" (a Veiler or a Framer working last night fools you as they fool the others)."
+    },
+    {
+      "id": "trickster",
+      "groups": [
+        "good"
+      ],
+      "modes": [
+        "possession"
+      ],
+      "team": "good",
+      "card": "Each night, pick two other players: tonight each one's pick uses the other's ability.",
+      "when": "Every night. An optional role, off unless the setup turns it on, at 13+ players; it takes a Villager's seat.",
+      "does": "Pick two other players. Tonight each one's pick uses the other's ability, and each is told at their next turn \"Last night your ability was swapped.\" with the result of the ability they used. Both keep their role and team. If either is in the cult, nothing happens and nobody is told. On night 1 the Tracker has nothing to pick yet, so a player swapped with it gets no result. The spirit stays where it is, and the possessed player's pick still kills, whatever ability it carried. You learn nothing yourself, unless your pick was blocked. If the spirit is in you, the first player you picked dies."
+    },
+    {
+      "id": "summoner",
+      "groups": [
+        "possession"
+      ],
+      "team": "cult",
+      "card": "You lead the cult. Each night, pick a player outside the cult: at dawn the spirit moves into them, unless they're warded or die tonight. Pick the player it's in to keep it there.",
+      "when": "Every night, from night 1. Each turn shows you where the spirit is, or that nobody knows.",
+      "does": "Each night, pick a player outside the cult. At dawn the spirit moves into them, unless the Warden warded them or they die tonight (then it stays where it was), or the Banisher drives it out (it flees into a neighbour of the possessed player, and you no longer know where it is). On night 1 nobody knows where the spirit is, not even you. If you die, the village wins, unless it's early: if you die before night 3 (night 2 at 7 players), the next cultist in line takes over. At 5 or 6 players there is nobody to take over. If the final vote misses you, the cult wins.",
+      "notes": [
+        "The possessed player doesn't know: steer the table's talk so they pick who you want dead.",
+        "The spirit never enters a cultist, and if the possessed player picks you, you die like anyone else."
+      ]
+    },
+    {
+      "id": "veiler",
+      "groups": [
+        "possession"
+      ],
+      "team": "cult",
+      "card": "Each night, pick another player: to the Seeker, the Diviner and the Tracker, they read as not in the cult and not holding the spirit.",
+      "when": "Every night. Can be drawn at 7+ players.",
+      "does": "Pick another player. Tonight the Seeker reads them as not in the cult, and the Diviner as not holding the spirit (a spirit in a neighbour of theirs still reads near). Tomorrow night, the Tracker reads them the same way (it looks back one night). A player you veil and the Framer frames reads true. It never stops a strike, a drive-out, a ward or a protection, and it never changes a count."
+    },
+    {
+      "id": "framer",
+      "groups": [
+        "possession"
+      ],
+      "team": "cult",
+      "card": "Each night, pick another player: to the Seeker, the Diviner and the Tracker, they read as a cultist and as holding the spirit.",
+      "when": "Every night. Can be drawn at 7+ players.",
+      "does": "Pick another player. Tonight the Seeker reads them as in the cult, and the Diviner as holding the spirit. Tomorrow night, the Tracker reads them that way (it looks back one night). A player you frame and the Veiler veils reads true. It never fakes a strike, a drive-out, a ward or a count."
+    },
+    {
+      "id": "binder",
+      "groups": [
+        "possession"
+      ],
+      "team": "cult",
+      "card": "Each night, pick another player: their pick does nothing tonight. They're told it was blocked.",
+      "when": "Every night. Can be drawn at 7+ players.",
+      "does": "Pick another player: tonight their pick does nothing, and they're told it was blocked. Whatever their pick would do doesn't happen: a Rite, a protection, a ward, a drive-out, a check, a count, even the possessed player's kill. A blocked pick still counts in the Villagers' counts. The Tracker still gets its result: it reads last night in its turn."
+    }
+  ],
+  "pages": []
+}

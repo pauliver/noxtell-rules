@@ -1,0 +1,104 @@
+{
+  "id": "0.0.13",
+  "schema": 1,
+  "roleCall": {},
+  "seatOrder": {
+    "start": "rotate",
+    "packWake": "everyNight"
+  },
+  "dawnCall": [],
+  "timing": {
+    "dusk": [
+      10,
+      10
+    ],
+    "naming": [
+      15,
+      15
+    ],
+    "changed": [
+      20,
+      20
+    ],
+    "role": [
+      20,
+      60
+    ],
+    "ghosts": [
+      15,
+      45
+    ],
+    "dawnCallOpen": {
+      "possession": [
+        10,
+        10
+      ],
+      "other": [
+        5,
+        5
+      ]
+    },
+    "dawnCall": [
+      10,
+      10
+    ],
+    "dawnCallName": {
+      "possession": [
+        1.5,
+        1.5
+      ],
+      "other": [
+        0,
+        0
+      ]
+    },
+    "dawn": [
+      3,
+      3
+    ],
+    "closeEyes": [
+      2.5,
+      2.5
+    ],
+    "openEyes": [
+      3,
+      3
+    ],
+    "seatResult": [
+      10,
+      10
+    ],
+    "goesOn": [
+      3,
+      10
+    ],
+    "goOnLive": [
+      3,
+      3
+    ],
+    "afterPause": [
+      10,
+      10
+    ],
+    "recapCard": [
+      0.6,
+      0.6
+    ],
+    "recapHold": [
+      1.0,
+      1.0
+    ],
+    "recapNext": [
+      0.3,
+      0.3
+    ],
+    "recapDone": [
+      1.5,
+      1.5
+    ],
+    "all": [
+      0,
+      0
+    ]
+  }
+}
